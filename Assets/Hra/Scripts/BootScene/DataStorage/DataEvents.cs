@@ -13,4 +13,10 @@ public static class DataEvents
     {
         OnLoadoutDataChanged?.Invoke(loadoutData);
     }
+
+    public static event Action<CurrencyData> OnCurrencyDataChanged;
+    public static void OnCurrencyDataChangedinvoke(CurrencyData currencyData)
+    {
+        OnCurrencyDataChanged?.Invoke(currencyData);
+    }
 }

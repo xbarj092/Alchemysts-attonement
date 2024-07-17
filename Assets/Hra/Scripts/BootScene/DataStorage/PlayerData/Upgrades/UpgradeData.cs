@@ -3,9 +3,9 @@ using System;
 [Serializable]
 public class UpgradeData
 {
-    public string FriendlyID;
-    public bool Purchased;
-    public int Level;
+    public string FriendlyID = null;
+    public bool Purchased = false;
+    public int Level = 0;
 
     public UpgradeData(string friendlyID, bool purchased, int level)
     {

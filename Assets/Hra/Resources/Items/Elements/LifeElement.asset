@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06d5d70005faa94c9833b6baf32168f, type: 3}
   m_Name: LifeElement
   m_EditorClassIdentifier: 
-  Name: Fire element
-  FriendlyID: element_fire
-  Description: Just a normal fire element, description must be filled
+  Name: Life element
+  FriendlyID: element_life
+  Description: Just a normal life element, description must be filled
   Icon: {fileID: 0}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
-  Element: 1
-  Value: 10
+  Element: 4
+  SpecialEffects:
+    _serializedList:
+    - Key: 1
+      Value:
+      - 3
+      - 5
+      - 8
+      - 10
+      - 15

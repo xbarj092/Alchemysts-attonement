@@ -18,4 +18,19 @@ MonoBehaviour:
   Icon: {fileID: 0}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Element: 3
-  Value: 10
+  SpecialEffects:
+    _serializedList:
+    - Key: 4
+      Value:
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
+    - Key: 2
+      Value:
+      - 1.5
+      - 1.8
+      - 2.2
+      - 2.6
+      - 3
