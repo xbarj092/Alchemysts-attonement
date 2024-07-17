@@ -4,9 +4,12 @@ public class KeyboardInputHandler : IInputHandler
 {
     public void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (SceneLoadManager.Instance.IsSceneLoaded(SceneLoader.Scenes.GameScene))
         {
-            ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Pause);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Pause);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))

@@ -14,10 +14,7 @@ public class UIInputManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneLoadManager.Instance.IsSceneLoaded(SceneLoader.Scenes.GameScene))
-        {
-            _keyboardInputHandler.HandleInput();
-            _mouseInputHandler.HandleInput();
-        }
+        _keyboardInputHandler.HandleInput();
+        _mouseInputHandler.HandleInput();
     }
 }

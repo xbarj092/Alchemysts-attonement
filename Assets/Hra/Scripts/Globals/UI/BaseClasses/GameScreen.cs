@@ -6,7 +6,8 @@ public enum GameScreenType
     Options = 1,
     Death = 2,
     Pause = 3,
-    MenuMain = 4
+    MenuMain = 4,
+    Upgrades = 5
 }
 
 public class GameScreen : MonoBehaviour
