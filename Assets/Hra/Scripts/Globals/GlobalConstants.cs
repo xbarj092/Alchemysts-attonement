@@ -7,9 +7,8 @@ public static class GlobalConstants
     public enum Tags
     {
         Player,
-        BreakableCube,
-        TutorialCamera,
-        TutorialCollider
+        Upgrades,
+
     }
 
     public class Layers

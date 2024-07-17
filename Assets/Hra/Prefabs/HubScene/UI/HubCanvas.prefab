@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 413423373779082225}
   - component: {fileID: 8333837039770454971}
   - component: {fileID: 8101819203178578380}
+  - component: {fileID: 5404173658984385847}
   m_Layer: 5
   m_Name: HubCanvas
   m_TagString: Untagged
@@ -70,7 +71,7 @@ RectTransform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
@@ -92,7 +93,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -137,3 +138,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5404173658984385847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129876594853247273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea8686b482afc84ca00ebb9c178e343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upgradesScreenPrefab: {fileID: 1153522651734067741, guid: 6f996e543ae24f34abca260e58692f21, type: 3}
