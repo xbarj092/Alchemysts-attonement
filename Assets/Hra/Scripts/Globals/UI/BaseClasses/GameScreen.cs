@@ -13,7 +13,7 @@ public enum GameScreenType
 
 public class GameScreen : MonoBehaviour
 {
-    [SerializeField] protected GameScreenType _gameScreenType;
+    public GameScreenType GameScreenType;
 
     public void Open()
     {
@@ -27,6 +27,6 @@ public class GameScreen : MonoBehaviour
 
     public void CloseScreen()
     {
-        ScreenEvents.OnGameScreenClosedInvoke(_gameScreenType);
+        ScreenEvents.OnGameScreenClosedInvoke(GameScreenType);
     }
 }

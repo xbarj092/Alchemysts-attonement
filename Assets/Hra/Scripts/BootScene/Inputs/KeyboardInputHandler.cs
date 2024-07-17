@@ -6,8 +6,9 @@ public class KeyboardInputHandler : IInputHandler
     {
         if (SceneLoadManager.Instance.IsSceneLoaded(SceneLoader.Scenes.GameScene))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.Paused)
             {
+                GameManager.Instance.Paused = true;
                 ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Pause);
             }
         }
