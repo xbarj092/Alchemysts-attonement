@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Upgrades
+  - Loadout
   layers:
   - Default
   - TransparentFX

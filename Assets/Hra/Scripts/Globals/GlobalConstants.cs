@@ -8,7 +8,7 @@ public static class GlobalConstants
     {
         Player,
         Upgrades,
-
+        Loadout
     }
 
     public class Layers

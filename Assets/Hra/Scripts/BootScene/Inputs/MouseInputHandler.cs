@@ -27,12 +27,23 @@ public class MouseInputHandler : IInputHandler
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
             if (hit.collider != null)
             {
-                if (hit.transform.CompareTag(GlobalConstants.Tags.Upgrades.ToString()))
+                GameScreenType gameScreenType = GetGameScreenType(hit.collider.gameObject.tag);
+                if (gameScreenType != GameScreenType.None)
                 {
-                    ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Upgrades);
+                    ScreenEvents.OnGameScreenOpenedInvoke(gameScreenType);
                 }
             }
         }
+    }
+
+    private GameScreenType GetGameScreenType(string tag)
+    {
+        return tag switch
+        {
+            string t when t == GlobalConstants.Tags.Upgrades.ToString() => GameScreenType.Upgrades,
+            string t when t == GlobalConstants.Tags.Loadout.ToString() => GameScreenType.Loadout,
+            _ => GameScreenType.None,
+        };
     }
 
     private void HandleMouseHover(Vector2 mousePosition)
