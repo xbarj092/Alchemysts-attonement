@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f323893147b9cd049ab27806f4134676, type: 3}
+  m_Name: Greatsword
+  m_EditorClassIdentifier: 
+  Name: Greatsword
+  FriendlyID: weapon_greatsword
+  Description: Just a normal greatsword, description must be filled
+  Icon: {fileID: 0}
+  UpgradePrices: 64000000fa000000e8030000c409000088130000
+  Damage: 20
+  Range: 3
+  AttacksPerSecond: 1
