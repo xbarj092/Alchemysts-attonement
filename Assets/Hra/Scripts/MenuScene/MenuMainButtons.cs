@@ -10,7 +10,7 @@ public class MenuMainButtons : GameScreen
     public void GoToOptions()
     {
         ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Options);
-        ScreenEvents.OnGameScreenClosedInvoke(_gameScreenType);
+        CloseScreen();
     }
 
     public void ExitGame()

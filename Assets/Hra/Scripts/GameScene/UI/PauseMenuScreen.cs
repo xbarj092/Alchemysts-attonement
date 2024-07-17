@@ -4,7 +4,7 @@ public class PauseMenuScreen : GameScreen
 {
     public void Resume()
     {
-        Close();
+        CloseScreen();
     }
 
     public void Options()
