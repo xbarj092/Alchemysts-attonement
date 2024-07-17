@@ -32,7 +32,9 @@ public class BaseCanvasController : MonoBehaviour
     {
         if (_instantiatedScreens.ContainsKey(gameScreenType))
         {
-            ScreenManager.Instance.SetActiveGameScreen(GetActiveGameScreen(gameScreenType));
+            GameScreen screenInstance = GetActiveGameScreen(gameScreenType);
+            InstantiateScreen(screenInstance);
+
             _instantiatedScreens[gameScreenType].Close();
             _instantiatedScreens.Remove(gameScreenType);
         }
@@ -41,9 +43,14 @@ public class BaseCanvasController : MonoBehaviour
     private void InstantiateScreen(GameScreenType gameScreenType)
     {
         GameScreen screenInstance = GetRelevantScreen(gameScreenType);
+        InstantiateScreen(screenInstance);
+    }
+
+    private void InstantiateScreen(GameScreen screenInstance)
+    {
         if (screenInstance != null)
         {
-            _instantiatedScreens[gameScreenType] = screenInstance;
+            _instantiatedScreens[screenInstance.GameScreenType] = screenInstance;
             ScreenManager.Instance.SetActiveGameScreen(screenInstance);
         }
     }
@@ -56,7 +63,7 @@ public class BaseCanvasController : MonoBehaviour
         };
     }
 
-    private GameScreen GetActiveGameScreen(GameScreenType gameScreenType)
+    protected virtual GameScreen GetActiveGameScreen(GameScreenType gameScreenType)
     {
         return gameScreenType switch
         {

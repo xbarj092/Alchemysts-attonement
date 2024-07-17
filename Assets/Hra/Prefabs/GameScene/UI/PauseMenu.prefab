@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fafc4fbc6bcf242b5f12276c185191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameScreenType: 3
+  GameScreenType: 3
 --- !u!1 &2568498411943407803
 GameObject:
   m_ObjectHideFlags: 0

@@ -356,4 +356,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb866b3fe3f5b84f859db66bd9d2a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameScreenType: 6
+  GameScreenType: 6

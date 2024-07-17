@@ -16,4 +16,13 @@ public class GameCanvasController : BaseCanvasController
             _ => base.GetRelevantScreen(gameScreenType),
         };
     }
+
+    protected override GameScreen GetActiveGameScreen(GameScreenType gameScreenType)
+    {
+        return gameScreenType switch
+        {
+            GameScreenType.Options => Instantiate(_pauseMenuScreenPrefab, FindObjectOfType<Canvas>().transform),
+            _ => base.GetActiveGameScreen(gameScreenType),
+        };
+    }
 }
