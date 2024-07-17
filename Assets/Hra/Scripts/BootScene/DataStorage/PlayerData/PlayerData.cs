@@ -25,4 +25,15 @@ public class PlayerData
             DataEvents.OnLoadoutDataChangedInvoke(_loadoutData);
         }
     }
+
+    [SerializeField] private CurrencyData _currencyData;
+    public CurrencyData CurrencyData
+    {
+        get => _currencyData;
+        set
+        {
+            _currencyData = value;
+            DataEvents.OnCurrencyDataChangedinvoke(_currencyData);
+        }
+    }
 }
