@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathScreen : MonoBehaviour
+public class DeathScreen : GameScreen
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Continue()
     {
-        
+        SceneLoadManager.Instance.GoGameToHub();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExitGame()
     {
-        
+        Application.Quit();
     }
 }

@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuCanvasController : MonoBehaviour
+public class MenuCanvasController : BaseCanvasController
 {
-    [SerializeField] private MenuMainButtons _menuMainButtons;
+    [SerializeField] private MenuMainButtons _menuMainButtonsPrefab;
+    [SerializeField] private OptionsScreen _optionsScreenPrefab;
 
-    private void OnEnable()
+    protected override GameScreen GetRelevantScreen(GameScreenType gameScreenType)
     {
-        // _menuMainButtons.OnOptionsOpened += XXX;
-    }
-
-    private void OnDisable()
-    {
-        // _menuMainButtons.OnOptionsOpened -= XXX;
+        return gameScreenType switch
+        {
+            GameScreenType.MenuMain => Instantiate(_menuMainButtonsPrefab, FindObjectOfType<Canvas>().transform),
+            GameScreenType.Options => Instantiate(_optionsScreenPrefab, FindObjectOfType<Canvas>().transform),
+            _ => base.GetRelevantScreen(gameScreenType),
+        };
     }
 }

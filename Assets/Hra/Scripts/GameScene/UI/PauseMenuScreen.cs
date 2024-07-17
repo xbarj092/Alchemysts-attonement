@@ -1,18 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenuScreen : MonoBehaviour
+public class PauseMenuScreen : GameScreen
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Resume()
     {
-        
+        Close();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Options()
     {
-        
+        ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Options);
+        ScreenEvents.OnGameScreenClosedInvoke(_gameScreenType);
+    }
+
+    public void ReturnToHub()
+    {
+        SceneLoadManager.Instance.GoGameToHub();
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneLoadManager.Instance.GoGameToMenu();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

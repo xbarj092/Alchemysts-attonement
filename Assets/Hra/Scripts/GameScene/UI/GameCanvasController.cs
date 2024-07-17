@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameCanvasController : MonoBehaviour
+public class GameCanvasController : BaseCanvasController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private PauseMenuScreen _pauseMenuScreenPrefab;
+    [SerializeField] private OptionsScreen _optionsScreenPrefab;
+    [SerializeField] private DeathScreen _deathScreenPrefab;
 
-    // Update is called once per frame
-    void Update()
+    protected override GameScreen GetRelevantScreen(GameScreenType gameScreenType)
     {
-        
+        return gameScreenType switch
+        {
+            GameScreenType.Death => Instantiate(_deathScreenPrefab, FindObjectOfType<Canvas>().transform),
+            GameScreenType.Options => Instantiate(_optionsScreenPrefab, FindObjectOfType<Canvas>().transform),
+            GameScreenType.Pause => Instantiate(_pauseMenuScreenPrefab, FindObjectOfType<Canvas>().transform),
+            _ => base.GetRelevantScreen(gameScreenType),
+        };
     }
 }
