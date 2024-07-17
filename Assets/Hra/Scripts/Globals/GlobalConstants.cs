@@ -11,4 +11,9 @@ public static class GlobalConstants
         TutorialCamera,
         TutorialCollider
     }
+
+    public class Layers
+    {
+        public const int LAYER_INTERACT = 8;
+    }
 }

@@ -1,10 +1,7 @@
-using System;
 using UnityEngine;
 
-public class MenuMainButtons : MonoBehaviour
+public class MenuMainButtons : GameScreen
 {
-    public event Action<GameScreenType> OnOptionsOpened;
-
     public void PlayTheGame()
     {
         SceneLoadManager.Instance.GoMenuToHub();
@@ -12,7 +9,8 @@ public class MenuMainButtons : MonoBehaviour
 
     public void GoToOptions()
     {
-        OnOptionsOpened?.Invoke(GameScreenType.Options);
+        ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Options);
+        ScreenEvents.OnGameScreenClosedInvoke(_gameScreenType);
     }
 
     public void ExitGame()
