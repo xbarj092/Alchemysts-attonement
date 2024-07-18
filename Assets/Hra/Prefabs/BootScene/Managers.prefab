@@ -259,10 +259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc3c09d2933f404f85f52bba9f44312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultCursor: {fileID: 2800000, guid: d77a79b0d102f024b8292b54e35979df, type: 3}
+  _defaultCursor: {fileID: 2800000, guid: 406300db6e28b50489756a396eaacc9e, type: 3}
   _cursorDictionary:
     _serializedList:
     - Key: 1
-      Value: {fileID: 2800000, guid: acd2d0fe1c9c20b4492a5bdc172c3469, type: 3}
+      Value: {fileID: 2800000, guid: fc5e2df06a849ed4888040a4133b3f0b, type: 3}
     - Key: 2
-      Value: {fileID: 2800000, guid: 8e319c6b3f63a8041861f4745917c2d2, type: 3}
+      Value: {fileID: 2800000, guid: fc5e2df06a849ed4888040a4133b3f0b, type: 3}
