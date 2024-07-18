@@ -34,7 +34,7 @@ public class LoadoutStats : MonoBehaviour
         foreach (KeyValuePair<SpecialEffect, List<float>> specialEffect in equippedElement.SpecialEffects)
         {
             float value = specialEffect.Value[LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == equippedElement.FriendlyID).Level];
-            SetUpStat(_statDefinitions[specialEffect.Key], value);
+            SetUpStat(_statDefinitions[specialEffect.Key], value, true);
         }
     }
 
@@ -51,7 +51,7 @@ public class LoadoutStats : MonoBehaviour
         SetUpStat(WeaponStat.AttackRate, equippedWeapon.AttacksPerSecond);
     }
     
-    private void SetUpStat(WeaponStat weaponStat, float value)
+    private void SetUpStat(WeaponStat weaponStat, float value, bool special = false)
     {
         LoadoutStat loadoutStat = _loadoutStats.FirstOrDefault(stat => stat.WeaponStat == weaponStat);
         if (!_updatedStats.Contains(loadoutStat))
@@ -59,7 +59,7 @@ public class LoadoutStats : MonoBehaviour
             _updatedStats.Add(loadoutStat);
         }
 
-        loadoutStat.Init(value);
+        loadoutStat.Init(value, special);
     }
 
     private void DisableUnusedStats()
