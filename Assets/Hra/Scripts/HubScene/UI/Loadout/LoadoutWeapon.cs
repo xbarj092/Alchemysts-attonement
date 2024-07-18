@@ -9,16 +9,39 @@ public class LoadoutWeapon : MonoBehaviour
 {
     [SerializeField] private Image _itemImage;
     [SerializeField] private TMP_Text _itemName;
+    [SerializeField] private TMP_Text _itemDescription;
 
     private List<WeaponItem> _boughtWeapons = new();
     private WeaponItem _currentWeapon;
     private int _currentWeaponIndex = 0;
+
+    private WeaponAdjectives _weaponAdjectives = new();
+    private WeaponDescription _weaponDescription = new();
 
     public event Action<WeaponItem> OnWeaponItemChanged;
 
     private void Awake()
     {
         GetBoughtWeapons();
+    }
+
+    public void ChangeWeaponText()
+    {
+        ChangeWeaponName();
+        ChangeWeaponDescription();
+    }
+
+    private void ChangeWeaponName()
+    {
+        string adjectives = _weaponAdjectives.GetWeaponAdjectives();
+        string fullName = adjectives == null ? _currentWeapon.Name : adjectives + " " + _currentWeapon.Name;
+        _itemName.text = fullName;
+    }
+
+    private void ChangeWeaponDescription()
+    {
+        string description = _weaponDescription.GetWeaponDescription();
+        _itemDescription.text = description;
     }
 
     private void GetBoughtWeapons()
@@ -97,7 +120,7 @@ public class LoadoutWeapon : MonoBehaviour
         }
 
         _itemImage.sprite = _currentWeapon.Icon;
-        _itemName.text = _currentWeapon.Name;
+        ChangeWeaponText();
 
         LocalDataStorage.Instance.PlayerData.LoadoutData = new(loadoutData.EquippedElements, 
             _currentWeapon, loadoutData.WeaponInstance);
