@@ -62,7 +62,7 @@ public class UpgradeSlot : MonoBehaviour
 
     public void TryPurchase()
     {
-        if (_upgradeData?.Level >= 5)
+        if (_upgradeData?.Level >= _upgradeData?.MaxLevel)
         {
             return;
         }
@@ -73,9 +73,9 @@ public class UpgradeSlot : MonoBehaviour
         if (_upgradeData == null && currencyData.Coins >= _catalogItem.UpgradePrices[0])
         {
             currencyData.Coins -= _catalogItem.UpgradePrices[0];
-            upgradesData.UpgradeData.Add(new(_catalogItem.ItemType, _friendlyId, true, 1));
+            upgradesData.UpgradeData.Add(new(_catalogItem.ItemType, _friendlyId, true, 1, _catalogItem.MaxLevel));
         }
-        else if (_upgradeData != null && (_upgradeData.Level != 5 || currencyData.Coins >= _catalogItem.UpgradePrices[_upgradeData.Level]))
+        else if (_upgradeData != null && (_upgradeData.Level != _upgradeData.MaxLevel || currencyData.Coins >= _catalogItem.UpgradePrices[_upgradeData.Level]))
         {
             currencyData.Coins -= _catalogItem.UpgradePrices[_upgradeData.Level];
             upgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == _friendlyId).Level++;
