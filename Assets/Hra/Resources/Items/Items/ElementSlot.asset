@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611377abd01b0994b8bece4926ff1908, type: 3}
   m_Name: ElementSlot
   m_EditorClassIdentifier: 
+  ItemType: 1
   Name: Element slot
   FriendlyID: item_element_slot
   Description: Just a normal element slot, description must be filled

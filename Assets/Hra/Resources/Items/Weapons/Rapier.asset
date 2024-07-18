@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f323893147b9cd049ab27806f4134676, type: 3}
   m_Name: Rapier
   m_EditorClassIdentifier: 
+  ItemType: 2
   Name: Rapier
   FriendlyID: weapon_rapier
   Description: Just a normal rapier, description must be filled
