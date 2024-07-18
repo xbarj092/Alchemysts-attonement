@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f323893147b9cd049ab27806f4134676, type: 3}
   m_Name: Daggers
   m_EditorClassIdentifier: 
+  ItemType: 2
   Name: Daggers
   FriendlyID: weapon_daggers
   Description: Just normal daggers, description must be filled
