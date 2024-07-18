@@ -1,9 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class WeaponInstance : MonoBehaviour
+[Serializable]
+public class WeaponInstance
 {
-    public WeaponItem Weapon;
-    public List<ElementItem> Items;
+    public float Damage;
+    public float Range;
+    public float AttackRate;
+    public float Dot;
+    public float ChainDamage;
+    public float EnemySlow;
+    public float Heal;
+
+    public WeaponInstance()
+    {
+    }
+
+    public WeaponInstance(float damage, float range, float attackRate, float dot, float chainDamage, float enemySlow, float heal)
+    {
+        Damage = damage;
+        Range = range;
+        AttackRate = attackRate;
+        Dot = dot;
+        ChainDamage = chainDamage;
+        EnemySlow = enemySlow;
+        Heal = heal;
+    }
 }

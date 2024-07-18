@@ -22,12 +22,16 @@ public class LoadoutElements : MonoBehaviour
     private void InitElements()
     {
         List<string> friendlyIDs = new();
-        foreach (UpgradeData upgradedItem in LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.Where(item => item.ItemType == ItemType.Element))
+        LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
+        UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
+
+        foreach (UpgradeData upgradedItem in upgradesData.UpgradeData.Where(item => item.ItemType == ItemType.Element))
         {
             friendlyIDs.Add(upgradedItem.FriendlyID);
         }
 
-        List<ElementItem> elementItems = LocalDataStorage.Instance.Catalog.CatalogItemList.Where(item => item.ItemType == ItemType.Element).Cast<ElementItem>().ToList();
+        List<ElementItem> elementItems = LocalDataStorage.Instance.Catalog.CatalogItemList.Where(item => 
+            item.ItemType == ItemType.Element).Cast<ElementItem>().ToList();
         for (int i = 0; i < elementItems.Count; i++)
         {
             if (friendlyIDs.Contains(elementItems[i].FriendlyID))
@@ -38,18 +42,20 @@ public class LoadoutElements : MonoBehaviour
             }
         }
 
-        UpgradeData upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item);
+        UpgradeData upgradeData = upgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item);
         if (upgradeData != null)
         {
-            ChangeElements(LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements.Count < upgradeData.Level);
+            ChangeElements(loadoutData.EquippedElements.Count < upgradeData.Level);
         }
     }
 
     private void ChangeElements(bool changed)
     {
+        LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
         foreach (LoadoutElement element in _elements)
         {
-            if (!LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements.Any(equippedElement => equippedElement.FriendlyID == element.ElementItem?.FriendlyID))
+            if (!loadoutData.EquippedElements.Any(equippedElement => 
+                equippedElement.FriendlyID == element.ElementItem?.FriendlyID))
             {
                 element.Button.interactable = changed;
             }

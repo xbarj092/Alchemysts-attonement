@@ -67,16 +67,22 @@ public class UpgradeSlot : MonoBehaviour
             return;
         }
 
-        if (_upgradeData == null && LocalDataStorage.Instance.PlayerData.CurrencyData.Coins >= _catalogItem.UpgradePrices[0])
+        UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
+        CurrencyData currencyData = LocalDataStorage.Instance.PlayerData.CurrencyData;
+
+        if (_upgradeData == null && currencyData.Coins >= _catalogItem.UpgradePrices[0])
         {
-            LocalDataStorage.Instance.PlayerData.CurrencyData.Coins -= _catalogItem.UpgradePrices[0];
-            LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.Add(new(_catalogItem.ItemType, _friendlyId, true, 1));
+            currencyData.Coins -= _catalogItem.UpgradePrices[0];
+            upgradesData.UpgradeData.Add(new(_catalogItem.ItemType, _friendlyId, true, 1));
         }
-        else if (_upgradeData != null && (_upgradeData.Level != 5 || LocalDataStorage.Instance.PlayerData.CurrencyData.Coins >= _catalogItem.UpgradePrices[_upgradeData.Level]))
+        else if (_upgradeData != null && (_upgradeData.Level != 5 || currencyData.Coins >= _catalogItem.UpgradePrices[_upgradeData.Level]))
         {
-            LocalDataStorage.Instance.PlayerData.CurrencyData.Coins -= _catalogItem.UpgradePrices[_upgradeData.Level];
-            LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == _friendlyId).Level++;
+            currencyData.Coins -= _catalogItem.UpgradePrices[_upgradeData.Level];
+            upgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == _friendlyId).Level++;
         }
+
+        LocalDataStorage.Instance.PlayerData.UpgradesData = upgradesData;
+        LocalDataStorage.Instance.PlayerData.CurrencyData = currencyData;
 
         GetUpgradeData();
         InitSlot();

@@ -24,7 +24,8 @@ public class LoadoutWeapon : MonoBehaviour
     private void GetBoughtWeapons()
     {
         List<string> friendlyIDs = new();
-        List<UpgradeData> upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.Where(upgrade => upgrade.ItemType == ItemType.Weapon).ToList();
+        List<UpgradeData> upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.
+            UpgradeData.Where(upgrade => upgrade.ItemType == ItemType.Weapon).ToList();
         if (upgradeData == null || upgradeData.Count == 0)
         {
             return;
@@ -75,18 +76,20 @@ public class LoadoutWeapon : MonoBehaviour
             return;
         }
 
+        LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
+
         if (init)
         {
             for (int i = 0; i < _boughtWeapons.Count; i++)
             {
-                if (LocalDataStorage.Instance.PlayerData.LoadoutData?.EquippedWeapon?.FriendlyID == _boughtWeapons[i].FriendlyID)
+                if (loadoutData?.EquippedWeapon?.FriendlyID == _boughtWeapons[i].FriendlyID)
                 {
                     _currentWeaponIndex = i;
                 }
             }
 
-            _currentWeapon = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon == null ?
-                _boughtWeapons[_currentWeaponIndex] : LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon;
+            _currentWeapon = loadoutData.EquippedWeapon == null ? 
+                _boughtWeapons[_currentWeaponIndex] : loadoutData.EquippedWeapon;
         }
         else
         {
@@ -96,7 +99,8 @@ public class LoadoutWeapon : MonoBehaviour
         _itemImage.sprite = _currentWeapon.Icon;
         _itemName.text = _currentWeapon.Name;
 
-        LocalDataStorage.Instance.PlayerData.LoadoutData = new(LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements, _currentWeapon);
+        LocalDataStorage.Instance.PlayerData.LoadoutData = new(loadoutData.EquippedElements, 
+            _currentWeapon, loadoutData.WeaponInstance);
         OnWeaponItemChanged?.Invoke(_currentWeapon);
     }
 }

@@ -20,8 +20,7 @@ public class LoadoutStat : MonoBehaviour
     [SerializeField] private TMP_Text _statText;
     [SerializeField] private bool _multiplier;
 
-    private float _statValue;
-
+    public float StatValue;
     public WeaponStat WeaponStat;
 
     public void Init(float specialEffectValue, bool special = false, bool init = false)
@@ -33,45 +32,24 @@ public class LoadoutStat : MonoBehaviour
         }
 
         float weaponValue = equippedWeapon.GetValueFromStat(WeaponStat);
-        float updatedValue = weaponValue;
-        if (init)
+        StatValue = CalculateUpdatedValue(weaponValue, specialEffectValue, special, init);
+        _statText.text = StatValue.ToString();
+    }
+
+    private float CalculateUpdatedValue(float weaponValue, float specialEffectValue, bool special, bool init)
+    {
+        float baseValue = init ? weaponValue : StatValue;
+
+        if (!special)
         {
-            if (special)
-            {
-                if (weaponValue > 0)
-                {
-                    updatedValue = _multiplier ? specialEffectValue * weaponValue : specialEffectValue + weaponValue;
-                }
-                else
-                {
-                    updatedValue = specialEffectValue;
-                }
-            }
-            else
-            {
-                updatedValue = weaponValue;
-            }
+            return baseValue;
         }
-        else
+
+        if (weaponValue > 0)
         {
-            if (special)
-            {
-                if (weaponValue > 0)
-                {
-                    updatedValue = _multiplier ? specialEffectValue * _statValue : specialEffectValue + _statValue;
-                }
-                else
-                {
-                    updatedValue = specialEffectValue;
-                }
-            }
-            else
-            {
-                updatedValue = _statValue;
-            }
+            return _multiplier ? specialEffectValue * baseValue : specialEffectValue + baseValue;
         }
-        
-        _statValue = updatedValue;
-        _statText.text = updatedValue.ToString();
+
+        return specialEffectValue;
     }
 }

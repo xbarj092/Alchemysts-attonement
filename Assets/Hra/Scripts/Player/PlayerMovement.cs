@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("BASICS")]
     [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private Camera camera;
     Vector2 _mousePosition;
 
     [Header("MOVEMENT")]
@@ -43,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         _movement = new Vector2(moveX, moveY).normalized;
 
-        _mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {

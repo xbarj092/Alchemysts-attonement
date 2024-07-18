@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -31,7 +32,33 @@ public class LoadoutStats : MonoBehaviour
             HandleElementStats(equippedElement);
         }
 
+        CreateWeaponInstance();
         DisableUnusedStats();
+    }
+
+    private void CreateWeaponInstance()
+    {
+        WeaponInstance weaponInstance = new();
+        Dictionary<WeaponStat, Action<float>> statActions = new()
+        {
+            { WeaponStat.Damage, value => weaponInstance.Damage = value },
+            { WeaponStat.Range, value => weaponInstance.Range = value },
+            { WeaponStat.AttackRate, value => weaponInstance.AttackRate = value },
+            { WeaponStat.Dot, value => weaponInstance.Dot = value },
+            { WeaponStat.ChainDamage, value => weaponInstance.ChainDamage = value },
+            { WeaponStat.Heal, value => weaponInstance.Heal = value },
+            { WeaponStat.EnemySlow, value => weaponInstance.EnemySlow = value }
+        };
+
+        foreach (LoadoutStat loadoutStat in _updatedStats)
+        {
+            if (statActions.TryGetValue(loadoutStat.WeaponStat, out Action<float> setStat))
+            {
+                setStat(loadoutStat.StatValue);
+            }
+        }
+
+        LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance = weaponInstance;
     }
 
     private void HandleWeaponStats()
@@ -51,7 +78,9 @@ public class LoadoutStats : MonoBehaviour
     {
         foreach (KeyValuePair<SpecialEffect, List<float>> specialEffect in equippedElement.SpecialEffects)
         {
-            float value = specialEffect.Value[LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == equippedElement.FriendlyID).Level - 1];
+            UpgradeData upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.
+                FirstOrDefault(upgrade => upgrade.FriendlyID == equippedElement.FriendlyID);
+            float value = specialEffect.Value[upgradeData.Level - 1];
             SetUpStat(_statDefinitions[specialEffect.Key], value, true);
         }
     }
