@@ -65,7 +65,7 @@ public class UpgradeSlot : MonoBehaviour
         if (_upgradeData == null && LocalDataStorage.Instance.PlayerData.CurrencyData.Coins >= _catalogItem.UpgradePrices[0])
         {
             LocalDataStorage.Instance.PlayerData.CurrencyData.Coins -= _catalogItem.UpgradePrices[0];
-            LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.Add(new(_friendlyId, true, 1));
+            LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.Add(new(_catalogItem.ItemType, _friendlyId, true, 1));
         }
         else if (_upgradeData != null && (_upgradeData.Level != 5 || LocalDataStorage.Instance.PlayerData.CurrencyData.Coins >= _catalogItem.UpgradePrices[_upgradeData.Level]))
         {

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f323893147b9cd049ab27806f4134676, type: 3}
   m_Name: Spear
   m_EditorClassIdentifier: 
+  ItemType: 2
   Name: Spear
   FriendlyID: weapon_spear
   Description: Just a normal spear, description must be filled

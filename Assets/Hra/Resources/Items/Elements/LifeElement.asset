@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06d5d70005faa94c9833b6baf32168f, type: 3}
   m_Name: LifeElement
   m_EditorClassIdentifier: 
+  ItemType: 3
   Name: Life element
   FriendlyID: element_life
   Description: Just a normal life element, description must be filled

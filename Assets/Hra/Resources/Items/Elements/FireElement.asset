@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06d5d70005faa94c9833b6baf32168f, type: 3}
   m_Name: FireElement
   m_EditorClassIdentifier: 
+  ItemType: 3
   Name: Fire element
   FriendlyID: element_fire
   Description: Just a normal fire element, description must be filled

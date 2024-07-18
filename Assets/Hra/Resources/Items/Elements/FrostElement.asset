@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06d5d70005faa94c9833b6baf32168f, type: 3}
   m_Name: FrostElement
   m_EditorClassIdentifier: 
+  ItemType: 3
   Name: Frost element
   FriendlyID: element_frost
   Description: Just a normal frost element, description must be filled
