@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,18 +22,25 @@ public class LoadoutStat : MonoBehaviour
 
     public WeaponStat WeaponStat;
 
-    public void Init(float specialEffectValue)
+    public void Init(float specialEffectValue, bool special = false)
     {
         WeaponItem equippedWeapon = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon;
         float weaponValue = equippedWeapon.GetValueFromStat(WeaponStat);
         float updatedValue = weaponValue;
-        if (weaponValue > 0)
+        if (special)
         {
-            updatedValue = _multiplier ? specialEffectValue * weaponValue : specialEffectValue + weaponValue;
+            if (weaponValue > 0)
+            {
+                updatedValue = _multiplier ? specialEffectValue * weaponValue : specialEffectValue + weaponValue;
+            }
+            else
+            {
+                updatedValue = specialEffectValue;
+            }
         }
         else
         {
-            updatedValue = specialEffectValue;
+            updatedValue = weaponValue;
         }
 
         _statText.text = updatedValue.ToString();
