@@ -1,18 +1,64 @@
-using System.Collections;
+using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LoadoutStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SerializedDictionary<SpecialEffect, WeaponStat> _statDefinitions;
+    [SerializeField] private List<LoadoutStat> _loadoutStats = new();
+
+    private List<LoadoutStat> _updatedStats = new();
+
+    public void UpdateStats()
     {
-        
+        HandleWeaponStats();
+
+        foreach (ElementItem equippedElement in LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements)
+        {
+            HandleElementStats(equippedElement);
+        }
+
+        DisableUnusedStats();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HandleElementStats(ElementItem equippedElement)
     {
-        
+        foreach (KeyValuePair<SpecialEffect, List<float>> specialEffect in equippedElement.SpecialEffects)
+        {
+            float value = specialEffect.Value[LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == equippedElement.FriendlyID).Level];
+            SetUpStat(_statDefinitions[specialEffect.Key], value);
+        }
+    }
+
+    private void HandleWeaponStats()
+    {
+        WeaponItem equippedWeapon = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon;
+        if (equippedWeapon == null)
+        {
+            return;
+        }
+
+        SetUpStat(WeaponStat.Damage, equippedWeapon.Damage);
+        SetUpStat(WeaponStat.Range, equippedWeapon.Range);
+        SetUpStat(WeaponStat.AttackRate, equippedWeapon.AttacksPerSecond);
+    }
+    
+    private void SetUpStat(WeaponStat weaponStat, float value)
+    {
+        LoadoutStat loadoutStat = _loadoutStats.FirstOrDefault(stat => stat.WeaponStat == weaponStat);
+        _updatedStats.Add(loadoutStat);
+        loadoutStat.Init(value);
+    }
+
+    private void DisableUnusedStats()
+    {
+        foreach (LoadoutStat loadoutStat in _loadoutStats)
+        {
+            if (!_updatedStats.Contains(loadoutStat))
+            {
+                loadoutStat.gameObject.SetActive(false);
+            }
+        }
     }
 }

@@ -11,6 +11,14 @@ public class LoadoutElements : MonoBehaviour
         InitElements();
     }
 
+    private void OnDisable()
+    {
+        foreach (LoadoutElement element in _elements)
+        {
+            element.OnElementsChanged -= ChangeElements;
+        }
+    }
+
     private void InitElements()
     {
         List<string> friendlyIDs = new();
@@ -26,6 +34,18 @@ public class LoadoutElements : MonoBehaviour
             {
                 _elements[i].gameObject.SetActive(true);
                 _elements[i].Init(elementItems[i]);
+                _elements[i].OnElementsChanged += ChangeElements;
+            }
+        }
+    }
+
+    private void ChangeElements(bool changed)
+    {
+        foreach (LoadoutElement element in _elements)
+        {
+            if (!LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements.Any(equippedElement => equippedElement.FriendlyID == element.ElementItem?.FriendlyID))
+            {
+                element.Button.interactable = changed;
             }
         }
     }

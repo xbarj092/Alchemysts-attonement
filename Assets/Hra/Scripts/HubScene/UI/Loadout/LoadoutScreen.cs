@@ -8,5 +8,18 @@ public class LoadoutScreen : GameScreen
     [SerializeField] private LoadoutWeapon _loadoutWeapon;
     [SerializeField] private LoadoutStats _loadoutStats;
 
+    private void OnEnable()
+    {
+        DataEvents.OnLoadoutDataChanged += UpdateLoadoutStats;
+    }
 
+    private void OnDisable()
+    {
+        DataEvents.OnLoadoutDataChanged -= UpdateLoadoutStats;
+    }
+
+    private void UpdateLoadoutStats(LoadoutData loadoutData)
+    {
+        _loadoutStats.UpdateStats();
+    }
 }
