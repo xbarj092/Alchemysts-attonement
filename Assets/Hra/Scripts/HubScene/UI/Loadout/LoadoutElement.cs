@@ -22,10 +22,14 @@ public class LoadoutElement : MonoBehaviour
 
         _image.sprite = elementItem.Icon;
 
-        int level = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.FriendlyID == elementItem.FriendlyID).Level;
+        LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
+        UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
+
+        int level = upgradesData.UpgradeData.FirstOrDefault(item => 
+        item.FriendlyID == elementItem.FriendlyID).Level;
         _text.text = elementItem.Name + " " + level.ToString();
 
-        List<ElementItem> equippedElements = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements;
+        List<ElementItem> equippedElements = loadoutData.EquippedElements;
         if (equippedElements.Contains(elementItem))
         {
             EquipElement(equippedElements);
@@ -34,7 +38,10 @@ public class LoadoutElement : MonoBehaviour
 
     public void ToggleElement()
     {
-        List<ElementItem> equippedElements = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements;
+        LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
+        UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
+
+        List<ElementItem> equippedElements = loadoutData.EquippedElements;
         if (!equippedElements.Contains(ElementItem))
         {
             equippedElements.Add(ElementItem);
@@ -42,7 +49,8 @@ public class LoadoutElement : MonoBehaviour
         }
         else
         {
-            if (equippedElements.Count >= LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
+            if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => 
+                item.ItemType == ItemType.Item).Level)
             {
                 OnElementsChanged?.Invoke(true);
             }
@@ -51,12 +59,20 @@ public class LoadoutElement : MonoBehaviour
             _image.color = new(_image.color.r, _image.color.g, _image.color.b, 100f / 255f);
         }
 
-        LocalDataStorage.Instance.PlayerData.LoadoutData = new(equippedElements, LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon);
+        if (equippedElements.Count == 0)
+        {
+            equippedElements = new();
+        }
+
+        LocalDataStorage.Instance.PlayerData.LoadoutData = new(equippedElements, 
+            loadoutData.EquippedWeapon, loadoutData.WeaponInstance);
     }
 
     private void EquipElement(List<ElementItem> equippedElements)
     {
-        if (equippedElements.Count >= LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
+        UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
+        if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => 
+            item.ItemType == ItemType.Item).Level)
         {
             OnElementsChanged?.Invoke(false);
         }
