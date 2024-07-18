@@ -17,6 +17,7 @@ public class ItemBase : ScriptableObject
     public string Name;
     public string FriendlyID;
     public string Description;
+    public int MaxLevel;
 
     public Sprite Icon;
 
