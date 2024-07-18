@@ -10,13 +10,18 @@ public class LoadoutStats : MonoBehaviour
 
     private List<LoadoutStat> _updatedStats = new();
 
+    private void Start()
+    {
+        UpdateStats();
+    }
+
     public void UpdateStats()
     {
         _updatedStats.Clear();
         foreach (LoadoutStat stat in _loadoutStats)
         {
             stat.gameObject.SetActive(true);
-            stat.Init(0);
+            stat.Init(0, init: true);
         }
 
         HandleWeaponStats();
@@ -27,15 +32,6 @@ public class LoadoutStats : MonoBehaviour
         }
 
         DisableUnusedStats();
-    }
-
-    private void HandleElementStats(ElementItem equippedElement)
-    {
-        foreach (KeyValuePair<SpecialEffect, List<float>> specialEffect in equippedElement.SpecialEffects)
-        {
-            float value = specialEffect.Value[LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == equippedElement.FriendlyID).Level];
-            SetUpStat(_statDefinitions[specialEffect.Key], value, true);
-        }
     }
 
     private void HandleWeaponStats()
@@ -50,13 +46,31 @@ public class LoadoutStats : MonoBehaviour
         SetUpStat(WeaponStat.Range, equippedWeapon.Range);
         SetUpStat(WeaponStat.AttackRate, equippedWeapon.AttacksPerSecond);
     }
-    
+
+    private void HandleElementStats(ElementItem equippedElement)
+    {
+        foreach (KeyValuePair<SpecialEffect, List<float>> specialEffect in equippedElement.SpecialEffects)
+        {
+            float value = specialEffect.Value[LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == equippedElement.FriendlyID).Level - 1];
+            SetUpStat(_statDefinitions[specialEffect.Key], value, true);
+        }
+    }
+
     private void SetUpStat(WeaponStat weaponStat, float value, bool special = false)
     {
         LoadoutStat loadoutStat = _loadoutStats.FirstOrDefault(stat => stat.WeaponStat == weaponStat);
         if (!_updatedStats.Contains(loadoutStat))
         {
             _updatedStats.Add(loadoutStat);
+        }
+        else
+        {
+            LoadoutStat existingStat = _updatedStats.FirstOrDefault(stat => stat == loadoutStat);
+            if (existingStat != null)
+            {
+                existingStat.Init(value, special);
+                return;
+            }
         }
 
         loadoutStat.Init(value, special);

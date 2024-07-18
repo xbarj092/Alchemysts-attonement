@@ -62,6 +62,11 @@ public class UpgradeSlot : MonoBehaviour
 
     public void TryPurchase()
     {
+        if (_upgradeData?.Level >= 5)
+        {
+            return;
+        }
+
         if (_upgradeData == null && LocalDataStorage.Instance.PlayerData.CurrencyData.Coins >= _catalogItem.UpgradePrices[0])
         {
             LocalDataStorage.Instance.PlayerData.CurrencyData.Coins -= _catalogItem.UpgradePrices[0];

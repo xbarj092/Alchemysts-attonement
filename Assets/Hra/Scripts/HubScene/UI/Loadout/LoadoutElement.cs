@@ -24,6 +24,12 @@ public class LoadoutElement : MonoBehaviour
 
         int level = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.FriendlyID == elementItem.FriendlyID).Level;
         _text.text = elementItem.Name + " " + level.ToString();
+
+        List<ElementItem> equippedElements = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements;
+        if (equippedElements.Contains(elementItem))
+        {
+            EquipElement(equippedElements);
+        }
     }
 
     public void ToggleElement()
@@ -32,12 +38,7 @@ public class LoadoutElement : MonoBehaviour
         if (!equippedElements.Contains(ElementItem))
         {
             equippedElements.Add(ElementItem);
-            if (equippedElements.Count >= LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
-            {
-                OnElementsChanged?.Invoke(false);
-            }
-
-            _image.color = new(_image.color.r, _image.color.g, _image.color.b, 1);
+            EquipElement(equippedElements);
         }
         else
         {
@@ -51,5 +52,15 @@ public class LoadoutElement : MonoBehaviour
         }
 
         LocalDataStorage.Instance.PlayerData.LoadoutData = new(equippedElements, LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon);
+    }
+
+    private void EquipElement(List<ElementItem> equippedElements)
+    {
+        if (equippedElements.Count >= LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
+        {
+            OnElementsChanged?.Invoke(false);
+        }
+
+        _image.color = new(_image.color.r, _image.color.g, _image.color.b, 1);
     }
 }

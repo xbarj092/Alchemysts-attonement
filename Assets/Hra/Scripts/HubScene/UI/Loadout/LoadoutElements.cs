@@ -6,7 +6,7 @@ public class LoadoutElements : MonoBehaviour
 {
     [SerializeField] private List<LoadoutElement> _elements = new();
 
-    private void Awake()
+    private void Start()
     {
         InitElements();
     }
@@ -36,6 +36,12 @@ public class LoadoutElements : MonoBehaviour
                 _elements[i].Init(elementItems[i]);
                 _elements[i].OnElementsChanged += ChangeElements;
             }
+        }
+
+        UpgradeData upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item);
+        if (upgradeData != null)
+        {
+            ChangeElements(LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements.Count < upgradeData.Level);
         }
     }
 

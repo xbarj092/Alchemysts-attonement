@@ -25,6 +25,11 @@ public class LoadoutWeapon : MonoBehaviour
     {
         List<string> friendlyIDs = new();
         List<UpgradeData> upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.Where(upgrade => upgrade.ItemType == ItemType.Weapon).ToList();
+        if (upgradeData == null || upgradeData.Count == 0)
+        {
+            return;
+        }
+
         foreach (UpgradeData upgrade in upgradeData)
         {
             friendlyIDs.Add(upgrade.FriendlyID);
@@ -38,7 +43,7 @@ public class LoadoutWeapon : MonoBehaviour
             }
         }
 
-        SelectWeapon();
+        SelectWeapon(true);
     }
 
     public void SelectNext()
@@ -63,18 +68,35 @@ public class LoadoutWeapon : MonoBehaviour
         SelectWeapon();
     }
 
-    private void SelectWeapon()
+    private void SelectWeapon(bool init = false)
     {
-        _currentWeapon = _boughtWeapons[_currentWeaponIndex];
+        if (_boughtWeapons.Count == 0)
+        {
+            return;
+        }
+
+        if (init)
+        {
+            for (int i = 0; i < _boughtWeapons.Count; i++)
+            {
+                if (LocalDataStorage.Instance.PlayerData.LoadoutData?.EquippedWeapon?.FriendlyID == _boughtWeapons[i].FriendlyID)
+                {
+                    _currentWeaponIndex = i;
+                }
+            }
+
+            _currentWeapon = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon == null ?
+                _boughtWeapons[_currentWeaponIndex] : LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon;
+        }
+        else
+        {
+            _currentWeapon = _boughtWeapons[_currentWeaponIndex];
+        }
+
         _itemImage.sprite = _currentWeapon.Icon;
         _itemName.text = _currentWeapon.Name;
 
         LocalDataStorage.Instance.PlayerData.LoadoutData = new(LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements, _currentWeapon);
         OnWeaponItemChanged?.Invoke(_currentWeapon);
-    }
-
-    private void UpdateStats()
-    {
-
     }
 }
