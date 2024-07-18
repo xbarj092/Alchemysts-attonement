@@ -27,6 +27,11 @@ public class LoadoutStat : MonoBehaviour
     public void Init(float specialEffectValue, bool special = false, bool init = false)
     {
         WeaponItem equippedWeapon = LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedWeapon;
+        if (equippedWeapon == null)
+        {
+            return;
+        }
+
         float weaponValue = equippedWeapon.GetValueFromStat(WeaponStat);
         float updatedValue = weaponValue;
         if (init)

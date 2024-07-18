@@ -21,18 +21,6 @@ public class LoadoutElements : MonoBehaviour
 
     private void InitElements()
     {
-        if (LocalDataStorage.Instance.PlayerData.LoadoutData == null)
-        {
-            FirstInit();
-        }
-        else
-        {
-            LoadInit();
-        }
-    }
-
-    private void FirstInit()
-    {
         List<string> friendlyIDs = new();
         foreach (UpgradeData upgradedItem in LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.Where(item => item.ItemType == ItemType.Element))
         {
@@ -49,11 +37,12 @@ public class LoadoutElements : MonoBehaviour
                 _elements[i].OnElementsChanged += ChangeElements;
             }
         }
-    }
 
-    private void LoadInit()
-    {
-
+        UpgradeData upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item);
+        if (upgradeData != null)
+        {
+            ChangeElements(LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements.Count < upgradeData.Level);
+        }
     }
 
     private void ChangeElements(bool changed)
