@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class UpgradeSlot : MonoBehaviour
     [SerializeField] private Sprite _fullyUpgradedSprite;
 
     [Header("stuff")]
+    [SerializeField] private TMP_Text _itemName;
     [SerializeField] private string _friendlyId;
     [SerializeField] private List<Image> _levels = new();
 
@@ -31,6 +33,8 @@ public class UpgradeSlot : MonoBehaviour
 
     private void InitSlot()
     {
+        _itemName.text = _catalogItem.Name;
+
         if (_upgradeData == null)
         {
             _itemImage.sprite = _lockedSprite;
