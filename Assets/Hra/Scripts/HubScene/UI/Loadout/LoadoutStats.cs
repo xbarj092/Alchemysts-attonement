@@ -9,6 +9,8 @@ public class LoadoutStats : MonoBehaviour
     [SerializeField] private SerializedDictionary<SpecialEffect, WeaponStat> _statDefinitions;
     [SerializeField] private List<LoadoutStat> _loadoutStats = new();
 
+    private WeaponComboStats _weaponComboStats = new();
+
     private List<LoadoutStat> _updatedStats = new();
 
     private void Start()
@@ -30,6 +32,15 @@ public class LoadoutStats : MonoBehaviour
         foreach (ElementItem equippedElement in LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements)
         {
             HandleElementStats(equippedElement);
+        }
+
+        Dictionary<WeaponStat, float> weaponComboStats = _weaponComboStats.GetComboStat();
+        if (weaponComboStats != null)
+        {
+            foreach (KeyValuePair<WeaponStat, float> comboStat in weaponComboStats)
+            {
+                SetUpStat(comboStat.Key, comboStat.Value, true);
+            }
         }
 
         CreateWeaponInstance();

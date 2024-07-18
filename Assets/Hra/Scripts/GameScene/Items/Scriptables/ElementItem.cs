@@ -26,5 +26,7 @@ public enum SpecialEffect
 public class ElementItem : ItemBase
 {
     public Element Element;
+    public string Adjective;
+    public int AdjectivePosition;
     public SerializedDictionary<SpecialEffect, List<float>> SpecialEffects = new();
 }

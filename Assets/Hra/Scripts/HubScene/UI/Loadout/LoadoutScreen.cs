@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class LoadoutScreen : GameScreen
@@ -9,16 +8,17 @@ public class LoadoutScreen : GameScreen
 
     private void OnEnable()
     {
-        DataEvents.OnLoadoutDataChanged += UpdateLoadoutStats;
+        DataEvents.OnLoadoutDataChanged += UpdateLoadoutData;
     }
 
     private void OnDisable()
     {
-        DataEvents.OnLoadoutDataChanged -= UpdateLoadoutStats;
+        DataEvents.OnLoadoutDataChanged -= UpdateLoadoutData;
     }
 
-    private void UpdateLoadoutStats(LoadoutData loadoutData)
+    private void UpdateLoadoutData(LoadoutData loadoutData)
     {
+        _loadoutWeapon.ChangeWeaponText();
         _loadoutStats.UpdateStats();
     }
 }
