@@ -59,7 +59,7 @@ public class UpgradeSlot : MonoBehaviour
             _levels[i].gameObject.SetActive(i < _upgradeData.Level);
         }
     }
-
+     
     public void TryPurchase()
     {
         if (_upgradeData?.Level >= _upgradeData?.MaxLevel)
