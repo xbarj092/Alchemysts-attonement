@@ -12,6 +12,13 @@ public class LoadoutStats : MonoBehaviour
 
     public void UpdateStats()
     {
+        _updatedStats.Clear();
+        foreach (LoadoutStat stat in _loadoutStats)
+        {
+            stat.gameObject.SetActive(true);
+            stat.Init(0);
+        }
+
         HandleWeaponStats();
 
         foreach (ElementItem equippedElement in LocalDataStorage.Instance.PlayerData.LoadoutData.EquippedElements)
@@ -47,7 +54,11 @@ public class LoadoutStats : MonoBehaviour
     private void SetUpStat(WeaponStat weaponStat, float value)
     {
         LoadoutStat loadoutStat = _loadoutStats.FirstOrDefault(stat => stat.WeaponStat == weaponStat);
-        _updatedStats.Add(loadoutStat);
+        if (!_updatedStats.Contains(loadoutStat))
+        {
+            _updatedStats.Add(loadoutStat);
+        }
+
         loadoutStat.Init(value);
     }
 
