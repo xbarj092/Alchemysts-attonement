@@ -4,10 +4,10 @@ using System;
 public class CurrencyData
 {
     public int Coins;
-    public int CurrentShadows;
-    public int NextShadows;
+    public float CurrentShadows;
+    public float NextShadows;
 
-    public CurrencyData(int coins, int currentShadows, int nextShadows)
+    public CurrencyData(int coins, float currentShadows, float nextShadows)
     {
         Coins = coins;
         CurrentShadows = currentShadows;

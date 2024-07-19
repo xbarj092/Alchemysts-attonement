@@ -1,23 +1,21 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
-public class WeaponComboStats : MonoBehaviour
+public class WeaponComboStats
 {
     private Dictionary<string, Dictionary<WeaponStat, float>> _comboStats = new()
     {
         { "Scorching-Zappy", new(){ { WeaponStat.Damage, -10 } } },
         { "Scorching-Arctic", new(){ { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life Sucking", new(){ { WeaponStat.Damage, -10 } } },
-        { "Arctic-Zappy", new(){ { WeaponStat.Damage, -10 } } },
-        { "Life Sucking-Arctic", new(){ { WeaponStat.Damage, -10 } } },
-        { "Life Sucking-Zappy", new(){ { WeaponStat.Damage, -10 } } },
-        { "Scorching-Arctic-Zappy", new(){ { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life Sucking-Arctic", new(){ { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life Sucking-Zappy", new(){ { WeaponStat.Damage, -10 } } },
-        { "Life Sucking-Arctic-Zappy", new(){ { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life Sucking-Arctic-Zappy", new(){ { WeaponStat.Damage, -10 } } }
+        { "Scorching-Life-Sucking", new() { { WeaponStat.Damage, -10 } } },
+        { "Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } },
+        { "Life-Sucking-Arctic", new() { { WeaponStat.Damage, -10 } } },
+        { "Life-Sucking-Zappy", new() { { WeaponStat.Damage, -10 } } },
+        { "Scorching-Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } },
+        { "Scorching-Life-Sucking-Arctic", new() { { WeaponStat.Damage, -10 } } },
+        { "Scorching-Life-Sucking-Zappy", new() { { WeaponStat.Damage, -10 } } },
+        { "Life-Sucking-Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } },
+        { "Scorching-Life-Sucking-Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } }
     };
 
     public Dictionary<WeaponStat, float> GetComboStat()

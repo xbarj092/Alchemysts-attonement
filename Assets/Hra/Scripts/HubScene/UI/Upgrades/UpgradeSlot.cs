@@ -15,6 +15,7 @@ public class UpgradeSlot : MonoBehaviour
     [SerializeField] private TMP_Text _itemName;
     [SerializeField] private string _friendlyId;
     [SerializeField] private List<Image> _levels = new();
+    [SerializeField] private TMP_Text _priceText;
 
     private UpgradeData _upgradeData;
     private ItemBase _catalogItem;
@@ -43,15 +44,18 @@ public class UpgradeSlot : MonoBehaviour
                 level.gameObject.SetActive(false);
             }
 
+            _priceText.text = _catalogItem.UpgradePrices[0].ToString();
             return;
         }
-        else if (_upgradeData.Level == 5)
+        else if (_upgradeData.Level == _upgradeData.MaxLevel)
         {
             _itemImage.sprite = _fullyUpgradedSprite;
+            _priceText.text = "MAX";
         }
         else
         {
             _itemImage.sprite = _catalogItem.Icon;
+            _priceText.text = _catalogItem.UpgradePrices[_upgradeData.Level].ToString();
         }
 
         for (int i = 0; i < _levels.Count; i++)
