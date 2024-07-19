@@ -16,6 +16,7 @@ MonoBehaviour:
   Name: Daggers
   FriendlyID: weapon_daggers
   Description: Just normal daggers, description must be filled
+  MaxLevel: 5
   Icon: {fileID: 0}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Damage: 6

@@ -16,9 +16,12 @@ MonoBehaviour:
   Name: Frost element
   FriendlyID: element_frost
   Description: Just a normal frost element, description must be filled
+  MaxLevel: 5
   Icon: {fileID: 0}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Element: 2
+  Adjective: Arctic
+  AdjectivePosition: 3
   SpecialEffects:
     _serializedList:
     - Key: 2

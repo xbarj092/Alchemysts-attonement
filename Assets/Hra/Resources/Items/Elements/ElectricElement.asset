@@ -16,9 +16,12 @@ MonoBehaviour:
   Name: Electric element
   FriendlyID: element_electric
   Description: Just a normal electric element, description must be filled
+  MaxLevel: 5
   Icon: {fileID: 0}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Element: 3
+  Adjective: Zappy
+  AdjectivePosition: 4
   SpecialEffects:
     _serializedList:
     - Key: 4
