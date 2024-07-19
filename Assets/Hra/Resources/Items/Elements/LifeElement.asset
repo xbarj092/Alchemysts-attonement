@@ -16,9 +16,12 @@ MonoBehaviour:
   Name: Life element
   FriendlyID: element_life
   Description: Just a normal life element, description must be filled
+  MaxLevel: 5
   Icon: {fileID: 0}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Element: 4
+  Adjective: Life-Sucking
+  AdjectivePosition: 2
   SpecialEffects:
     _serializedList:
     - Key: 1

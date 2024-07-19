@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: StraightSword
   m_EditorClassIdentifier: 
   ItemType: 2
-  Name: Straight sword
+  Name: Straight Sword
   FriendlyID: weapon_straight_sword
   Description: Just a normal straight sword, description must be filled
+  MaxLevel: 5
   Icon: {fileID: 0}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Damage: 10
