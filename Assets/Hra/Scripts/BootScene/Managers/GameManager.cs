@@ -5,12 +5,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     public bool Paused;
 
-    private void Start()
-    {
-        LocalDataStorage.Instance.PlayerData.PlayerStats = new(100, 100);
-        LocalDataStorage.Instance.PlayerData.CurrencyData = new(99999, 0, 100);
-    }
-
     public void SetUpGameScene()
     {
         _gameSceneManager.SetUpGameScene();
