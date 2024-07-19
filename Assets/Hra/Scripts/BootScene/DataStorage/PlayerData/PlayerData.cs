@@ -33,7 +33,18 @@ public class PlayerData
         set
         {
             _currencyData = value;
-            DataEvents.OnCurrencyDataChangedinvoke(_currencyData);
+            DataEvents.OnCurrencyDataChangedInvoke(_currencyData);
+        }
+    }
+
+    [SerializeField] private PlayerStats _playerStats;
+    public PlayerStats PlayerStats
+    {
+        get => _playerStats;
+        set
+        {
+            _playerStats = value;
+            DataEvents.OnPlayerStatsChangedInvoke(_playerStats);
         }
     }
 }
