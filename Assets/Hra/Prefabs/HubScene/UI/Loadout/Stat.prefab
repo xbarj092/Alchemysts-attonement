@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statImage: {fileID: 7209172747578451114}
   _statText: {fileID: 918864775419948901}
+  _multiplier: 0
+  StatValue: 0
   WeaponStat: 0
 --- !u!1 &9140143220728655170
 GameObject:
@@ -202,8 +204,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293189344
+  m_fontColor: {r: 0.8784314, g: 0.87058824, b: 0.89411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

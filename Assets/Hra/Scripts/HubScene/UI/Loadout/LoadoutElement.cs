@@ -49,8 +49,7 @@ public class LoadoutElement : MonoBehaviour
         }
         else
         {
-            if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => 
-                item.ItemType == ItemType.Item).Level)
+            if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
             {
                 OnElementsChanged?.Invoke(true);
             }

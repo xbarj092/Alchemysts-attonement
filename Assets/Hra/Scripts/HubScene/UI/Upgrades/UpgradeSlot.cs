@@ -8,6 +8,7 @@ public class UpgradeSlot : MonoBehaviour
 { 
     [Header("Image")]
     [SerializeField] private Image _itemImage;
+    [SerializeField] private Sprite _itemImageSprite;
     [SerializeField] private Sprite _lockedSprite;
     [SerializeField] private Sprite _fullyUpgradedSprite;
 
@@ -20,8 +21,11 @@ public class UpgradeSlot : MonoBehaviour
     private UpgradeData _upgradeData;
     private ItemBase _catalogItem;
 
+    
+
     private void Awake()
     {
+        _itemImage.sprite = _itemImageSprite;
         GetUpgradeData();
         InitSlot();
     }
