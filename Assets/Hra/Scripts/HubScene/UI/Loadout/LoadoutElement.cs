@@ -70,8 +70,7 @@ public class LoadoutElement : MonoBehaviour
     private void EquipElement(List<ElementItem> equippedElements)
     {
         UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
-        if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => 
-            item.ItemType == ItemType.Item).Level)
+        if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
         {
             OnElementsChanged?.Invoke(false);
         }
