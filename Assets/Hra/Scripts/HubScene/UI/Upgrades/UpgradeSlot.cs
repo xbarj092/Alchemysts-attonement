@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -58,7 +58,8 @@ public class UpgradeSlot : MonoBehaviour
         }
         else
         {
-            _itemImage.sprite = _catalogItem.Icon;
+            //_itemImage.sprite = _catalogItem.Icon;    //To pod tím funguje, kdyžtak to přepiš jinak, idk
+            _itemImage.sprite = _itemImageSprite;
             _priceText.text = _catalogItem.UpgradePrices[_upgradeData.Level].ToString();
         }
 

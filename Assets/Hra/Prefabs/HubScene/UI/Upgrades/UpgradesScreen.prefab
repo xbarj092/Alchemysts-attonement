@@ -1479,14 +1479,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.745283, g: 0.6520255, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 405b9affb7f986f4b9237819fe412573, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1512,6 +1512,10 @@ PrefabInstance:
       propertyPath: _friendlyId
       value: weapon_rapier
       objectReference: {fileID: 0}
+    - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: _itemImageSprite
+      value: 
+      objectReference: {fileID: 161085711, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _fullyUpgradedSprite
       value: 
@@ -1623,6 +1627,10 @@ PrefabInstance:
       value: item_element_slot
       objectReference: {fileID: 0}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: _itemImageSprite
+      value: 
+      objectReference: {fileID: -322330859, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _fullyUpgradedSprite
       value: 
       objectReference: {fileID: -651258562, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
@@ -1732,6 +1740,10 @@ PrefabInstance:
       propertyPath: _friendlyId
       value: weapon_daggers
       objectReference: {fileID: 0}
+    - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: _itemImageSprite
+      value: 
+      objectReference: {fileID: 241053462, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _fullyUpgradedSprite
       value: 
@@ -1843,6 +1855,10 @@ PrefabInstance:
       value: weapon_greatsword
       objectReference: {fileID: 0}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: _itemImageSprite
+      value: 
+      objectReference: {fileID: 1566521154, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _fullyUpgradedSprite
       value: 
       objectReference: {fileID: 777249977, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
@@ -1952,6 +1968,10 @@ PrefabInstance:
       propertyPath: _friendlyId
       value: weapon_spear
       objectReference: {fileID: 0}
+    - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: _itemImageSprite
+      value: 
+      objectReference: {fileID: 2119915305, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _fullyUpgradedSprite
       value: 
@@ -2403,6 +2423,18 @@ PrefabInstance:
     - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Sprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _itemImageSprite
