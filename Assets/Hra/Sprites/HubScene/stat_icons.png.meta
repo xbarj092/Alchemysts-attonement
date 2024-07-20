@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stat_icons_0
+      name: attack
       rect:
         serializedVersion: 2
         x: 0
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stat_icons_1
+      name: attack_range
       rect:
         serializedVersion: 2
         x: 32
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stat_icons_2
+      name: attack_rate
       rect:
         serializedVersion: 2
         x: 64
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stat_icons_3
+      name: dot
       rect:
         serializedVersion: 2
         x: 96
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stat_icons_4
+      name: chain_attack
       rect:
         serializedVersion: 2
         x: 128
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stat_icons_5
+      name: slow
       rect:
         serializedVersion: 2
         x: 160
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stat_icons_6
+      name: lifesteal
       rect:
         serializedVersion: 2
         x: 192
@@ -293,13 +293,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stat_icons_0: -666594933
-      stat_icons_1: 1678508987
-      stat_icons_2: 1850910080
-      stat_icons_3: -1934619665
-      stat_icons_4: 1039161261
-      stat_icons_5: 1162623617
-      stat_icons_6: -1957780544
+      attack: -666594933
+      attack_range: 1678508987
+      attack_rate: 1850910080
+      chain_attack: 1039161261
+      dot: -1934619665
+      lifesteal: -1957780544
+      slow: 1162623617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
