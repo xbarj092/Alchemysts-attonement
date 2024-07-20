@@ -2701,10 +2701,18 @@ PrefabInstance:
       propertyPath: _specialEffect
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _statImageSprite
+      value: 
+      objectReference: {fileID: -1957780544, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     - target: {fileID: 6718402144146425346, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Name
       value: Heal
       objectReference: {fileID: 0}
+    - target: {fileID: 7209172747578451114, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1957780544, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2830,10 +2838,18 @@ PrefabInstance:
       propertyPath: _specialEffect
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _statImageSprite
+      value: 
+      objectReference: {fileID: 1678508987, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     - target: {fileID: 6718402144146425346, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Name
       value: RangeStat
       objectReference: {fileID: 0}
+    - target: {fileID: 7209172747578451114, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1678508987, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2955,6 +2971,10 @@ PrefabInstance:
       propertyPath: _specialEffect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _statImageSprite
+      value: 
+      objectReference: {fileID: -666594933, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     - target: {fileID: 6718402144146425346, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Name
       value: DamageStat
@@ -2962,7 +2982,7 @@ PrefabInstance:
     - target: {fileID: 7209172747578451114, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -666594933, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3088,10 +3108,18 @@ PrefabInstance:
       propertyPath: _specialEffect
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _statImageSprite
+      value: 
+      objectReference: {fileID: 1850910080, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     - target: {fileID: 6718402144146425346, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Name
       value: AttackRateStat
       objectReference: {fileID: 0}
+    - target: {fileID: 7209172747578451114, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1850910080, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3217,10 +3245,18 @@ PrefabInstance:
       propertyPath: _specialEffect
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _statImageSprite
+      value: 
+      objectReference: {fileID: 1162623617, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     - target: {fileID: 6718402144146425346, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Name
       value: EnemySlow
       objectReference: {fileID: 0}
+    - target: {fileID: 7209172747578451114, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1162623617, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3342,10 +3378,18 @@ PrefabInstance:
       propertyPath: _specialEffect
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _statImageSprite
+      value: 
+      objectReference: {fileID: -1934619665, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     - target: {fileID: 6718402144146425346, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Name
       value: Dot
       objectReference: {fileID: 0}
+    - target: {fileID: 7209172747578451114, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1934619665, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3467,10 +3511,18 @@ PrefabInstance:
       propertyPath: _specialEffect
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _statImageSprite
+      value: 
+      objectReference: {fileID: 1039161261, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     - target: {fileID: 6718402144146425346, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: m_Name
       value: ChainDamage
       objectReference: {fileID: 0}
+    - target: {fileID: 7209172747578451114, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1039161261, guid: 0deb880a8ad719c4f97db6cbd9ae4544, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
