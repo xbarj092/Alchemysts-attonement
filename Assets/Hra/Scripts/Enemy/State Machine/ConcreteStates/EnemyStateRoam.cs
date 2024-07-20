@@ -31,6 +31,11 @@ public class EnemyStateRoam : EnemyState
 
     public override void FrameUpdate()
     {
+        if (enemy.isAggroed)
+        {
+            enemy.StateMachine.ChangeState(enemy.ChasingState);
+        }
+
         base.FrameUpdate();
 
         _direction = (_targetPos - (Vector2)enemy.transform.position).normalized;
