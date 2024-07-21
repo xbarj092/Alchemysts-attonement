@@ -17,7 +17,7 @@ MonoBehaviour:
   FriendlyID: element_fire
   Description: Just a normal fire element, description must be filled
   MaxLevel: 5
-  Icon: {fileID: 0}
+  Icon: {fileID: -2080822086, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Element: 1
   Adjective: Scorching

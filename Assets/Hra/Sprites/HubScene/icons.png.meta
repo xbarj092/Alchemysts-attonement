@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: daggers
+      name: daggers_shop
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 131586ff775a2ed429e9feeb643a8319
-      internalID: 241053462
+      spriteID: 7eb4970ee70cac34493e47e0dd468633
+      internalID: 926416588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daggers_max
+      name: daggers_shop_max
       rect:
         serializedVersion: 2
         x: 32
@@ -171,8 +171,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 617a0ed70382d2f43a20f0064ffe2ddf
-      internalID: -1073004027
+      spriteID: b6bd1f06494fb4b469009d85d73dfbf0
+      internalID: -771766552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greatsword_shop
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e7bddf99b1fa2549909c02bf0ac365b
+      internalID: -1877324618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greatsword_shop_max
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ce5b02a68702440bc3b3cff1d3faaa
+      internalID: 1531831017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rapier_shop
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24014e4eb391b224f86fc99573324d54
+      internalID: -138804659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rapier_shop_max
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d67baff68c65942b962e3bdb929c12
+      internalID: 1289286799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear_shop
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b420b3edef58f71428caa535d0386f09
+      internalID: -617629826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear_shop_max
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eda192a386bb3d42a64013819eb8cc3
+      internalID: 1392321904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daggers
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b703d13bbfefd4eb9af9166e167027
+      internalID: -395711507
       vertices: []
       indices: 
       edges: []
@@ -181,8 +328,8 @@ TextureImporter:
       name: greatsword
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -192,29 +339,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51b12bcbe53e9a44392ba489215cb043
-      internalID: 1566521154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: greatsword_max
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d33a1b8bf21f60d4cac3a0943d8b1ab8
-      internalID: 777249977
+      spriteID: acf3d728eee78f5428af775e44b1b7de
+      internalID: 1359908194
       vertices: []
       indices: 
       edges: []
@@ -223,8 +349,8 @@ TextureImporter:
       name: rapier
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -234,29 +360,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf7adddb5d1f06d46ba9b7d9b42e0dc2
-      internalID: 161085711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rapier_max
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 080f9aa9697420140b0f387d7ee7c367
-      internalID: 643518001
+      spriteID: 811a89bbab3c99446bd1a363c5cab23d
+      internalID: -2129957024
       vertices: []
       indices: 
       edges: []
@@ -265,49 +370,7 @@ TextureImporter:
       name: spear
       rect:
         serializedVersion: 2
-        x: 192
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04e748e31d44c7241ae3de0b56cdcaf4
-      internalID: 2119915305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spear_max
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ad655291f2a82e48b36bd55d805d25a
-      internalID: 1604289219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daggers_loadout
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 95
         y: 64
         width: 32
         height: 32
@@ -318,77 +381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e135b7843e097f44e817f71cffb39d54
-      internalID: -1011568868
+      spriteID: 072d8e91e08416044a041922db2505fc
+      internalID: -580060505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: greatsword_loadout
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d602d49a26d2892488a0ba94c727e716
-      internalID: -1793768249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rapier_loadout
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72f7a43fb63c1f74fbb6111a8630d4f2
-      internalID: 768842827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spear_loadout
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcc9f94117cb8b8408c57b68eda6b06d
-      internalID: -1371544292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sword_loadout
+      name: straight_sword
       rect:
         serializedVersion: 2
         x: 128
@@ -402,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e712214475397614fa242b1cfd00efa4
-      internalID: -780480523
+      spriteID: f4451fc15cbaae846abd9497a4e2de21
+      internalID: 2063467074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: locked
+      name: locked_shop
       rect:
         serializedVersion: 2
         x: 160
@@ -423,14 +423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1e199e5cc0d0f243aefd60e9af1b0c7
-      internalID: 1836335469
+      spriteID: 5aedf7664dc9cb442b6505aa5cbbf3c6
+      internalID: 711418850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: straight_sword
+      name: straight_sword_shop
       rect:
         serializedVersion: 2
         x: 192
@@ -444,14 +444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d2079e7ce605d544a5dca5b3fc53688
-      internalID: -170116785
+      spriteID: ec9820c8fdca76c42908079fad7b21c1
+      internalID: 127910017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: straight_sword_max
+      name: straight_sword_shop_max
       rect:
         serializedVersion: 2
         x: 224
@@ -465,14 +465,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f74affca0da5c7f40be0bf08c1049549
-      internalID: 812172567
+      spriteID: 330cba9e9c8e1b94fb74be77e305c02f
+      internalID: -1825434085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slot_one
+      name: element_slot_1
       rect:
         serializedVersion: 2
         x: 0
@@ -486,14 +486,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42290d14907cdb94588f002a91633336
-      internalID: -322330859
+      spriteID: 7b0d7cb9a059b2b4ca127b9ca330abcd
+      internalID: -311816233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slot_two
+      name: element_slot_2
       rect:
         serializedVersion: 2
         x: 32
@@ -507,14 +507,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 151116d39f2db234a9906d78f467cbc5
-      internalID: -509663111
+      spriteID: 2d6cca5c5a022314cbab3b55c316ca34
+      internalID: 173092431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slot_three
+      name: element_slot_3
       rect:
         serializedVersion: 2
         x: 64
@@ -528,14 +528,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2215fc23622100147b5bb8fe67e4f6cc
-      internalID: -349480855
+      spriteID: 0cc53007ca3997a4a8c3eeffddfa0689
+      internalID: -2131370589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slot_four
+      name: element_slot_4
       rect:
         serializedVersion: 2
         x: 96
@@ -549,8 +549,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8ae12b66fa42a4490741c7fe376768
-      internalID: -651258562
+      spriteID: 107d2e3f4fdc9694da075acff37c1e56
+      internalID: 1802994519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shop
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62075913b1b8ca84d9e95a1f71a6dbcb
+      internalID: 1899417451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shop_max
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccb84a14908f6a45bd329fe272233c9
+      internalID: 210088817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_shop
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c95a51614fb284badaabf09ae8c507
+      internalID: 888952200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_shop_max
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ea55938b280094d92529c45f156b97
+      internalID: -1438714315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_shop
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98ff2ed70a935fb44afe6d8264f4dc74
+      internalID: 556827063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_shop_max
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a0f7e782cd82a4c8b544f9e900fbb7
+      internalID: -947182848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electric_shop
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59252764b8aace449bdbfc9517eb7d49
+      internalID: -552072290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electric_shop_max
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389e26b611c5200479974a2298c96565
+      internalID: 1584427292
       vertices: []
       indices: 
       edges: []
@@ -560,7 +728,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 32
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -570,29 +738,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c83c7c5890acfd4ebc719f304bd04dd
-      internalID: 1014737306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fire_max
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b695f4dc96bd73449b9848db569dd72a
-      internalID: -188669714
+      spriteID: 4f2695006e57fd14daad9a691fd5ef30
+      internalID: -2080822086
       vertices: []
       indices: 
       edges: []
@@ -601,8 +748,8 @@ TextureImporter:
       name: frost
       rect:
         serializedVersion: 2
-        x: 192
-        y: 32
+        x: 160
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -612,29 +759,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff5942b9e8204584095791737b691ada
-      internalID: 220258306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: frost_max
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fc437dfeb1ccea4a992165c539f987c
-      internalID: 366956698
+      spriteID: 40e6052f8f31f5241898219e408bc175
+      internalID: 22932669
       vertices: []
       indices: 
       edges: []
@@ -643,7 +769,7 @@ TextureImporter:
       name: life
       rect:
         serializedVersion: 2
-        x: 0
+        x: 192
         y: 0
         width: 32
         height: 32
@@ -654,29 +780,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 533e9696fc47a9841a9692ed5812a904
-      internalID: 890817694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: life_max
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 811bac0bc3e5f014a8ce3fd814f4ec65
-      internalID: -479132697
+      spriteID: 785110f231d284941bd070d977a32d55
+      internalID: 884777906
       vertices: []
       indices: 
       edges: []
@@ -685,7 +790,7 @@ TextureImporter:
       name: electric
       rect:
         serializedVersion: 2
-        x: 64
+        x: 224
         y: 0
         width: 32
         height: 32
@@ -696,29 +801,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4a854b90df0d4745a461f71acd6103d
-      internalID: 1518316404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: electric_max
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2bbce3a60cf61174d895d8941f26cdb8
-      internalID: 842186738
+      spriteID: 1880e5a2e5296e341a93f61bd0c45471
+      internalID: -436796141
       vertices: []
       indices: 
       edges: []
@@ -734,34 +818,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      daggers: 241053462
-      daggers_loadout: -1011568868
-      daggers_max: -1073004027
-      electric: 1518316404
-      electric_max: 842186738
-      fire: 1014737306
-      fire_max: -188669714
-      frost: 220258306
-      frost_max: 366956698
-      greatsword: 1566521154
-      greatsword_loadout: -1793768249
-      greatsword_max: 777249977
-      life: 890817694
-      life_max: -479132697
-      locked: 1836335469
-      rapier: 161085711
-      rapier_loadout: 768842827
-      rapier_max: 643518001
-      slot_four: -651258562
-      slot_one: -322330859
-      slot_three: -349480855
-      slot_two: -509663111
-      spear: 2119915305
-      spear_loadout: -1371544292
-      spear_max: 1604289219
-      straight_sword: -170116785
-      straight_sword_max: 812172567
-      sword_loadout: -780480523
+      daggers: -395711507
+      daggers_shop: 926416588
+      daggers_shop_max: -771766552
+      electric: -436796141
+      electric_shop: -552072290
+      electric_shop_max: 1584427292
+      element_slot_1: -311816233
+      element_slot_2: 173092431
+      element_slot_3: -2131370589
+      element_slot_4: 1802994519
+      fire: -2080822086
+      fire_shop: 1899417451
+      fire_shop_max: 210088817
+      frost: 22932669
+      frost_shop: 888952200
+      frost_shop_max: -1438714315
+      greatsword: 1359908194
+      greatsword_shop: -1877324618
+      greatsword_shop_max: 1531831017
+      life: 884777906
+      life_shop: 556827063
+      life_shop_max: -947182848
+      locked_shop: 711418850
+      rapier: -2129957024
+      rapier_shop: -138804659
+      rapier_shop_max: 1289286799
+      spear: -580060505
+      spear_shop: -617629826
+      spear_shop_max: 1392321904
+      straight_sword: 2063467074
+      straight_sword_shop: 127910017
+      straight_sword_shop_max: -1825434085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
