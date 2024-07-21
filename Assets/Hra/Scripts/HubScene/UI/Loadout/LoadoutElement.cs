@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -20,6 +20,7 @@ public class LoadoutElement : MonoBehaviour
     {
         ElementItem = elementItem;
 
+        _image.preserveAspect = true;
         _image.sprite = elementItem.Icon;
 
         LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;

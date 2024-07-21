@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 2552005566842560899}
   _itemImageSprite: {fileID: 0}
-  _lockedSprite: {fileID: 1836335469, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+  _lockedSprite: {fileID: 711418850, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
   _fullyUpgradedSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   _itemName: {fileID: 8379533670503964755}
   _friendlyId: weapon_straight_sword
