@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent (typeof (Rigidbody2D))]
-public class Enemy : MonoBehaviour, IDamageable, Imovable
+public class Enemy : MonoBehaviour, IDamageable, Imovable, ITriggerCheckable
 {
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
     [field: SerializeField] public float CurrentHealth { get; set; }
@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour, IDamageable, Imovable
     public EnemyStateRoam RoamingState { get; set; }
     public EnemyStateChase ChasingState { get; set; }
     public EnemyStateAttack AttackState { get; set; }
+    public bool isAggroed { get; set; }
+    public bool isWithingAttackRange { get; set; }
 
     #endregion
 
@@ -81,7 +83,7 @@ public class Enemy : MonoBehaviour, IDamageable, Imovable
 
     public void CheckforDirection(Vector2 velocity)
     {
-        //TODO: add logic so that enemy has the vector to the player
+
     }
 
     #endregion
@@ -100,6 +102,20 @@ public class Enemy : MonoBehaviour, IDamageable, Imovable
         EnemyDamaged,
         EnemyAttacking,
         PlaySounds
+    }
+
+    #endregion
+
+    #region Trigger Checks
+
+    public void SetAggro(bool Aggro)
+    {
+        isAggroed = Aggro;
+    }
+
+    public void setwithinAttackRange(bool AttackRangeCheck)
+    {
+        isWithingAttackRange = AttackRangeCheck;
     }
 
     #endregion

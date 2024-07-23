@@ -212,7 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 2552005566842560899}
-  _lockedSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  _itemImageSprite: {fileID: 0}
+  _lockedSprite: {fileID: 711418850, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
   _fullyUpgradedSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   _itemName: {fileID: 8379533670503964755}
   _friendlyId: weapon_straight_sword
@@ -372,8 +373,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293189344
+  m_fontColor: {r: 0.8784314, g: 0.87058824, b: 0.89411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -828,8 +829,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293189344
+  m_fontColor: {r: 0.8784314, g: 0.87058824, b: 0.89411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

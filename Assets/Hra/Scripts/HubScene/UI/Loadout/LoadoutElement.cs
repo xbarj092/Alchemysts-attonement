@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -20,6 +20,7 @@ public class LoadoutElement : MonoBehaviour
     {
         ElementItem = elementItem;
 
+        _image.preserveAspect = true;
         _image.sprite = elementItem.Icon;
 
         LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
@@ -49,8 +50,7 @@ public class LoadoutElement : MonoBehaviour
         }
         else
         {
-            if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => 
-                item.ItemType == ItemType.Item).Level)
+            if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
             {
                 OnElementsChanged?.Invoke(true);
             }
@@ -71,8 +71,7 @@ public class LoadoutElement : MonoBehaviour
     private void EquipElement(List<ElementItem> equippedElements)
     {
         UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
-        if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => 
-            item.ItemType == ItemType.Item).Level)
+        if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
         {
             OnElementsChanged?.Invoke(false);
         }

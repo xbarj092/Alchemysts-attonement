@@ -30,8 +30,7 @@ public class LoadoutElements : MonoBehaviour
             friendlyIDs.Add(upgradedItem.FriendlyID);
         }
 
-        List<ElementItem> elementItems = LocalDataStorage.Instance.Catalog.CatalogItemList.Where(item => 
-            item.ItemType == ItemType.Element).Cast<ElementItem>().ToList();
+        List<ElementItem> elementItems = LocalDataStorage.Instance.Catalog.CatalogItemList.Where(item => item.ItemType == ItemType.Element).Cast<ElementItem>().ToList();
         for (int i = 0; i < elementItems.Count; i++)
         {
             if (friendlyIDs.Contains(elementItems[i].FriendlyID))
@@ -54,8 +53,7 @@ public class LoadoutElements : MonoBehaviour
         LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
         foreach (LoadoutElement element in _elements)
         {
-            if (!loadoutData.EquippedElements.Any(equippedElement => 
-                equippedElement.FriendlyID == element.ElementItem?.FriendlyID))
+            if (!loadoutData.EquippedElements.Any(equippedElement => equippedElement.FriendlyID == element.ElementItem?.FriendlyID))
             {
                 element.Button.interactable = changed;
             }
