@@ -6,6 +6,7 @@ public class RoomPlacementHelper
 {
     private List<Room> _rooms = new();
     private MonoBehaviour _spawnObject;
+    private Grid<GridNode> _grid;
 
     public RoomPlacementHelper(List<Room> rooms, MonoBehaviour spawnObject)
     {
@@ -15,6 +16,8 @@ public class RoomPlacementHelper
 
     public void PlaceRooms(Grid<GridNode> grid)
     {
+        _grid = grid;
+
         for (int x = 0; x < grid.GetWidth(); x++)
         {
             for (int y = 0; y < grid.GetHeight(); y++)
@@ -32,17 +35,20 @@ public class RoomPlacementHelper
             if (relevantRoom != null)
             {
                 gridNode.Room = Object.Instantiate(relevantRoom, _spawnObject.transform);
+                gridNode.Room.transform.position = _grid.GetWorldPosition(gridNode.X, gridNode.Y);
             }
         }
     }
 
     private Room GetRelevantRoom(List<Wall> walls)
     {
-        var missingDirections = walls.Select(w => w.Direction).ToList();
+        List<Direction> allDirections = System.Enum.GetValues(typeof(Direction)).Cast<Direction>().Where(d => d != Direction.None).ToList();
+        List<Direction> presentDirections = walls.Select(w => w.Direction).ToList();
+        List<Direction> missingDirections = allDirections.Except(presentDirections).ToList();
 
         foreach (Room room in _rooms)
         {
-            if (room.Directions.SequenceEqual(missingDirections))
+            if (room.Directions.OrderBy(d => d).SequenceEqual(missingDirections.OrderBy(d => d)))
             {
                 return room;
             }

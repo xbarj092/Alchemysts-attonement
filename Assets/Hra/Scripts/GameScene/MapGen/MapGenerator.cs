@@ -16,7 +16,7 @@ public class MapGenerator : MonoBehaviour
 
     private void Awake()
     {
-        _grid = new Grid<GridNode>(DUNGEON_SIZE_X, DUNGEON_SIZE_Y, 1, (Grid<GridNode> g, int x, int y) => new GridNode(g, x, y));
+        _grid = new Grid<GridNode>(DUNGEON_SIZE_X, DUNGEON_SIZE_Y, 20, (Grid<GridNode> g, int x, int y) => new GridNode(g, x, y));
         _depthFirstSearchHelper = new(_grid, DUNGEON_SIZE_X, DUNGEON_SIZE_Y);
         _roomPlacementHelper = new(_roomPrefabs, this);
     }

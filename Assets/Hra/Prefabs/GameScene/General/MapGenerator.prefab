@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallPrefab: {fileID: 2696814244157803696, guid: 177ea89a68f9527469fcc6f5ac2f13ce, type: 3}
-  _roomPrefabs: []
+  _roomPrefabs:
+  - {fileID: -212365516922303488, guid: 6a551965006aded42a5d277631da4d95, type: 3}
+  - {fileID: 171890964635794976, guid: 199832be4901ab74cbbaee13634d599e, type: 3}
+  - {fileID: -4067338509085192450, guid: ce45a8e48669d3c469d87da1a3de741a, type: 3}
