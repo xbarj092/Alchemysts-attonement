@@ -149,6 +149,14 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[61].second.m_TileSpriteIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3224367485388968170, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_Name
+      value: Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -379,5 +387,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Directions>k__BackingField: 03000000
+  SpawnPositions:
+    _serializedList:
+    - Key: 4
+      Value: {fileID: 7697396202994186016}
   _exits:
   - {fileID: 2810642333329706645}
+--- !u!4 &7697396202994186016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 6745857742037730105}
+  m_PrefabAsset: {fileID: 0}

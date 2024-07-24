@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3869995482345953108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6926070448157206779}
+  m_Layer: 0
+  m_Name: Bottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6926070448157206779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869995482345953108}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3939393447983392811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &585705391802424736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -860,6 +891,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1034635019485262483, guid: 128e9997bb491e045869530a99260822, type: 3}
       propertyPath: m_Tiles.Array.data[61].second.m_TileSpriteIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224367485388968170, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_Name
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
@@ -1939,6 +1982,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1466293842346809371}
+    - targetCorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6926070448157206779}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8024915157742294454, guid: 128e9997bb491e045869530a99260822, type: 3}
       insertIndex: -1
@@ -1967,6 +2013,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Directions>k__BackingField: 0400000002000000
+  SpawnPositions:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 8394598862495229962}
+    - Key: 3
+      Value: {fileID: 6926070448157206779}
   _exits:
   - {fileID: 7261562940453932098}
   - {fileID: 5246383929546547485}
+--- !u!4 &3939393447983392811 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 4842257730670418963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8394598862495229962 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 4842257730670418963}
+  m_PrefabAsset: {fileID: 0}

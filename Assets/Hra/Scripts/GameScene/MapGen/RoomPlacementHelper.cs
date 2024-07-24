@@ -41,7 +41,7 @@ public class RoomPlacementHelper
 
     private Room GetRelevantRoom(List<Wall> walls)
     {
-        List<Direction> allDirections = System.Enum.GetValues(typeof(Direction)).Cast<Direction>().Where(d => d != Direction.None).ToList();
+        List<Direction> allDirections = Enum.GetValues(typeof(Direction)).Cast<Direction>().Where(d => d != Direction.None).ToList();
         List<Direction> presentDirections = walls.Select(w => w.Direction).ToList();
         List<Direction> missingDirections = allDirections.Except(presentDirections).ToList();
 
