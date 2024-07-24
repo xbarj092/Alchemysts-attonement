@@ -1,13 +1,13 @@
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class DepthFirstSearchHelper
 {
     private Grid<GridNode> _grid;
-
     private int _dungeonSizeX;
     private int _dungeonSizeY;
+    private GridNode _lastPlacedNode;
 
     public DepthFirstSearchHelper(Grid<GridNode> grid, int dungeonSizeX, int dungeonSizeY)
     {
@@ -16,20 +16,45 @@ public class DepthFirstSearchHelper
         _dungeonSizeY = dungeonSizeY;
     }
 
-    public void GenerateLevel(GridNode previousNode, GridNode currentNode)
+    public void GenerateLevel()
+    {
+        GenerateNextNode(null, _grid.GetGridObject(0, 0));
+        SetEndRoom();
+    }
+
+    private void GenerateNextNode(GridNode previousNode, GridNode currentNode)
     {
         currentNode.IsVisited = true;
+
+        _lastPlacedNode = currentNode;
+
         ClearWalls(previousNode, currentNode);
         GridNode nextNode;
+        bool isDeadEnd = true;
+
         do
         {
             nextNode = GetNextUnvisitedNode(currentNode);
             if (nextNode != null)
             {
-                GenerateLevel(currentNode, nextNode);
+                isDeadEnd = false;
+                GenerateNextNode(currentNode, nextNode);
             }
         }
         while (nextNode != null);
+
+        if (isDeadEnd && previousNode != null)
+        {
+            currentNode.SpecialRoom = SpecialRoom.MiniBoss;
+        }
+    }
+
+    private void SetEndRoom()
+    {
+        if (_lastPlacedNode != null)
+        {
+            _lastPlacedNode.SpecialRoom = SpecialRoom.Boss;
+        }
     }
 
     private GridNode GetNextUnvisitedNode(GridNode currentNode)
