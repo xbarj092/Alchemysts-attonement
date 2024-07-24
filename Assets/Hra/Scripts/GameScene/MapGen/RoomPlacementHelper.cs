@@ -1,30 +1,30 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class RoomPlacementHelper
 {
     private List<Room> _rooms = new();
-    private MonoBehaviour _spawnObject;
     private Grid<GridNode> _grid;
 
-    public RoomPlacementHelper(List<Room> rooms, MonoBehaviour spawnObject)
+    public RoomPlacementHelper(List<Room> rooms)
     {
         _rooms = rooms;
-        _spawnObject = spawnObject;
     }
 
-    public void PlaceRooms(Grid<GridNode> grid)
+    public void PlaceRooms(ref Grid<GridNode> grid)
     {
         _grid = grid;
 
-        for (int x = 0; x < grid.GetWidth(); x++)
+        for (int x = 0; x < _grid.GetWidth(); x++)
         {
-            for (int y = 0; y < grid.GetHeight(); y++)
+            for (int y = 0; y < _grid.GetHeight(); y++)
             {
-                PlaceRoom(grid.GetGridObject(x, y));
+                PlaceRoom(_grid.GetGridObject(x, y));
             }
         }
+
+        grid = _grid;
     }
 
     private void PlaceRoom(GridNode gridNode)
@@ -34,8 +34,7 @@ public class RoomPlacementHelper
             Room relevantRoom = GetRelevantRoom(gridNode.Walls);
             if (relevantRoom != null)
             {
-                gridNode.Room = Object.Instantiate(relevantRoom, _spawnObject.transform);
-                gridNode.Room.transform.position = _grid.GetWorldPosition(gridNode.X, gridNode.Y);
+                gridNode.Room = relevantRoom;
             }
         }
     }
