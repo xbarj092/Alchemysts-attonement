@@ -13,7 +13,7 @@ public class RoomFactory
         _spawnObject = spawnObject;
         _grid = grid;
 
-        GoToNextRoom(new(1, 0));
+        GoToNextRoom(Direction.None, new(1, 0));
     }
 
     private void MoveToNextRoom(Direction direction, Room room)
@@ -21,12 +21,12 @@ public class RoomFactory
         room.OnPlayerTrigger -= MoveToNextRoom;
         UnityEngine.Object.Destroy(room.gameObject);
         Vector2Int nextRoomCoordinates = GetNextRoomCoordinates(direction, room.Coordinates);
-        GoToNextRoom(nextRoomCoordinates);
+        GoToNextRoom(direction, nextRoomCoordinates);
 
         Debug.Log("[RoomPlacementHelper] - next room coordinates: " + nextRoomCoordinates);
     }
 
-    private void GoToNextRoom(Vector2Int nextRoomCoordinates)
+    private void GoToNextRoom(Direction direction, Vector2Int nextRoomCoordinates)
     {
         GridNode nextNode = _grid.GetGridObject(nextRoomCoordinates.x, nextRoomCoordinates.y);
         if (nextNode != null && nextNode.Room != null)
@@ -34,7 +34,7 @@ public class RoomFactory
             Room instantiatedRoom = UnityEngine.Object.Instantiate(nextNode.Room, _spawnObject.transform);
             instantiatedRoom.SetCoordinates(nextRoomCoordinates.x, nextRoomCoordinates.y);
             instantiatedRoom.OnPlayerTrigger += MoveToNextRoom;
-            OnPlayerPositionReset?.Invoke(new Vector2(0, 0));
+            OnPlayerPositionReset?.Invoke(instantiatedRoom.SpawnPositions[direction].position);
         }
     }
 

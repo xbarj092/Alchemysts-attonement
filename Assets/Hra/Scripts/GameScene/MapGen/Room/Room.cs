@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     [field: SerializeField] public List<Direction> Directions { get; set; } = new();
+    [field: SerializeField] public SerializedDictionary<Direction, Transform> SpawnPositions = new();
 
     [SerializeField] private List<RoomExit> _exits = new();
 
