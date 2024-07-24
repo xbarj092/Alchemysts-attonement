@@ -13,7 +13,7 @@ public class RoomFactory
         _spawnObject = spawnObject;
         _grid = grid;
 
-        GoToNextRoom(Direction.None, new(0, 0));
+        GoToNextRoom(Direction.None, new(0, 0), SpecialRoom.Start);
     }
 
     private void MoveToNextRoom(Direction direction, Room room)
@@ -26,7 +26,7 @@ public class RoomFactory
         Debug.Log("[RoomPlacementHelper] - next room coordinates: " + nextRoomCoordinates);
     }
 
-    private void GoToNextRoom(Direction direction, Vector2Int nextRoomCoordinates)
+    private void GoToNextRoom(Direction direction, Vector2Int nextRoomCoordinates, SpecialRoom specialRoom = SpecialRoom.None)
     {
         GridNode nextNode = _grid.GetGridObject(nextRoomCoordinates.x, nextRoomCoordinates.y);
         if (nextNode != null && nextNode.Room != null)
@@ -34,6 +34,11 @@ public class RoomFactory
             Room instantiatedRoom = UnityEngine.Object.Instantiate(nextNode.Room, _spawnObject.transform);
             instantiatedRoom.SetCoordinates(nextRoomCoordinates.x, nextRoomCoordinates.y);
             instantiatedRoom.OnPlayerTrigger += MoveToNextRoom;
+            if (specialRoom != SpecialRoom.None)
+            {
+                nextNode.SpecialRoom = specialRoom;
+            }
+
             OnPlayerPositionReset?.Invoke(instantiatedRoom.SpawnPositions[direction].position);
         }
     }

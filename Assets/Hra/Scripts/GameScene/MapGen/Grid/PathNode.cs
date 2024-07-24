@@ -12,6 +12,7 @@ public class GridNode
 
     public bool IsVisited;
 
+    public SpecialRoom SpecialRoom;
     public Room Room;
     public GridNode CameFromNode;
 

@@ -12,8 +12,8 @@ public class MapGenerator : MonoBehaviour
     private RoomPlacementHelper _roomPlacementHelper;
     private RoomFactory _roomFactory;
 
-    private const int DUNGEON_SIZE_X = 5;
-    private const int DUNGEON_SIZE_Y = 5;
+    private const int DUNGEON_SIZE_X = 3;
+    private const int DUNGEON_SIZE_Y = 3;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
-        _depthFirstSearchHelper.GenerateLevel(null, _grid.GetGridObject(0, 0));
+        _depthFirstSearchHelper.GenerateLevel();
         _roomPlacementHelper.PlaceRooms(ref _grid);
         _roomFactory = new(this, _grid);
         _roomFactory.OnPlayerPositionReset += SpawnPlayer;

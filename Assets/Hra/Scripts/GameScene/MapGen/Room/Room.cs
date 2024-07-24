@@ -3,6 +3,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SpecialRoom
+{
+    None = 0,
+    Start = 1,
+    End = 2,
+    MiniBoss = 3,
+    Boss = 4
+}
+
 public class Room : MonoBehaviour
 {
     [field: SerializeField] public List<Direction> Directions { get; set; } = new();
