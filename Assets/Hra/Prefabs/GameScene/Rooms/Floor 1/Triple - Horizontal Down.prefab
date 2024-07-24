@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7132591215184031784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6794682174513414201}
+  m_Layer: 0
+  m_Name: Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6794682174513414201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7132591215184031784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.53, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2884194200524994305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7609083906881820554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3908233655952414137}
+  m_Layer: 0
+  m_Name: Down
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3908233655952414137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609083906881820554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2884194200524994305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1185510052792889830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,6 +1037,10 @@ PrefabInstance:
     - target: {fileID: 1034635019485262483, guid: 128e9997bb491e045869530a99260822, type: 3}
       propertyPath: m_Tiles.Array.data[61].second.m_TileSpriteIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.53
       objectReference: {fileID: 0}
     - target: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2292,6 +2358,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2306658789166422274}
+    - targetCorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6794682174513414201}
+    - targetCorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3908233655952414137}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8024915157742294454, guid: 128e9997bb491e045869530a99260822, type: 3}
       insertIndex: -1
@@ -2300,6 +2372,11 @@ PrefabInstance:
 --- !u!4 &1331602017338487794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 6745857742037730105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2884194200524994305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}
   m_PrefabInstance: {fileID: 6745857742037730105}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3656958293904643727 stripped
@@ -2320,7 +2397,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Directions>k__BackingField: 010000000200000002000000
+  SpawnPositions:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 6794682174513414201}
+    - Key: 2
+      Value: {fileID: 7697396202994186016}
+    - Key: 3
+      Value: {fileID: 3908233655952414137}
   _exits:
   - {fileID: 2810642333329706645}
   - {fileID: 8736480473293610800}
   - {fileID: 8736480473293610800}
+--- !u!4 &7697396202994186016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 6745857742037730105}
+  m_PrefabAsset: {fileID: 0}

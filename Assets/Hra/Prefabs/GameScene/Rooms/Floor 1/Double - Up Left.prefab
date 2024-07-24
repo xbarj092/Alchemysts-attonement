@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4453734515318775616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6073015329448888371}
+  m_Layer: 0
+  m_Name: Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6073015329448888371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453734515318775616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2884194200524994305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1574184291657748178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,6 +579,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1034635019485262483, guid: 128e9997bb491e045869530a99260822, type: 3}
       propertyPath: m_Tiles.Array.data[61].second.m_TileSpriteIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
@@ -1271,6 +1310,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2713843925433542198}
+    - targetCorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6073015329448888371}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8024915157742294454, guid: 128e9997bb491e045869530a99260822, type: 3}
       insertIndex: -1
@@ -1279,6 +1321,11 @@ PrefabInstance:
 --- !u!4 &1331602017338487794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 6745857742037730105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2884194200524994305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}
   m_PrefabInstance: {fileID: 6745857742037730105}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3656958293904643727 stripped
@@ -1299,6 +1346,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Directions>k__BackingField: 0300000001000000
+  SpawnPositions:
+    _serializedList:
+    - Key: 2
+      Value: {fileID: 7697396202994186016}
+    - Key: 4
+      Value: {fileID: 6073015329448888371}
   _exits:
   - {fileID: 2810642333329706645}
   - {fileID: 8736480473293610800}
+--- !u!4 &7697396202994186016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 6745857742037730105}
+  m_PrefabAsset: {fileID: 0}

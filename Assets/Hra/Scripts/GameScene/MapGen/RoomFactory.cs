@@ -13,7 +13,7 @@ public class RoomFactory
         _spawnObject = spawnObject;
         _grid = grid;
 
-        GoToNextRoom(Direction.None, new(1, 0));
+        GoToNextRoom(Direction.None, new(0, 0));
     }
 
     private void MoveToNextRoom(Direction direction, Room room)
