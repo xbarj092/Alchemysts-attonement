@@ -33,7 +33,7 @@ public class LoadoutStat : MonoBehaviour
 
         float weaponValue = equippedWeapon.GetValueFromStat(WeaponStat);
         StatValue = CalculateUpdatedValue(weaponValue, specialEffectValue, special, init);
-        _statText.text = StatValue.ToString();
+        UpdateStatText(StatValue, weaponValue, special);
     }
 
     private float CalculateUpdatedValue(float weaponValue, float specialEffectValue, bool special, bool init)
@@ -51,5 +51,32 @@ public class LoadoutStat : MonoBehaviour
         }
 
         return specialEffectValue;
+    }
+
+    private void UpdateStatText(float finalValue, float weaponValue, bool special)
+    {
+        if (!special)
+        {
+            _statText.text = finalValue.ToString("F1");
+            return;
+        }
+
+        float valueDifference = finalValue - weaponValue;
+        string differenceText;
+
+        if (weaponValue == 0)
+        {
+            differenceText = valueDifference > 0
+                ? $"<color=green>{Mathf.Abs(valueDifference):F1}</color>"
+                : $"<color=red>{Mathf.Abs(valueDifference):F1}</color>";
+        }
+        else
+        {
+            differenceText = valueDifference > 0
+                ? $"<color=green> + {Mathf.Abs(valueDifference):F1}</color>"
+                : $"<color=red> - {Mathf.Abs(valueDifference):F1}</color>";
+        }
+
+        _statText.text = weaponValue > 0 ? $"{weaponValue:F1} {differenceText}" : differenceText;
     }
 }
