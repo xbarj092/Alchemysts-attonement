@@ -2397,7 +2397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Confiner>k__BackingField: {fileID: 5893909288571396034}
-  <Directions>k__BackingField: 010000000200000002000000
+  <Directions>k__BackingField: 010000000200000004000000
   SpawnPositions:
     _serializedList:
     - Key: 1
