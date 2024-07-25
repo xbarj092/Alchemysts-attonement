@@ -1506,8 +1506,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: WeaponUpgrade (2)
+      value: Rapier
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 485515050, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: weapon_rapier
@@ -1618,9 +1622,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5055543080488998142}
     m_Modifications:
+    - target: {fileID: 1060125800653877616, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -311816233, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 1711191951721580892, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2131370589, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
       value: ElementSlotUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
@@ -1631,7 +1647,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -322330859, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: _levels.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _fullyUpgradedSprite
+      value: 
+      objectReference: {fileID: 1802994519, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: _levels.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561677960014901137, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1802994519, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 8462137097409574468, guid: d29479a1264bd14449d8adb76461109f, type: 3}
@@ -1714,8 +1742,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937423808363918526, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 173092431, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1796317276384559735, guid: d29479a1264bd14449d8adb76461109f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29479a1264bd14449d8adb76461109f, type: 3}
@@ -1734,8 +1767,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: WeaponUpgrade (4)
+      value: Daggers
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1769213869, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: weapon_daggers
@@ -1848,8 +1885,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: WeaponUpgrade (1)
+      value: Greatsword
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1519875994, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: weapon_greatsword
@@ -1862,6 +1903,14 @@ PrefabInstance:
       propertyPath: _fullyUpgradedSprite
       value: 
       objectReference: {fileID: 1531831017, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 8319361964793000588, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319361964793000588, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8462137097409574468, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1962,8 +2011,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: WeaponUpgrade (3)
+      value: Spear
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -875026710, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: weapon_spear
@@ -2074,10 +2127,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7074540976694580583}
     m_Modifications:
+    - target: {fileID: 657716032810716935, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 847947349, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1060125800653877616, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2095772267, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1711191951721580892, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -41177230, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: ElementUpgrade (2)
+      value: Frost
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 22932669, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: element_frost
@@ -2090,6 +2159,10 @@ PrefabInstance:
       propertyPath: _fullyUpgradedSprite
       value: 
       objectReference: {fileID: -1438714315, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 7561677960014901137, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1639088957, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 8462137097409574468, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2170,6 +2243,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937423808363918526, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2073769481, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2188,10 +2265,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7074540976694580583}
     m_Modifications:
+    - target: {fileID: 657716032810716935, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -75189027, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1060125800653877616, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -79297712, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1711191951721580892, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -393032664, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: ElementUpgrade (3)
+      value: Electric
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -436796141, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: element_electric
@@ -2204,6 +2297,10 @@ PrefabInstance:
       propertyPath: _fullyUpgradedSprite
       value: 
       objectReference: {fileID: 1584427292, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 7561677960014901137, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1377702994, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 8462137097409574468, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2284,6 +2381,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937423808363918526, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 529602044, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2302,10 +2403,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7074540976694580583}
     m_Modifications:
+    - target: {fileID: 657716032810716935, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1475709289, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1060125800653877616, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -266458647, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1711191951721580892, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 726600841, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: ElementUpgrade
+      value: Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2080822086, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: element_fire
@@ -2318,6 +2435,10 @@ PrefabInstance:
       propertyPath: _fullyUpgradedSprite
       value: 
       objectReference: {fileID: 210088817, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 7561677960014901137, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 898257389, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 8462137097409574468, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2398,6 +2519,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937423808363918526, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1230446106, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2418,12 +2543,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: WeaponUpgrade
+      value: Straight Sword
       objectReference: {fileID: 0}
     - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 127910017, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+      objectReference: {fileID: 83938463, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -2542,10 +2667,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7074540976694580583}
     m_Modifications:
+    - target: {fileID: 657716032810716935, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 591733121, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1060125800653877616, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1969797403, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
+    - target: {fileID: 1711191951721580892, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1636863360, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 2121317292645469247, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Name
-      value: ElementUpgrade (1)
+      value: Life
       objectReference: {fileID: 0}
+    - target: {fileID: 2552005566842560899, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 884777906, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
     - target: {fileID: 6638075662158797671, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: _friendlyId
       value: element_life
@@ -2558,6 +2699,10 @@ PrefabInstance:
       propertyPath: _fullyUpgradedSprite
       value: 
       objectReference: {fileID: -947182848, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+    - target: {fileID: 7561677960014901137, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1079290455, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     - target: {fileID: 8462137097409574468, guid: d29479a1264bd14449d8adb76461109f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2638,6 +2783,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937423808363918526, guid: d29479a1264bd14449d8adb76461109f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -62168674, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

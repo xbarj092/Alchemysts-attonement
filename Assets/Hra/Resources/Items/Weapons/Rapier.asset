@@ -17,7 +17,7 @@ MonoBehaviour:
   FriendlyID: weapon_rapier
   Description: Just a normal rapier, description must be filled
   MaxLevel: 5
-  Icon: {fileID: -2129957024, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+  Icon: {fileID: 485515050, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Damage: 8
   Range: 2

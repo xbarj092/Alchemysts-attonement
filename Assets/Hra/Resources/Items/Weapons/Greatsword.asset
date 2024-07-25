@@ -17,7 +17,7 @@ MonoBehaviour:
   FriendlyID: weapon_greatsword
   Description: Just a normal greatsword, description must be filled
   MaxLevel: 5
-  Icon: {fileID: 1359908194, guid: 4f8c217cd7c3dbc41882f3dcde9a44b7, type: 3}
+  Icon: {fileID: -1519875994, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
   Damage: 20
   Range: 3
