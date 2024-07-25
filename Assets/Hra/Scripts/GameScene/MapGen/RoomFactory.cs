@@ -1,8 +1,10 @@
+using Cinemachine;
 using System;
 using UnityEngine;
 
 public class RoomFactory
 {
+    private CinemachineConfiner2D _playerCamera;
     private MonoBehaviour _spawnObject;
     private Grid<GridNode> _grid;
 
@@ -38,6 +40,14 @@ public class RoomFactory
             {
                 nextNode.SpecialRoom = specialRoom;
             }
+
+            if (_playerCamera == null)
+            {
+                GameObject camera = GameObject.FindGameObjectWithTag(GlobalConstants.Tags.MainCamera.ToString());
+                _playerCamera = camera.GetComponent<CinemachineConfiner2D>();
+            }
+
+            _playerCamera.m_BoundingShape2D = instantiatedRoom.Confiner;
 
             OnPlayerPositionReset?.Invoke(instantiatedRoom.SpawnPositions[direction].position);
         }

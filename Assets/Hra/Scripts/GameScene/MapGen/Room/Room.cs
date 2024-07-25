@@ -14,6 +14,7 @@ public enum SpecialRoom
 
 public class Room : MonoBehaviour
 {
+    [field: SerializeField] public Collider2D Confiner { get; private set; }
     [field: SerializeField] public List<Direction> Directions { get; set; } = new();
     [field: SerializeField] public SerializedDictionary<Direction, Transform> SpawnPositions = new();
 

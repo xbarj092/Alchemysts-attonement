@@ -725,6 +725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Down
       objectReference: {fileID: 0}
+    - target: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.39
+      objectReference: {fileID: 0}
     - target: {fileID: 5756960535004131531, guid: 128e9997bb491e045869530a99260822, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1654,6 +1658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a5cd1e40db0ec4ea33149890dbd37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Confiner>k__BackingField: {fileID: 5721367464980889832}
   <Directions>k__BackingField: 04000000
   SpawnPositions:
     _serializedList:
@@ -1661,6 +1666,11 @@ MonoBehaviour:
       Value: {fileID: 8394598862495229962}
   _exits:
   - {fileID: 7261562940453932098}
+--- !u!60 &5721367464980889832 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 888694177449516283, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 4842257730670418963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8394598862495229962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
