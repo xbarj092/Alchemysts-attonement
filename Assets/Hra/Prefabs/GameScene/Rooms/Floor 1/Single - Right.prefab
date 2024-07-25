@@ -903,6 +903,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3243526958959839456}
   m_SourcePrefab: {fileID: 100100000, guid: 128e9997bb491e045869530a99260822, type: 3}
+--- !u!60 &140643306904249011 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 888694177449516283, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 983734096859921992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4245293570440071761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
@@ -930,6 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a5cd1e40db0ec4ea33149890dbd37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Confiner>k__BackingField: {fileID: 140643306904249011}
   <Directions>k__BackingField: 02000000
   SpawnPositions:
     _serializedList:

@@ -7,7 +7,8 @@ public class DepthFirstSearchHelper
     private Grid<GridNode> _grid;
     private int _dungeonSizeX;
     private int _dungeonSizeY;
-    private GridNode _lastPlacedNode;
+    private List<(GridNode node, int distance)> _deadEnds = new();
+    private GridNode _startNode;
 
     public DepthFirstSearchHelper(Grid<GridNode> grid, int dungeonSizeX, int dungeonSizeY)
     {
@@ -18,15 +19,13 @@ public class DepthFirstSearchHelper
 
     public void GenerateLevel()
     {
-        GenerateNextNode(null, _grid.GetGridObject(0, 0));
-        SetEndRoom();
+        GenerateNextNode(null, _grid.GetGridObject(0, 0), 0);
+        SetSpecialRooms();
     }
 
-    private void GenerateNextNode(GridNode previousNode, GridNode currentNode)
+    private void GenerateNextNode(GridNode previousNode, GridNode currentNode, int distance)
     {
         currentNode.IsVisited = true;
-
-        _lastPlacedNode = currentNode;
 
         ClearWalls(previousNode, currentNode);
         GridNode nextNode;
@@ -38,22 +37,30 @@ public class DepthFirstSearchHelper
             if (nextNode != null)
             {
                 isDeadEnd = false;
-                GenerateNextNode(currentNode, nextNode);
+                GenerateNextNode(currentNode, nextNode, distance + 1);
             }
         }
         while (nextNode != null);
 
         if (isDeadEnd && previousNode != null)
         {
-            currentNode.SpecialRoom = SpecialRoom.MiniBoss;
+            _deadEnds.Add((currentNode, distance));
         }
     }
 
-    private void SetEndRoom()
+    private void SetSpecialRooms()
     {
-        if (_lastPlacedNode != null)
+        if (_deadEnds.Count > 0)
         {
-            _lastPlacedNode.SpecialRoom = SpecialRoom.Boss;
+            GridNode furthestDeadEnd = _deadEnds.OrderByDescending(de => de.distance).First().node;
+            furthestDeadEnd.SpecialRoom = SpecialRoom.Boss;
+            foreach ((GridNode node, int distance) in _deadEnds)
+            {
+                if (node.SpecialRoom != SpecialRoom.Boss)
+                {
+                    node.SpecialRoom = SpecialRoom.MiniBoss;
+                }
+            }
         }
     }
 

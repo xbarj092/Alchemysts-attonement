@@ -1649,6 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a5cd1e40db0ec4ea33149890dbd37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Confiner>k__BackingField: {fileID: 5893909288571396034}
   <Directions>k__BackingField: 0100000002000000
   SpawnPositions:
     _serializedList:
@@ -1659,6 +1660,11 @@ MonoBehaviour:
   _exits:
   - {fileID: 2810642333329706645}
   - {fileID: 8736480473293610800}
+--- !u!60 &5893909288571396034 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 888694177449516283, guid: 128e9997bb491e045869530a99260822, type: 3}
+  m_PrefabInstance: {fileID: 6745857742037730105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7697396202994186016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3984767511266784281, guid: 128e9997bb491e045869530a99260822, type: 3}
