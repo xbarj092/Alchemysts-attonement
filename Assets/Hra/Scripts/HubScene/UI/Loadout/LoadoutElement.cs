@@ -45,8 +45,10 @@ public class LoadoutElement : MonoBehaviour
         List<ElementItem> equippedElements = loadoutData.EquippedElements;
         if (!equippedElements.Contains(ElementItem))
         {
-            equippedElements.Add(ElementItem);
-            EquipElement(equippedElements);
+            if (EquipElement(equippedElements))
+            {
+                equippedElements.Add(ElementItem);
+            }
         }
         else
         {
@@ -68,14 +70,22 @@ public class LoadoutElement : MonoBehaviour
             loadoutData.EquippedWeapon, loadoutData.WeaponInstance);
     }
 
-    private void EquipElement(List<ElementItem> equippedElements)
+    private bool EquipElement(List<ElementItem> equippedElements)
     {
         UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
-        if (equippedElements.Count >= upgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item).Level)
+        UpgradeData upgradeData = upgradesData.UpgradeData.FirstOrDefault(item => item.ItemType == ItemType.Item);
+        bool equipped = false;
+        if (upgradeData != null)
         {
-            OnElementsChanged?.Invoke(false);
+            equipped = true;
+            if (equippedElements.Count >= upgradeData.Level)
+            {
+                OnElementsChanged?.Invoke(false);
+            }
+
+            _image.color = new(_image.color.r, _image.color.g, _image.color.b, 1);
         }
 
-        _image.color = new(_image.color.r, _image.color.g, _image.color.b, 1);
+        return equipped;
     }
 }

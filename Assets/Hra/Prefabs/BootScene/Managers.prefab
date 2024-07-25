@@ -262,7 +262,7 @@ MonoBehaviour:
   _defaultCursor: {fileID: 2800000, guid: 406300db6e28b50489756a396eaacc9e, type: 3}
   _cursorDictionary:
     _serializedList:
-    - Key: 1
+    - Key: 3
       Value: {fileID: 2800000, guid: fc5e2df06a849ed4888040a4133b3f0b, type: 3}
     - Key: 2
       Value: {fileID: 2800000, guid: fc5e2df06a849ed4888040a4133b3f0b, type: 3}
