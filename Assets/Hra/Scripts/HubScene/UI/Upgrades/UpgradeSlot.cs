@@ -53,6 +53,10 @@ public class UpgradeSlot : MonoBehaviour
         else
         {
             _itemImage.sprite = _catalogItem.Icon;
+            if (_catalogItem.ItemType == ItemType.Item)
+            {
+                _itemImage.color = new(0, 0, 0, 0);
+            }
             _priceText.text = _catalogItem.UpgradePrices[_upgradeData.Level].ToString();
         }
 
@@ -62,7 +66,7 @@ public class UpgradeSlot : MonoBehaviour
             Debug.Log($"i: {i}, current level: {_upgradeData.Level}");
         }
     }
-     
+    
     public void TryPurchase()
     {
         if (_upgradeData?.Level >= _upgradeData?.MaxLevel)
