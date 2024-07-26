@@ -63,7 +63,6 @@ public class UpgradeSlot : MonoBehaviour
         for (int i = 0; i < _levels.Count; i++)
         {
             _levels[i].gameObject.SetActive(i+1 == _upgradeData.Level);
-            Debug.Log($"i: {i}, current level: {_upgradeData.Level}");
         }
     }
     
