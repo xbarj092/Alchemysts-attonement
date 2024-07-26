@@ -8,6 +8,9 @@ public class LoadoutStats : MonoBehaviour
 {
     [SerializeField] private SerializedDictionary<SpecialEffect, WeaponStat> _statDefinitions;
     [SerializeField] private List<LoadoutStat> _loadoutStats = new();
+    [SerializeField] private Popup _tooltipPopup;
+
+    private Popup _spawnedPopup;
 
     private WeaponComboStats _weaponComboStats = new();
 
@@ -16,6 +19,18 @@ public class LoadoutStats : MonoBehaviour
     private void Start()
     {
         UpdateStats();
+    }
+
+    private void OnEnable()
+    {
+        UIInputManager.Instance.OnToolTipSpawned += SpawnToolTip;
+        UIInputManager.Instance.OnToolTipClosed += CloseToolTip;
+    }
+
+    private void OnDisable()
+    {
+        UIInputManager.Instance.OnToolTipSpawned -= SpawnToolTip;
+        UIInputManager.Instance.OnToolTipClosed -= CloseToolTip;
     }
 
     public void UpdateStats()
@@ -125,5 +140,21 @@ public class LoadoutStats : MonoBehaviour
                 loadoutStat.gameObject.SetActive(false);
             }
         }
+    }
+
+    private void SpawnToolTip(string tooltip)
+    {
+        if (_spawnedPopup != null)
+        {
+            return;
+        }
+
+        _spawnedPopup = Instantiate(_tooltipPopup, transform);
+        _spawnedPopup.SetText(tooltip);
+    }
+
+    private void CloseToolTip()
+    {
+        Destroy(_spawnedPopup.gameObject);
     }
 }

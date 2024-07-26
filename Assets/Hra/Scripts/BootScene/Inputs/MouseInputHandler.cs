@@ -1,10 +1,19 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MouseInputHandler : IInputHandler
 {
     private CursorSpriteSwapper _cursorSpriteSwapper;
+    private TooltipSpawner _tooltipSpawner;
+
+    private Canvas _activeCanvas;
+    private GraphicRaycaster _graphicRaycaster;
+
+    public event Action<string> OnToolTipSpawned;
+    public event Action OnToolTipClosed;
 
     public MouseInputHandler(CursorSpriteSwapper cursorSpriteSwapper)
     {
@@ -59,7 +68,43 @@ public class MouseInputHandler : IInputHandler
             }
         }
 
+        List<RaycastResult> uiResults = RaycastToUI(mousePosition);
+        foreach (RaycastResult result in uiResults)
+        {
+            Debug.Log($"UI Hit: {result.gameObject.name}"); // Debugging line
+            if (result.gameObject.CompareTag(GlobalConstants.Tags.ToolTip.ToString()))
+            {
+                string tooltip = _tooltipSpawner.SetToolTip(result);
+                OnToolTipSpawned?.Invoke(tooltip);
+                return;
+            }
+        }
+
+        OnToolTipClosed?.Invoke();
         _cursorSpriteSwapper.ResetCursor();
+    }
+
+    private List<RaycastResult> RaycastToUI(Vector2 mousePosition)
+    {
+        PointerEventData pointerEventData = new(EventSystem.current)
+        {
+            position = mousePosition
+        };
+
+        List<RaycastResult> results = new();
+        if (_activeCanvas == null)
+        {
+            _activeCanvas = GameObject.FindObjectOfType<Canvas>();
+        }
+
+        if (_graphicRaycaster == null)
+        {
+            _graphicRaycaster = _activeCanvas.GetComponent<GraphicRaycaster>();
+        }
+
+        _graphicRaycaster.Raycast(pointerEventData, results);
+
+        return results;
     }
 
     private bool IsOnInteract(RaycastHit2D hit) => hit.collider != null && hit.transform.gameObject.layer == GlobalConstants.Layers.LAYER_INTERACT;

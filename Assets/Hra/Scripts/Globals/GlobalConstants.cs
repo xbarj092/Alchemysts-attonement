@@ -5,7 +5,8 @@ public static class GlobalConstants
         MainCamera,
         Player,
         Upgrades,
-        Loadout
+        Loadout,
+        ToolTip
     }
 
     public class Layers
