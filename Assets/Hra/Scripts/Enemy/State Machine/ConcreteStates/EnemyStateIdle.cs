@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class EnemyStateIdle : EnemyState
 {
+    private float _timeElapsed;
+
+    private const float WAIT_TIME = 1f;
+
     public EnemyStateIdle(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
@@ -14,6 +18,7 @@ public class EnemyStateIdle : EnemyState
 
     public override void EnterState()
     {
+        _timeElapsed = 0;
         Debug.Log($"Entered Idle state!");
         base.EnterState();
     }
@@ -30,9 +35,25 @@ public class EnemyStateIdle : EnemyState
             return _enemy.AttackState;
         }
 
+        if (FinishedWaiting())
+        {
+            return _enemy.RoamingState;
+        }
+
         // do idle stuff
 
         return base.ExecuteState();
+    }
+
+    private bool FinishedWaiting()
+    {
+        _timeElapsed += Time.deltaTime;
+        if (_timeElapsed >= WAIT_TIME)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public override void ExitState()

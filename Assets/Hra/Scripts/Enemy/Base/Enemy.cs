@@ -106,9 +106,9 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
         IsAggroed = Aggro;
     }
 
-    public void SetWithinAttackRange(bool AttackRangeCheck)
+    public void SetWithinAttackRange(bool attackRangeCheck)
     {
-        IsWithingAttackRange = AttackRangeCheck;
+        IsWithingAttackRange = attackRangeCheck;
     }
 
     #endregion

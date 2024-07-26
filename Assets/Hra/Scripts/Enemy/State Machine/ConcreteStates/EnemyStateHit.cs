@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class EnemyStateHit : EnemyState
 {
+    private float _timeElapsed;
+
+    private const float HIT_TIME = 1f;
+
     public EnemyStateHit(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
@@ -15,6 +19,7 @@ public class EnemyStateHit : EnemyState
 
     public override void EnterState()
     {
+        _timeElapsed = 0;
         Debug.Log($"Entered Hit state!");
         base.EnterState();
     }
@@ -31,8 +36,13 @@ public class EnemyStateHit : EnemyState
 
     private bool IsHitCompleted()
     {
-        // implement hit func
-        throw new NotImplementedException();
+        _timeElapsed += Time.deltaTime;
+        if (_timeElapsed >= HIT_TIME)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public override void ExitState()

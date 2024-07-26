@@ -31,6 +31,7 @@ public class EnemyStateChase : EnemyState
             return _enemy.AttackState;
         }
 
+        // move it towards player
         _enemy.MoveEnemy(Vector2.zero);
 
         return base.ExecuteState();
