@@ -1,20 +1,30 @@
-using UnityEngine;
-
 public class EnemyState
 {
-    protected Enemy enemy;
-    protected EnemyStateMachine enemyStateMachine;
+    protected Enemy _enemy;
+    protected EnemyStateMachine _enemyStateMachine;
 
     public EnemyState(Enemy enemy, EnemyStateMachine enemyStateMachine)
     {
-        this.enemy = enemy;
-        this.enemyStateMachine = enemyStateMachine;
+        _enemy = enemy;
+        _enemyStateMachine = enemyStateMachine;
+    }
+
+    public virtual EnemyState ExecuteState()
+    {
+        if (_enemy.IsHit)
+        {
+            return _enemy.HitState;
+        }
+
+        if (_enemy.IsDead)
+        {
+            return _enemy.DeathState;
+        }
+
+        return null;
     }
 
     public virtual void EnterState() { }
     public virtual void ExitState() { }
-    public virtual void FrameUpdate() { }
-    public virtual void PhysicsUpdate() { }
     public virtual void AnimationTriggerEvent(Enemy.AnimationTrigger trigger) { }
-
 }

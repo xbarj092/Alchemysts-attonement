@@ -19,20 +19,26 @@ public class EnemyStateChase : EnemyState
         Debug.Log($"Entered Chase state!");
     }
 
+    public override EnemyState ExecuteState()
+    {
+        if (!_enemy.IsAggroed)
+        {
+            return _enemy.IdleState;
+        }
+
+        if (_enemy.IsWithingAttackRange)
+        {
+            return _enemy.AttackState;
+        }
+
+        _enemy.MoveEnemy(Vector2.zero);
+
+        return base.ExecuteState();
+    }
+
     public override void ExitState()
     {
         base.ExitState();
-    }
-
-    public override void FrameUpdate()
-    {
-        base.FrameUpdate();
-
-        enemy.MoveEnemy(Vector2.zero);
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
+        Debug.Log($"Exited Chase state!");
     }
 }

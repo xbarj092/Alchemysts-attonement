@@ -1,8 +1,9 @@
 using System;
+using UnityEngine;
 
-public class EnemyStateAttack : EnemyState
+public class EnemyStateHit : EnemyState
 {
-    public EnemyStateAttack(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateHit(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -14,12 +15,13 @@ public class EnemyStateAttack : EnemyState
 
     public override void EnterState()
     {
+        Debug.Log($"Entered Hit state!");
         base.EnterState();
     }
 
     public override EnemyState ExecuteState()
     {
-        if (IsAttackCompleted())
+        if (IsHitCompleted())
         {
             return _enemy.ChasingState;
         }
@@ -27,14 +29,15 @@ public class EnemyStateAttack : EnemyState
         return base.ExecuteState();
     }
 
-    private bool IsAttackCompleted()
+    private bool IsHitCompleted()
     {
-        // implement attack func
+        // implement hit func
         throw new NotImplementedException();
     }
 
     public override void ExitState()
     {
+        Debug.Log($"Exited Hit state!");
         base.ExitState();
     }
 }

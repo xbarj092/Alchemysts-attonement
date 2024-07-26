@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public interface Imovable
+public interface IMovable
 {
-    Rigidbody2D _rb { get; set; }
+    Rigidbody2D Rb { get; set; }
     void MoveEnemy(Vector2 velocity);
     void CheckforDirection(Vector2 velocity);
 }

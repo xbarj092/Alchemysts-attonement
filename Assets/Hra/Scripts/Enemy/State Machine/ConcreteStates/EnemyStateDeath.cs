@@ -1,8 +1,8 @@
-using System;
+using UnityEngine;
 
-public class EnemyStateAttack : EnemyState
+public class EnemyStateDeath : EnemyState
 {
-    public EnemyStateAttack(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateDeath(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -14,27 +14,18 @@ public class EnemyStateAttack : EnemyState
 
     public override void EnterState()
     {
+        Debug.Log($"Entered Death state!");
         base.EnterState();
     }
 
     public override EnemyState ExecuteState()
     {
-        if (IsAttackCompleted())
-        {
-            return _enemy.ChasingState;
-        }
-
         return base.ExecuteState();
-    }
-
-    private bool IsAttackCompleted()
-    {
-        // implement attack func
-        throw new NotImplementedException();
     }
 
     public override void ExitState()
     {
+        Debug.Log($"Exited Death state!");
         base.ExitState();
     }
 }

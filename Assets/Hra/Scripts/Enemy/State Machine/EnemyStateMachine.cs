@@ -1,13 +1,30 @@
+using System;
 using UnityEngine;
 
-public class EnemyStateMachine
+public class EnemyStateMachine : MonoBehaviour
 {
+    public event Action<EnemyState> OnStateChanged;
+
     public EnemyState CurrentEnemyState {  get; set; }
 
     public void Initialize(EnemyState startingState)
     {
         CurrentEnemyState = startingState;
         CurrentEnemyState.EnterState();
+    }
+
+    private void Update()
+    {
+        if (CurrentEnemyState == null)
+        {
+            return;
+        }
+
+        EnemyState nextState = CurrentEnemyState?.ExecuteState();
+        if (nextState != null && nextState != CurrentEnemyState)
+        {
+            ChangeState(nextState);
+        }
     }
 
     public void ChangeState(EnemyState newState)
