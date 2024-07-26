@@ -9,7 +9,6 @@ public class UpgradeSlot : MonoBehaviour
     [Header("Image")]
     [SerializeField] private Image _itemImage;
     [SerializeField] private Sprite _lockedSprite;
-    [SerializeField] private Sprite _fullyUpgradedSprite;
 
     [Header("stuff")]
     [SerializeField] private TMP_Text _itemName;
@@ -49,7 +48,6 @@ public class UpgradeSlot : MonoBehaviour
         }
         else if (_upgradeData.Level == _upgradeData.MaxLevel)
         {
-            _itemImage.sprite = _fullyUpgradedSprite;
             _priceText.text = "MAX";
         }
         else
@@ -60,7 +58,8 @@ public class UpgradeSlot : MonoBehaviour
 
         for (int i = 0; i < _levels.Count; i++)
         {
-            _levels[i].gameObject.SetActive(i < _upgradeData.Level);
+            _levels[i].gameObject.SetActive(i+1 == _upgradeData.Level);
+            Debug.Log($"i: {i}, current level: {_upgradeData.Level}");
         }
     }
      
