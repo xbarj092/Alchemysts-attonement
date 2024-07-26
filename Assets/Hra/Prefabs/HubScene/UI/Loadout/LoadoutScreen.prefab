@@ -3238,6 +3238,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
+      propertyPath: _percentual
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838417616281521293, guid: a4c1df325926d0248bc10671aca924d3, type: 3}
       propertyPath: SpecialEffect
       value: 4
       objectReference: {fileID: 0}

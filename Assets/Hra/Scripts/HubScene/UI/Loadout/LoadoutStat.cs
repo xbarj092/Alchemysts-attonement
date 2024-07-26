@@ -19,6 +19,7 @@ public class LoadoutStat : MonoBehaviour
     [SerializeField] private Image _statImage;
     [SerializeField] private TMP_Text _statText;
     [SerializeField] private bool _multiplier;
+    [SerializeField] private bool _percentual;
 
     public float StatValue;
     public WeaponStat WeaponStat;
@@ -57,26 +58,37 @@ public class LoadoutStat : MonoBehaviour
     {
         if (!special)
         {
-            _statText.text = finalValue.ToString("F1");
+            _statText.text = FormatNumber(finalValue);
             return;
         }
 
         float valueDifference = finalValue - weaponValue;
+        if (_percentual)
+        {
+            valueDifference *= 100;
+            weaponValue *= 100;
+        }
+
         string differenceText;
 
         if (weaponValue == 0)
         {
             differenceText = valueDifference > 0
-                ? $"<color=green>{Mathf.Abs(valueDifference):F1}</color>"
-                : $"<color=red>{Mathf.Abs(valueDifference):F1}</color>";
+                ? $"<color=green>{FormatNumber(Mathf.Abs(valueDifference))}</color>"
+                : $"<color=red>{FormatNumber(Mathf.Abs(valueDifference))}</color>";
         }
         else
         {
             differenceText = valueDifference > 0
-                ? $"<color=green> + {Mathf.Abs(valueDifference):F1}</color>"
-                : $"<color=red> - {Mathf.Abs(valueDifference):F1}</color>";
+                ? $"<color=green> + {FormatNumber(Mathf.Abs(valueDifference))}</color>"
+                : $"<color=red> - {FormatNumber(Mathf.Abs(valueDifference))}</color>";
         }
 
-        _statText.text = weaponValue > 0 ? $"{weaponValue:F1} {differenceText}" : differenceText;
+        _statText.text = weaponValue > 0 ? $"{FormatNumber(weaponValue)} {differenceText}" : differenceText;
+    }
+
+    private string FormatNumber(float number)
+    {
+        return number % 1 == 0 ? number.ToString("F0") : number.ToString("F1");
     }
 }
