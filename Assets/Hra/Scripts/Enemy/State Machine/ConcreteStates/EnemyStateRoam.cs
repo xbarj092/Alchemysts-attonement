@@ -10,14 +10,10 @@ public class EnemyStateRoam : EnemyState
 
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTrigger trigger)
-    {
-        base.AnimationTriggerEvent(trigger);
-    }
-
     public override void EnterState()
     {
         Debug.Log($"Entered Roam state!");
+        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyRoam);
         base.EnterState();
 
         _targetPos = GetRandomPosition();
@@ -46,13 +42,8 @@ public class EnemyStateRoam : EnemyState
         base.ExitState();
     }
 
-    public void MoveEnemy()
+    private void MoveEnemy()
     {
-        if (_enemy.IsAggroed)
-        {
-            _enemy.StateMachine.ChangeState(_enemy.ChasingState);
-        }
-
         _direction = (_targetPos - (Vector2)_enemy.transform.position).normalized;
 
         _enemy.MoveEnemy(_direction * _enemy.MovementSpeed);

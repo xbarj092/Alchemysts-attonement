@@ -11,14 +11,10 @@ public class EnemyStateIdle : EnemyState
 
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTrigger trigger)
-    {
-        base.AnimationTriggerEvent(trigger);
-    }
-
     public override void EnterState()
     {
         _timeElapsed = 0;
+        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyIdle);
         Debug.Log($"Entered Idle state!");
         base.EnterState();
     }

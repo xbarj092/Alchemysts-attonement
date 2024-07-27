@@ -7,14 +7,10 @@ public class EnemyStateChase : EnemyState
 
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTrigger trigger)
-    {
-        base.AnimationTriggerEvent(trigger);
-    }
-
     public override void EnterState()
     {
         base.EnterState();
+        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyChase);
 
         Debug.Log($"Entered Chase state!");
     }

@@ -26,5 +26,4 @@ public class EnemyState
 
     public virtual void EnterState() { }
     public virtual void ExitState() { }
-    public virtual void AnimationTriggerEvent(Enemy.AnimationTrigger trigger) { }
 }
