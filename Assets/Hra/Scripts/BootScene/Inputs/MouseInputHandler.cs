@@ -9,7 +9,7 @@ public class MouseInputHandler : IInputHandler
     private CursorSpriteSwapper _cursorSpriteSwapper;
     private TooltipSpawner _tooltipSpawner;
 
-    private Canvas _activeCanvas;
+    private BaseCanvasController _activeCanvas;
     private GraphicRaycaster _graphicRaycaster;
 
     public event Action<string> OnToolTipSpawned;
@@ -93,7 +93,7 @@ public class MouseInputHandler : IInputHandler
         List<RaycastResult> results = new();
         if (_activeCanvas == null)
         {
-            _activeCanvas = GameObject.FindObjectOfType<Canvas>();
+            _activeCanvas = GameObject.FindObjectOfType<BaseCanvasController>();
         }
 
         if (_graphicRaycaster == null)

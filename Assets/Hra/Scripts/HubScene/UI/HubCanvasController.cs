@@ -9,8 +9,8 @@ public class HubCanvasController : BaseCanvasController
     {
         return gameScreenType switch
         {
-            GameScreenType.Upgrades => Instantiate(_upgradesScreenPrefab, FindObjectOfType<Canvas>().transform),
-            GameScreenType.Loadout => Instantiate(_loadoutScreenPrefab, FindObjectOfType<Canvas>().transform),
+            GameScreenType.Upgrades => Instantiate(_upgradesScreenPrefab, transform),
+            GameScreenType.Loadout => Instantiate(_loadoutScreenPrefab, transform),
             _ => base.GetRelevantScreen(gameScreenType),
         };
     }

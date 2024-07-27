@@ -32,6 +32,6 @@ public class HUD : MonoBehaviour
 
     private void UpdatePlayerStats(PlayerStats stats)
     {
-        _healthBar.SetPlayerHealth(stats.CurrentHealth, stats.MaxHealth);
+        _healthBar.SetHealth(stats.CurrentHealth, stats.MaxHealth);
     }
 }

@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWeapons : MonoBehaviour
 {
     public List<BaseWeapon> ValidWeapons = new();
+
+    public event Action OnWeaponChanged;
 
     private void OnEnable()
     {
@@ -23,6 +26,7 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         Instantiate(GetWeapon(loadoutData), transform.position, transform.root.rotation, transform);
+        OnWeaponChanged?.Invoke();
     }
 
     private BaseWeapon GetWeapon(LoadoutData loadoutData)
