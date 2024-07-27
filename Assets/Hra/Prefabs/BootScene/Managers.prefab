@@ -179,7 +179,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <TutorialsEnabled>k__BackingField: 1
-  <TutorialList>k__BackingField: []
+  <TutorialList>k__BackingField:
+  - {fileID: 5426277729551771828, guid: 9a95d772ec3632c4894a6150cfa17d32, type: 3}
+  - {fileID: 5426277729551771828, guid: fa9c83f5d7834cf4baffc0a5b151fda2, type: 3}
+  - {fileID: 5426277729551771828, guid: 352b9ce2e283a3f4ca487cdda914884d, type: 3}
+  - {fileID: 5426277729551771828, guid: 49da9e240c90f05429673df0c3f1ea0f, type: 3}
 --- !u!1 &2470958027291121897
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    public event Action<EnemyState> OnStateChanged;
-
     public EnemyState CurrentEnemyState {  get; set; }
 
     public void Initialize(EnemyState startingState)
