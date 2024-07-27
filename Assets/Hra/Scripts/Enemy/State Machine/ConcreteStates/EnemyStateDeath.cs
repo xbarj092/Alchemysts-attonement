@@ -7,14 +7,10 @@ public class EnemyStateDeath : EnemyState
 
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTrigger trigger)
-    {
-        base.AnimationTriggerEvent(trigger);
-    }
-
     public override void EnterState()
     {
         Debug.Log($"Entered Death state!");
+        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyDeath);
         base.EnterState();
     }
 

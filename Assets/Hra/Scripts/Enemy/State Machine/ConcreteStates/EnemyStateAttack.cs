@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyStateAttack : EnemyState
@@ -12,14 +11,10 @@ public class EnemyStateAttack : EnemyState
 
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTrigger trigger)
-    {
-        base.AnimationTriggerEvent(trigger);
-    }
-
     public override void EnterState()
     {
         _timeElapsed = 0;
+        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyAttack);
         Debug.Log($"Entered Attack state!");
         base.EnterState();
     }

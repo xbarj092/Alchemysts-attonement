@@ -7,8 +7,7 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
     [field: SerializeField] public float CurrentHealth { get; set; }
     public Rigidbody2D Rb { get; set; }
 
-    #region State Machine Variables
-
+    [field: SerializeField] public EnemyAnimator Animator;
     [field: SerializeField] public EnemyStateMachine StateMachine { get; set; }
     public EnemyStateIdle IdleState {  get; set; }
     public EnemyStateRoam RoamingState { get; set; }
@@ -22,14 +21,8 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
     public bool IsAggroed { get; set; }
     public bool IsWithingAttackRange { get; set; }
 
-    #endregion
-
-    #region Roam Variables
-
     public float MovementRange = 5f;
     public float MovementSpeed = 1f;
-
-    #endregion
 
     private void Awake()
     {
@@ -48,8 +41,6 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
         StateMachine.Initialize(RoamingState); //TODO: change to idle, this is for debugging
     }
 
-    #region Health / Damage functions
-
     public void Damage(float damageAmount)
     {
         CurrentHealth -= damageAmount;
@@ -65,9 +56,6 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
         Destroy(this);
     }
 
-    #endregion
-
-    #region Movement functions
     public void MoveEnemy(Vector2 velocity)
     {
         CheckforDirection(velocity);
@@ -79,28 +67,6 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     }
 
-    #endregion
-
-    #region Animation Triggers
-
-    private void AnimationTriggerEvent(AnimationTrigger trigger)
-    {
-        StateMachine.CurrentEnemyState.AnimationTriggerEvent(trigger);
-    }
-
-    public enum AnimationTrigger
-    {
-        EnemyIdle,
-        EnemyRoaming,
-        EnemyDamaged,
-        EnemyAttacking,
-        PlaySounds
-    }
-
-    #endregion
-
-    #region Trigger Checks
-
     public void SetAggro(bool Aggro)
     {
         IsAggroed = Aggro;
@@ -110,6 +76,4 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
     {
         IsWithingAttackRange = attackRangeCheck;
     }
-
-    #endregion
 }
