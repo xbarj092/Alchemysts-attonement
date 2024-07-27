@@ -1,12 +1,13 @@
+using System;
 using UnityEngine;
 
-public class EnemyStateIdle : EnemyState
+public class EnemyStateHit : EnemyState
 {
     private float _timeElapsed;
 
-    private const float WAIT_TIME = 1f;
+    private const float HIT_TIME = 1f;
 
-    public EnemyStateIdle(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateHit(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -19,36 +20,24 @@ public class EnemyStateIdle : EnemyState
     public override void EnterState()
     {
         _timeElapsed = 0;
-        Debug.Log($"Entered Idle state!");
+        Debug.Log($"Entered Hit state!");
         base.EnterState();
     }
 
     public override EnemyState ExecuteState()
     {
-        if (_enemy.IsAggroed)
+        if (IsHitCompleted())
         {
             return _enemy.ChasingState;
         }
 
-        if (_enemy.IsWithingAttackRange)
-        {
-            return _enemy.AttackState;
-        }
-
-        if (FinishedWaiting())
-        {
-            return _enemy.RoamingState;
-        }
-
-        // do idle stuff
-
         return base.ExecuteState();
     }
 
-    private bool FinishedWaiting()
+    private bool IsHitCompleted()
     {
         _timeElapsed += Time.deltaTime;
-        if (_timeElapsed >= WAIT_TIME)
+        if (_timeElapsed >= HIT_TIME)
         {
             return true;
         }
@@ -58,7 +47,7 @@ public class EnemyStateIdle : EnemyState
 
     public override void ExitState()
     {
-        Debug.Log($"Exited Idle state!");
+        Debug.Log($"Exited Hit state!");
         base.ExitState();
     }
 }

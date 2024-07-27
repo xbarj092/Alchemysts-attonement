@@ -71,7 +71,6 @@ public class MouseInputHandler : IInputHandler
         List<RaycastResult> uiResults = RaycastToUI(mousePosition);
         foreach (RaycastResult result in uiResults)
         {
-            //Debug.Log($"UI Hit: {result.gameObject.name}"); // Debugging line
             if (result.gameObject.CompareTag(GlobalConstants.Tags.ToolTip.ToString()))
             {
                 string tooltip = _tooltipSpawner.SetToolTip(result);

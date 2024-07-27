@@ -370,10 +370,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8393978585512377434}
-  - component: {fileID: 1035496588390103754}
   - component: {fileID: 7680004240970265624}
-  - component: {fileID: 3418786765554506519}
   - component: {fileID: 8069723568039742327}
+  - component: {fileID: 1035496588390103754}
+  - component: {fileID: 1255892654838753454}
   m_Layer: 0
   m_Name: Shade
   m_TagString: Untagged
@@ -399,22 +399,6 @@ Transform:
   - {fileID: 4854955547641433562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1035496588390103754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985962995677870791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6eabb3189279548ae69d3e8d7dfe95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
-  <CurrentHealth>k__BackingField: 0
-  RandomMovementRange: 5
-  RandomMovementSpeed: 1
 --- !u!61 &7680004240970265624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -460,22 +444,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45493984, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3418786765554506519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985962995677870791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6eabb3189279548ae69d3e8d7dfe95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
-  <CurrentHealth>k__BackingField: 100
-  RandomMovementRange: 5
-  RandomMovementSpeed: 1
 --- !u!50 &8069723568039742327
 Rigidbody2D:
   serializedVersion: 4
@@ -503,3 +471,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1035496588390103754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985962995677870791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6eabb3189279548ae69d3e8d7dfe95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100
+  <CurrentHealth>k__BackingField: 0
+  <StateMachine>k__BackingField: {fileID: 1255892654838753454}
+  MovementRange: 5
+  MovementSpeed: 1
+--- !u!114 &1255892654838753454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985962995677870791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39006821fa0818042ab71d7f98e6fba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

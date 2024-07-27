@@ -21,12 +21,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     Camera cameraMain;
 
-    private PlayerWeapon playerWeapon;
+    private Animator _animator;
+    private PlayerWeapon _playerWeapon;
 
     private void Awake()
     {
         cameraMain = Camera.main;
-        playerWeapon = GetComponentInChildren<PlayerWeapon>();
+        _playerWeapon = GetComponentInChildren<PlayerWeapon>();
+        _animator = _playerWeapon.GetComponentInChildren<Animator>();
         Head = gameObject.transform.GetChild(0).gameObject;
     }
 
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing) return;
         
-        getInputs();
+        GetInputs();
     }
 
     private void FixedUpdate()
@@ -42,14 +44,13 @@ public class PlayerController : MonoBehaviour
         if (isDashing) return;
 
         Move();
-        adjustViewDirection();
+        AdjustViewDirection();
     }
 
 
-    private void getInputs()
+    private void GetInputs()
     {
         _movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        var animator = playerWeapon.GetComponentInChildren<Animator>();
 
         _mousePosition = cameraMain.ScreenToWorldPoint(Input.mousePosition);
 
@@ -57,19 +58,18 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && animator != null)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _animator != null)
         {
-            animator.SetTrigger("Attack");
+            _animator.SetTrigger("Attack");
         }
-
     }
 
-    private void adjustViewDirection()
+    private void AdjustViewDirection()
     {
         Vector2 aimDirection = _mousePosition - _rigidBody.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         Head.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle);
-        playerWeapon.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle+90f);
+        _playerWeapon.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle+90f);
     }
 
     private void Move()

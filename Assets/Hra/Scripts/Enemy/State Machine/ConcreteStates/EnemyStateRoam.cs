@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyStateRoam : EnemyState
@@ -18,43 +17,54 @@ public class EnemyStateRoam : EnemyState
 
     public override void EnterState()
     {
+        Debug.Log($"Entered Roam state!");
         base.EnterState();
 
         _targetPos = GetRandomPosition();
     }
 
+    public override EnemyState ExecuteState()
+    {
+        if (_enemy.IsAggroed)
+        {
+            return _enemy.ChasingState;
+        }
+
+        if ((Vector2)_enemy.transform.position == _targetPos)
+        {
+            return _enemy.IdleState;
+        }
+
+        MoveEnemy();
+
+        return base.ExecuteState();
+    }
 
     public override void ExitState()
     {
+        Debug.Log($"Exited Roam state!");
         base.ExitState();
     }
 
-    public override void FrameUpdate()
+    public void MoveEnemy()
     {
-        if (enemy.isAggroed)
+        if (_enemy.IsAggroed)
         {
-            enemy.StateMachine.ChangeState(enemy.ChasingState);
+            _enemy.StateMachine.ChangeState(_enemy.ChasingState);
         }
 
-        base.FrameUpdate();
+        _direction = (_targetPos - (Vector2)_enemy.transform.position).normalized;
 
-        _direction = (_targetPos - (Vector2)enemy.transform.position).normalized;
+        _enemy.MoveEnemy(_direction * _enemy.MovementSpeed);
 
-        enemy.MoveEnemy(_direction * enemy.RandomMovementSpeed);
-
-        if (((Vector2)enemy.transform.position - _targetPos).sqrMagnitude < 0.01)
+        if (((Vector2)_enemy.transform.position - _targetPos).sqrMagnitude < 0.01)
         {
             _targetPos = GetRandomPosition();
         }
     }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
-
     private Vector2 GetRandomPosition()
     {
-        return (Vector2)enemy.transform.position + (UnityEngine.Random.insideUnitCircle * enemy.RandomMovementRange);
+        return (Vector2)_enemy.transform.position + (Random.insideUnitCircle * _enemy.MovementRange);
     }
 }

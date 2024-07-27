@@ -1,16 +1,15 @@
 public interface ITriggerCheckable
 {
-    bool isAggroed { get; set; }
-    bool isWithingAttackRange { get; set; }
+    bool IsAggroed { get; set; }
+    bool IsWithingAttackRange { get; set; }
 
     public void SetAggro(bool Aggro)
     {
-        isAggroed = Aggro;
+        IsAggroed = Aggro;
     }
 
-    public void setwithinAttackRange(bool AttackRangeCheck)
+    public void SetWithinAttackRange(bool AttackRangeCheck)
     {
-        isWithingAttackRange = AttackRangeCheck;
+        IsWithingAttackRange = AttackRangeCheck;
     }
-
 }
