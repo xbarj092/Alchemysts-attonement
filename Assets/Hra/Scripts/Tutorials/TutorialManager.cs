@@ -66,7 +66,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
 
     private void SpawnTutorial(TutorialPlayer tutorial)
     {
-        CurrentTutorial = Instantiate(tutorial, FindObjectOfType<Canvas>().transform);
+        CurrentTutorial = Instantiate(tutorial, FindObjectOfType<BaseCanvasController>().transform);
         if (CurrentTutorial == null)
         {
             Debug.LogError($"[TutorialManager] Cannot instantiate tutorial {tutorial.TutorialID}! Check if it exists!");

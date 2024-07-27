@@ -212,7 +212,6 @@ GameObject:
   m_Component:
   - component: {fileID: 222129723068208112}
   - component: {fileID: 4296282171526901693}
-  - component: {fileID: 5045650957007666559}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -253,18 +252,6 @@ MonoBehaviour:
   - {fileID: -2610000312171298876, guid: 907a2cb995a118442976e7621678d694, type: 3}
   - {fileID: 8198883564672942283, guid: 43f17f8cab97b464ca77c8d6d74a3524, type: 3}
   - {fileID: 3951597365201428790, guid: 787b3bab55fd2d7489f4774b11054fc0, type: 3}
---- !u!114 &5045650957007666559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415487712324758936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a2616462f5508842bae1c1e21c4933f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3743292741567430425
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 1135100956438541663}
+  _playerWeapons: {fileID: 4296282171526901693}
   _movementSpeed: 8
   _dashForce: 20
   _dashDuration: 0.25

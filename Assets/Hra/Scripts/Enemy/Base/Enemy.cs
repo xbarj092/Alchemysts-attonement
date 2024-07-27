@@ -3,8 +3,10 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody2D))]
 public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 {
-    [field: SerializeField] public float MaxHealth { get; set; } = 100f;
-    [field: SerializeField] public float CurrentHealth { get; set; }
+    [SerializeField] private EnemyBase _enemyStats;
+    private EnemyInstance _enemyInstance;
+    [SerializeField] private HealthBar _healthBar;
+
     public Rigidbody2D Rb { get; set; }
 
     [field: SerializeField] public EnemyAnimator Animator;
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     private void Awake()
     {
+        _enemyInstance = new(_enemyStats);
         IdleState = new EnemyStateIdle(this, StateMachine);
         RoamingState = new EnemyStateRoam(this, StateMachine);
         ChasingState = new EnemyStateChase(this, StateMachine);
@@ -34,8 +37,6 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     private void Start() 
     {
-        CurrentHealth = MaxHealth;
-
         Rb = GetComponent<Rigidbody2D>();
 
         StateMachine.Initialize(RoamingState); //TODO: change to idle, this is for debugging
@@ -43,17 +44,19 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     public void Damage(float damageAmount)
     {
-        CurrentHealth -= damageAmount;
+        _enemyInstance.CurrentHealth -= damageAmount;
+        _healthBar.SetHealth(_enemyInstance.CurrentHealth, _enemyInstance.MaxHealth);
 
-        if (CurrentHealth <= 0f)
+        if (_enemyInstance.CurrentHealth <= 0f)
         {
+            _healthBar.enabled = false;
             Die();
         }
     }
 
     public void Die()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     public void MoveEnemy(Vector2 velocity)
