@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,12 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         Instantiate(GetWeapon(loadoutData), transform.position, transform.root.rotation, transform);
+        StartCoroutine(DelayedWeaponChange());
+    }
+
+    private IEnumerator DelayedWeaponChange()
+    {
+        yield return null;
         OnWeaponChanged?.Invoke();
     }
 

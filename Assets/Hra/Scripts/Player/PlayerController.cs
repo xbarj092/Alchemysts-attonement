@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     Camera cameraMain;
 
+    public bool CanAttack = true;
+    public bool IsAttacking = false;
+
     private void Awake()
     {
         cameraMain = Camera.main;
@@ -38,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        _playerWeapons.OnWeaponChanged += SetAnimator;
+        _playerWeapons.OnWeaponChanged -= SetAnimator;
     }
 
     private void Update()
@@ -71,10 +75,19 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _animator != null)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsAttacking && _animator != null)
         {
-            _animator.SetTrigger("Attack");
+            StartCoroutine(Attack());
         }
+    }
+
+    private IEnumerator Attack()
+    {
+        _animator.speed = LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate;
+        _animator.SetTrigger("Attack");
+        IsAttacking = true;
+        yield return new WaitForSeconds(1 / LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate);
+        IsAttacking = false;
     }
 
     private void AdjustViewDirection()
