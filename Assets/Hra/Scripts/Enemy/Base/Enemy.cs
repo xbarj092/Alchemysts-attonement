@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     public void Die()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     public void MoveEnemy(Vector2 velocity)

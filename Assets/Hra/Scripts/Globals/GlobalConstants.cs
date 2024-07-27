@@ -6,7 +6,8 @@ public static class GlobalConstants
         Player,
         Upgrades,
         Loadout,
-        ToolTip
+        ToolTip,
+        Enemy
     }
 
     public class Layers

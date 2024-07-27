@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     Camera cameraMain;
 
+    private BaseWeapon _weapon;
+
     public bool CanAttack = true;
     public bool IsAttacking = false;
 
@@ -37,12 +39,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerWeapons.OnWeaponChanged += SetAnimator;
+        _playerWeapons.OnWeaponChanged += OnWeaponChanged;
     }
 
     private void OnDisable()
     {
-        _playerWeapons.OnWeaponChanged -= SetAnimator;
+        _playerWeapons.OnWeaponChanged -= OnWeaponChanged;
     }
 
     private void Update()
@@ -60,8 +62,9 @@ public class PlayerController : MonoBehaviour
         AdjustViewDirection();
     }
 
-    private void SetAnimator()
+    private void OnWeaponChanged(BaseWeapon newWeapon)
     {
+        _weapon = newWeapon;
         _animator = _playerWeapons.GetComponentInChildren<Animator>();
     }
 
@@ -83,6 +86,11 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        if (_weapon is MeleeWeapon melee)
+        {
+            melee.Use();
+        }
+
         _animator.speed = LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate;
         _animator.SetTrigger("Attack");
         IsAttacking = true;

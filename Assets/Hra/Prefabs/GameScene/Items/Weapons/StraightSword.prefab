@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7653933746688156666}
   - component: {fileID: 3951597365201428790}
-  - component: {fileID: -2207128373108679227}
   - component: {fileID: 941497455734064034}
   m_Layer: 0
   m_Name: StraightSword
@@ -51,18 +50,7 @@ MonoBehaviour:
   <State>k__BackingField: 3
   <Visual>k__BackingField: {fileID: 8947312705025354427}
   <Holder>k__BackingField: {fileID: 0}
---- !u!114 &-2207128373108679227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 987407143786824633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65ccfb2450836b4f9cb87feab9f11a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _colliderObject: {fileID: 2043634340451522517}
 --- !u!95 &941497455734064034
 Animator:
   serializedVersion: 5
@@ -95,6 +83,7 @@ GameObject:
   - component: {fileID: 2376123138175109275}
   - component: {fileID: 2442477989744562244}
   - component: {fileID: 8422113220906111773}
+  - component: {fileID: 2043634340451522517}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -222,6 +211,18 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: -0.0625, y: 0.46875}
   m_UseDelaunayMesh: 0
+--- !u!114 &2043634340451522517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852449267433823575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc0de6a97791c948b95f7b9af6758d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8947312705025354427
 GameObject:
   m_ObjectHideFlags: 0
