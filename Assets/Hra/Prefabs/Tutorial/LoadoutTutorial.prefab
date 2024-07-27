@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5087276861903100348}
   - component: {fileID: 5426277729551771828}
   m_Layer: 5
-  m_Name: CombatTutorialAction
+  m_Name: LoadoutTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 3861464362421568129}
-  <TutorialID>k__BackingField: 3
+  <TutorialID>k__BackingField: 2
   Action: {fileID: 6036617632991571760}
   <MainTexts>k__BackingField: {fileID: 0}
 --- !u!1 &8669567393621838106

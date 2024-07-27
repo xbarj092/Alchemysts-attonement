@@ -4,9 +4,11 @@ using UnityEngine;
 
 public enum TutorialID
 {
-    Movement = 0,
-    Cubes = 1,
-    Watchers = 2
+    None = 0,
+    Shop = 1,
+    Loadout = 2,
+    Combat = 3,
+    Death = 4
 }
 
 public class TutorialManager : MonoSingleton<TutorialManager>
