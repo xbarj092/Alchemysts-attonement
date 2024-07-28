@@ -19,6 +19,8 @@ public class BaseWeapon : MonoBehaviour
     [field: SerializeField, ReadOnly] public GameObject Holder { get; protected set; }
     public bool CanUse { get; protected set; } = true;
 
+    protected ElementHandler _elementHandler = new();
+
     public event Action<BaseWeapon, bool> OnWeaponUsed;
     public event Action<WeaponStates> OnStateChanged;
     public event Action<float> OnCoolDownSwipe;

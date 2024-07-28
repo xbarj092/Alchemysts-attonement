@@ -4,7 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 {
     [SerializeField] private EnemyBase _enemyStats;
-    private EnemyInstance _enemyInstance;
+    public EnemyInstance EnemyInstance;
     [SerializeField] private HealthBar _healthBar;
 
     public Rigidbody2D Rb { get; set; }
@@ -24,11 +24,10 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
     public bool IsWithingAttackRange { get; set; }
 
     public float MovementRange = 5f;
-    public float MovementSpeed = 1f;
 
     private void Awake()
     {
-        _enemyInstance = new(_enemyStats);
+        EnemyInstance = new(_enemyStats);
         IdleState = new EnemyStateIdle(this, StateMachine);
         RoamingState = new EnemyStateRoam(this, StateMachine);
         ChasingState = new EnemyStateChase(this, StateMachine);
@@ -42,12 +41,22 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
         StateMachine.Initialize(RoamingState); //TODO: change to idle, this is for debugging
     }
 
+    private void OnEnable()
+    {
+        EnemyManager.Instance.RegisterEnemy(this);
+    }
+
+    private void OnDisable()
+    {
+        EnemyManager.Instance.UnregisterEnemy(this);
+    }
+
     public void Damage(float damageAmount)
     {
-        _enemyInstance.CurrentHealth -= damageAmount;
-        _healthBar.SetHealth(_enemyInstance.CurrentHealth, _enemyInstance.MaxHealth);
+        EnemyInstance.CurrentHealth -= damageAmount;
+        _healthBar.SetHealth(EnemyInstance.CurrentHealth, EnemyInstance.MaxHealth);
 
-        if (_enemyInstance.CurrentHealth <= 0f)
+        if (EnemyInstance.CurrentHealth <= 0f)
         {
             _healthBar.enabled = false;
             Die();

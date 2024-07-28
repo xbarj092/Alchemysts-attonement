@@ -46,7 +46,7 @@ public class EnemyStateRoam : EnemyState
     {
         _direction = (_targetPos - (Vector2)_enemy.transform.position).normalized;
 
-        _enemy.MoveEnemy(_direction * _enemy.MovementSpeed);
+        _enemy.MoveEnemy(_direction * _enemy.EnemyInstance.MovementSpeed);
 
         if (((Vector2)_enemy.transform.position - _targetPos).sqrMagnitude < 0.01)
         {
