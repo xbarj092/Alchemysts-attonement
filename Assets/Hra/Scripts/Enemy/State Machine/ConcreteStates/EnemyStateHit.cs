@@ -23,6 +23,7 @@ public class EnemyStateHit : EnemyState
     {
         if (IsHitCompleted())
         {
+            _enemy.IsHit = false;
             return _enemy.ChasingState;
         }
 

@@ -15,5 +15,5 @@ MonoBehaviour:
   Health: 100
   Weapon: {fileID: 11400000, guid: c859be828fc9893448c6362d3cfed9df, type: 2}
   MovementSpeed: 0
-  DropsCoins: 10
-  DropsShadows: 10
+  DropsCoins: 30
+  DropsShadows: 20
