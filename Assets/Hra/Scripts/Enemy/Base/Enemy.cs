@@ -4,14 +4,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 {
     [SerializeField] private EnemyBase _enemyStats;
-    private EnemyInstance _enemyInstance;
+    public EnemyInstance EnemyInstance;
     [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private EnemyVFXHandler _enemyVFXHandler;
 
-    public Rigidbody2D Rb { get; set; }
-
-    [field: SerializeField] public EnemyAnimator Animator;
+    public EnemyAnimator Animator;
+    [field: SerializeField] public Rigidbody2D Rb { get; set; }
     [field: SerializeField] public EnemyStateMachine StateMachine { get; set; }
-    public EnemyStateIdle IdleState {  get; set; }
+    public EnemyStateIdle IdleState { get; set; }
     public EnemyStateRoam RoamingState { get; set; }
     public EnemyStateChase ChasingState { get; set; }
     public EnemyStateAttack AttackState { get; set; }
@@ -23,12 +23,44 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
     public bool IsAggroed { get; set; }
     public bool IsWithingAttackRange { get; set; }
 
+    private bool _isFreezeApplied;
+    public bool IsFreezeApplied
+    {
+        get => _isFreezeApplied;
+        set
+        {
+            _isFreezeApplied = value;
+            _enemyVFXHandler.SetEffect(SpecialEffect.EnemySlow, value);
+        }
+    }
+
+    private bool _isDoTApplied;
+    public bool IsDoTApplied
+    {
+        get => _isDoTApplied;
+        set
+        {
+            _isDoTApplied = value;
+            _enemyVFXHandler.SetEffect(SpecialEffect.Dot, value);
+        }
+    }
+
+    private bool _isChainApplied;
+    public bool IsChainApplied
+    {
+        get => _isChainApplied;
+        set
+        {
+            _isChainApplied = value;
+            _enemyVFXHandler.SetEffect(SpecialEffect.ChainDamage, value);
+        }
+    }
+
     public float MovementRange = 5f;
-    public float MovementSpeed = 1f;
 
     private void Awake()
     {
-        _enemyInstance = new(_enemyStats);
+        EnemyInstance = new(_enemyStats);
         IdleState = new EnemyStateIdle(this, StateMachine);
         RoamingState = new EnemyStateRoam(this, StateMachine);
         ChasingState = new EnemyStateChase(this, StateMachine);
@@ -37,17 +69,25 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     private void Start() 
     {
-        Rb = GetComponent<Rigidbody2D>();
-
         StateMachine.Initialize(RoamingState); //TODO: change to idle, this is for debugging
+    }
+
+    private void OnEnable()
+    {
+        EnemyManager.Instance.RegisterEnemy(this);
+    }
+
+    private void OnDisable()
+    {
+        EnemyManager.Instance.UnregisterEnemy(this);
     }
 
     public void Damage(float damageAmount)
     {
-        _enemyInstance.CurrentHealth -= damageAmount;
-        _healthBar.SetHealth(_enemyInstance.CurrentHealth, _enemyInstance.MaxHealth);
+        EnemyInstance.CurrentHealth -= damageAmount;
+        _healthBar.SetHealth(EnemyInstance.CurrentHealth, EnemyInstance.MaxHealth);
 
-        if (_enemyInstance.CurrentHealth <= 0f)
+        if (EnemyInstance.CurrentHealth <= 0f)
         {
             _healthBar.enabled = false;
             Die();
@@ -56,6 +96,9 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     public void Die()
     {
+        IsFreezeApplied = false;
+        IsDoTApplied = false;
+        IsChainApplied = false;
         Destroy(gameObject);
     }
 

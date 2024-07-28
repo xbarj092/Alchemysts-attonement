@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   Damage: 10
+  AttackRate: 0.25
+  MovementSpeed: 2
   DropsCoins: 10
   DropsShadows: 10

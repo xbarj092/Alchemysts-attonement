@@ -29,4 +29,31 @@ public class ElementItem : ItemBase
     public string Adjective;
     public int AdjectivePosition;
     public SerializedDictionary<SpecialEffect, List<float>> SpecialEffects = new();
+    public IPlayerEffect PlayerEffect;
+    public IEnemyEffect EnemyEffect;
+
+    private static DummyMonoBehaviour _coroutineStarter;
+    private static DummyMonoBehaviour CoroutineStarter
+    {
+        get
+        {
+            if (_coroutineStarter == null)
+            {
+                GameObject loaderGameObject = new GameObject("SceneLoader Game Object");
+                _coroutineStarter = loaderGameObject.AddComponent<DummyMonoBehaviour>();
+            }
+
+            return _coroutineStarter;
+        }
+    }
+
+    public void ApplyPlayerEffect(PlayerStats target)
+    {
+        CoroutineStarter.StartCoroutine(PlayerEffect.ApplyEffect(target, this));
+    }
+
+    public void ApplyEnemyEffect(Enemy target)
+    {
+        CoroutineStarter.StartCoroutine(EnemyEffect.ApplyEffect(target, this));
+    }
 }

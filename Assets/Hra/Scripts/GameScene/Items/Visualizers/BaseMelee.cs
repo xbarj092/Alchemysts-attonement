@@ -51,7 +51,9 @@ public class MeleeWeapon : BaseWeapon
 
     private void DamageTarget(Transform targetGameObject)
     {
-        targetGameObject.GetComponent<Enemy>().Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
+        Enemy enemy = targetGameObject.GetComponent<Enemy>();
+        enemy.Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
+        _elementHandler.ApplyElements(enemy);
     }
 
     protected void PlayOnHitVisual(Vector3 position, Quaternion rotation)
