@@ -1,12 +1,13 @@
 using UnityEngine;
 
-[RequireComponent (typeof (Rigidbody2D))]
-public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
+[RequireComponent(typeof(Rigidbody2D))]
+public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
 {
     [SerializeField] private EnemyBase _enemyStats;
     public EnemyInstance EnemyInstance;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private EnemyVFXHandler _enemyVFXHandler;
+    [SerializeField] private BaseWeapon _weapon; 
 
     public EnemyAnimator Animator;
     [field: SerializeField] public Rigidbody2D Rb { get; set; }
@@ -21,7 +22,7 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
     public bool IsHit { get; set; }
     public bool IsDead { get; set; }
     public bool IsAggroed { get; set; }
-    public bool IsWithingAttackRange { get; set; }
+    public bool IsWithinAttackRange { get; set; }
 
     private bool _isFreezeApplied;
     public bool IsFreezeApplied
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     private void Awake()
     {
+        _weapon.SetHolder(this);
         EnemyInstance = new(_enemyStats);
         IdleState = new EnemyStateIdle(this, StateMachine);
         RoamingState = new EnemyStateRoam(this, StateMachine);
@@ -67,7 +69,7 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
         AttackState = new EnemyStateAttack(this, StateMachine);
     }
 
-    private void Start() 
+    private void Start()
     {
         StateMachine.Initialize(RoamingState); //TODO: change to idle, this is for debugging
     }
@@ -80,6 +82,14 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
     private void OnDisable()
     {
         EnemyManager.Instance.UnregisterEnemy(this);
+    }
+
+    public void UseWeapon()
+    {
+        if (_weapon is BaseProjectile weapon)
+        {
+            weapon.Use();
+        }
     }
 
     public void Damage(float damageAmount)
@@ -110,16 +120,16 @@ public class Enemy : MonoBehaviour, IDamageable, IMovable, ITriggerCheckable
 
     public void CheckforDirection(Vector2 velocity)
     {
-
+        // Implement direction checking logic
     }
 
-    public void SetAggro(bool Aggro)
+    public void SetAggro(bool aggro)
     {
-        IsAggroed = Aggro;
+        IsAggroed = aggro;
     }
 
     public void SetWithinAttackRange(bool attackRangeCheck)
     {
-        IsWithingAttackRange = attackRangeCheck;
+        IsWithinAttackRange = attackRangeCheck;
     }
 }

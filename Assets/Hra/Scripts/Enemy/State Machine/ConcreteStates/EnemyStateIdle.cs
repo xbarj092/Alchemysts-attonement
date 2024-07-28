@@ -26,7 +26,7 @@ public class EnemyStateIdle : EnemyState
             return _enemy.ChasingState;
         }
 
-        if (_enemy.IsWithingAttackRange)
+        if (_enemy.IsWithinAttackRange)
         {
             return _enemy.AttackState;
         }

@@ -42,21 +42,34 @@ public class MeleeWeapon : BaseWeapon
     protected IEnumerator Swing()
     {
         ChangeGunState(WeaponStates.Using);
-        yield return new WaitForSeconds(1 / LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
+        PlayOnSwingVisual();
+        yield return new WaitForSeconds(1 / LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate);
     }
 
-    public void OnPlaySwingVisual()
+    public void PlayOnSwingVisual()
     {
+        _weaponVFXHandler.SetEffect(WeaponVFX.Swing, true);
     }
 
     private void DamageTarget(Transform targetGameObject)
     {
-        Enemy enemy = targetGameObject.GetComponent<Enemy>();
-        enemy.Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
-        _elementHandler.ApplyElements(enemy);
+        if (Holder is PlayerController)
+        {
+            Enemy enemy = targetGameObject.GetComponent<Enemy>();
+            enemy.Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
+            _elementHandler.ApplyElements(enemy);
+        }
+        else if (Holder is Enemy enemy)
+        {
+            PlayerController player = targetGameObject.GetComponent<PlayerController>();
+            player.Damage(enemy.EnemyInstance.Weapon.Damage);
+        }
+
+        PlayOnHitVisual();
     }
 
-    protected void PlayOnHitVisual(Vector3 position, Quaternion rotation)
+    protected void PlayOnHitVisual()
     {
+        _weaponVFXHandler.SetEffect(WeaponVFX.Hit, true);
     }
 }

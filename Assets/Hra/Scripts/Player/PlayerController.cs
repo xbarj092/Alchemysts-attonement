@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Entity
 {
     [Header("BASICS")]
     [SerializeField] private Rigidbody2D _rigidBody;
@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     private void OnWeaponChanged(BaseWeapon newWeapon)
     {
         _weapon = newWeapon;
+        _weapon.SetHolder(this);
         _animator = _playerWeapons.GetComponentInChildren<Animator>();
     }
 
@@ -103,6 +104,28 @@ public class PlayerController : MonoBehaviour
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         Head.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle);
         _playerWeapons.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle+90f);
+    }
+
+    public void Damage(float damageAmount)
+    {
+        PlayerStats playerStats = LocalDataStorage.Instance.PlayerData.PlayerStats;
+        playerStats.CurrentHealth -= damageAmount;
+        LocalDataStorage.Instance.PlayerData.PlayerStats = playerStats;
+
+        if (playerStats.CurrentHealth <= 0f)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+
+    }
+
+    public void Heal(float amount)
+    {
+
     }
 
     private void Move()

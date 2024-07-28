@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyStateAttack : EnemyState
@@ -15,8 +16,14 @@ public class EnemyStateAttack : EnemyState
     {
         _timeElapsed = 0;
         _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyAttack);
+        SpawnProjectile();
         Debug.Log($"Entered Attack state!");
         base.EnterState();
+    }
+
+    private void SpawnProjectile()
+    {
+        _enemy.UseWeapon();
     }
 
     public override EnemyState ExecuteState()
