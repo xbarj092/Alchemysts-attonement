@@ -69,6 +69,8 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
         RoamingState = new EnemyStateRoam(this, StateMachine);
         ChasingState = new EnemyStateChase(this, StateMachine);
         AttackState = new EnemyStateAttack(this, StateMachine);
+        HitState = new EnemyStateHit(this, StateMachine);
+        DeathState = new EnemyStateDeath(this, StateMachine);
     }
 
     private void Start()
@@ -101,6 +103,7 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
             return;
         }
 
+        IsHit = true;
         EnemyInstance.CurrentHealth -= damageAmount;
         _healthBar.SetHealth(EnemyInstance.CurrentHealth, EnemyInstance.MaxHealth);
 
