@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using Unity.Collections;
 using System;
 
 public enum WeaponStates
@@ -16,8 +15,10 @@ public class BaseWeapon : MonoBehaviour
     [field: SerializeField] public WeaponItem WeaponItem { get; protected set; }
     [field: SerializeField] public WeaponStates State { get; protected set; } = WeaponStates.Ready;
     [field: SerializeField] public GameObject Visual { get; protected set; }
-    [field: SerializeField, ReadOnly] public GameObject Holder { get; protected set; }
+    [field: SerializeField] public Entity Holder { get; protected set; }
     public bool CanUse { get; protected set; } = true;
+
+    [SerializeField] protected WeaponVFXHandler _weaponVFXHandler;
 
     protected ElementHandler _elementHandler = new();
 
@@ -41,22 +42,14 @@ public class BaseWeapon : MonoBehaviour
         OnStateChanged?.Invoke(newState);
     }
 
-    public virtual void SetHolder(GameObject holder)
-    {
-        Holder = holder;
-    }
-
     protected virtual IEnumerator CoolDown()
     {
         yield return null;
         ChangeGunState(WeaponStates.Ready);
     }
 
-    public void SetVisual(bool isVisible)
+    public void SetHolder(Entity holder)
     {
-        if (Visual == null)
-            return;
-
-        Visual.SetActive(isVisible);
+        Holder = holder;
     }
 }

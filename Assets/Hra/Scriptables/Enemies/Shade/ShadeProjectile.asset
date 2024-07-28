@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f163e90ae602149850c79b9cee7c5e, type: 3}
-  m_Name: Shade
+  m_Script: {fileID: 11500000, guid: f323893147b9cd049ab27806f4134676, type: 3}
+  m_Name: ShadeProjectile
   m_EditorClassIdentifier: 
-  Health: 100
+  ItemType: 0
+  Name: 
+  FriendlyID: 
+  Description: 
+  MaxLevel: 0
+  Icon: {fileID: 0}
+  UpgradePrices: 
   Damage: 10
-  AttackRate: 0.25
-  MovementSpeed: 2
-  DropsCoins: 10
-  DropsShadows: 10
+  Range: 0
+  AttacksPerSecond: 0.5
