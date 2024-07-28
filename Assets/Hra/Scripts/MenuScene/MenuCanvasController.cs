@@ -9,8 +9,8 @@ public class MenuCanvasController : BaseCanvasController
     {
         return gameScreenType switch
         {
-            GameScreenType.MenuMain => Instantiate(_menuMainButtonsPrefab, FindObjectOfType<Canvas>().transform),
-            GameScreenType.Options => Instantiate(_optionsScreenPrefab, FindObjectOfType<Canvas>().transform),
+            GameScreenType.MenuMain => Instantiate(_menuMainButtonsPrefab, transform),
+            GameScreenType.Options => Instantiate(_optionsScreenPrefab, transform),
             _ => base.GetRelevantScreen(gameScreenType),
         };
     }

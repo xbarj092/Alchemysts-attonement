@@ -19,7 +19,7 @@ public class BaseWeapon : MonoBehaviour
     [field: SerializeField, ReadOnly] public GameObject Holder { get; protected set; }
     public bool CanUse { get; protected set; } = true;
 
-    public WeaponInstance WeaponInstance { get; protected set; }
+    protected ElementHandler _elementHandler = new();
 
     public event Action<BaseWeapon, bool> OnWeaponUsed;
     public event Action<WeaponStates> OnStateChanged;
@@ -48,8 +48,7 @@ public class BaseWeapon : MonoBehaviour
 
     protected virtual IEnumerator CoolDown()
     {
-        ChangeGunState(WeaponStates.CoolDown);
-        yield return new WaitForSeconds(1 / WeaponInstance.AttackRate);
+        yield return null;
         ChangeGunState(WeaponStates.Ready);
     }
 

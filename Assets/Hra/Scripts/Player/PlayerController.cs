@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     [Header("BASICS")]
     [SerializeField] private Rigidbody2D _rigidBody;
+    [SerializeField] private PlayerWeapons _playerWeapons;
+
+    private Animator _animator;
     Vector2 _mousePosition;
     GameObject Head;
 
@@ -21,15 +24,26 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     Camera cameraMain;
 
-    private Animator _animator;
-    private PlayerWeapon _playerWeapon;
+    private BaseWeapon _weapon;
+
+    public bool CanAttack = true;
+    public bool IsAttacking = false;
 
     private void Awake()
     {
         cameraMain = Camera.main;
-        _playerWeapon = GetComponentInChildren<PlayerWeapon>();
-        _animator = _playerWeapon.GetComponentInChildren<Animator>();
+        _animator = _playerWeapons.GetComponent<Animator>();
         Head = gameObject.transform.GetChild(0).gameObject;
+    }
+
+    private void OnEnable()
+    {
+        _playerWeapons.OnWeaponChanged += OnWeaponChanged;
+    }
+
+    private void OnDisable()
+    {
+        _playerWeapons.OnWeaponChanged -= OnWeaponChanged;
     }
 
     private void Update()
@@ -47,6 +61,11 @@ public class PlayerController : MonoBehaviour
         AdjustViewDirection();
     }
 
+    private void OnWeaponChanged(BaseWeapon newWeapon)
+    {
+        _weapon = newWeapon;
+        _animator = _playerWeapons.GetComponentInChildren<Animator>();
+    }
 
     private void GetInputs()
     {
@@ -58,10 +77,24 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _animator != null)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsAttacking && _animator != null)
         {
-            _animator.SetTrigger("Attack");
+            StartCoroutine(Attack());
         }
+    }
+
+    private IEnumerator Attack()
+    {
+        if (_weapon is MeleeWeapon melee)
+        {
+            melee.Use();
+        }
+
+        _animator.speed = LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate;
+        _animator.SetTrigger("Attack");
+        IsAttacking = true;
+        yield return new WaitForSeconds(1 / LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate);
+        IsAttacking = false;
     }
 
     private void AdjustViewDirection()
@@ -69,7 +102,7 @@ public class PlayerController : MonoBehaviour
         Vector2 aimDirection = _mousePosition - _rigidBody.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         Head.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle);
-        _playerWeapon.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle+90f);
+        _playerWeapons.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle+90f);
     }
 
     private void Move()

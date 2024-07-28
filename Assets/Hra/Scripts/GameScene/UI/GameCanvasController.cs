@@ -10,9 +10,9 @@ public class GameCanvasController : BaseCanvasController
     {
         return gameScreenType switch
         {
-            GameScreenType.Death => Instantiate(_deathScreenPrefab, FindObjectOfType<Canvas>().transform),
-            GameScreenType.Options => Instantiate(_optionsScreenPrefab, FindObjectOfType<Canvas>().transform),
-            GameScreenType.Pause => Instantiate(_pauseMenuScreenPrefab, FindObjectOfType<Canvas>().transform),
+            GameScreenType.Death => Instantiate(_deathScreenPrefab, transform),
+            GameScreenType.Options => Instantiate(_optionsScreenPrefab, transform),
+            GameScreenType.Pause => Instantiate(_pauseMenuScreenPrefab, transform),
             _ => base.GetRelevantScreen(gameScreenType),
         };
     }
@@ -21,7 +21,7 @@ public class GameCanvasController : BaseCanvasController
     {
         return gameScreenType switch
         {
-            GameScreenType.Options => Instantiate(_pauseMenuScreenPrefab, FindObjectOfType<Canvas>().transform),
+            GameScreenType.Options => Instantiate(_pauseMenuScreenPrefab, transform),
             _ => base.GetActiveGameScreen(gameScreenType),
         };
     }

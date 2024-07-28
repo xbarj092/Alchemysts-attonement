@@ -5,17 +5,17 @@ public class WeaponComboStats
 {
     private Dictionary<string, Dictionary<WeaponStat, float>> _comboStats = new()
     {
-        { "Scorching-Zappy", new(){ { WeaponStat.Damage, -10 } } },
-        { "Scorching-Arctic", new(){ { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life-Sucking", new() { { WeaponStat.Damage, -10 } } },
-        { "Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } },
-        { "Life-Sucking-Arctic", new() { { WeaponStat.Damage, -10 } } },
-        { "Life-Sucking-Zappy", new() { { WeaponStat.Damage, -10 } } },
-        { "Scorching-Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life-Sucking-Arctic", new() { { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life-Sucking-Zappy", new() { { WeaponStat.Damage, -10 } } },
-        { "Life-Sucking-Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } },
-        { "Scorching-Life-Sucking-Arctic-Zappy", new() { { WeaponStat.Damage, -10 } } }
+        { "Scorching-Zappy", new() },
+        { "Scorching-Arctic", new() },
+        { "Scorching-Life-Sucking", new() },
+        { "Arctic-Zappy", new() },
+        { "Life-Sucking-Arctic", new() },
+        { "Life-Sucking-Zappy", new() },
+        { "Scorching-Arctic-Zappy", new() },
+        { "Scorching-Life-Sucking-Arctic", new() },
+        { "Scorching-Life-Sucking-Zappy", new() },
+        { "Life-Sucking-Arctic-Zappy", new() },
+        { "Scorching-Life-Sucking-Arctic-Zappy", new() },
     };
 
     public Dictionary<WeaponStat, float> GetComboStat()

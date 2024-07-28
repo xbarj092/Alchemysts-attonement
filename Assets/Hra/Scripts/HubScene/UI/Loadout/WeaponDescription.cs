@@ -5,16 +5,16 @@ public class WeaponDescription
 {
     private Dictionary<string, string> _descriptions = new()
     {
-        { "Scorching", "Increases your weapon’s range and adds a dot effect by setting enemies on Fire." },
-        { "Arctic", "Slows enemies, but also slows down ur weapon." },
+        { "Scorching", "Increases your weapon’s range and sets enemies on Fire." },
+        { "Arctic", "Slows enemies, but also slows down your weapon." },
         { "Zappy", "Increases attack speed and does chain damage for enemies close to each other." },
         { "Life-Sucking", "By itself works as a healing source." },
         { "Scorching-Zappy", "A weapon with fiery and electric powers." },
         { "Scorching-Arctic", "A weapon with fiery and frosty powers." },
-        { "Scorching-Life-Sucking", "Adds life steal to Fire, lowers damage." },
+        { "Scorching-Life-Sucking", "Adds life steal to Fire." },
         { "Arctic-Zappy", "A weapon with frosty and electric powers." },
-        { "Life-Sucking-Arctic", "Adds life steal to Frost, lowers damage." },
-        { "Life-Sucking-Zappy", "Adds life steal to Electric, lowers damage." },
+        { "Life-Sucking-Arctic", "Adds life steal to Frost." },
+        { "Life-Sucking-Zappy", "Adds life steal to Electric." },
         { "Scorching-Arctic-Zappy", "A weapon with fiery, frosty, and electric powers." },
         { "Scorching-Life-Sucking-Arctic", "A weapon with fiery, frosty, and life powers." },
         { "Scorching-Life-Sucking-Zappy", "A weapon with fiery, electric, and life powers." },
