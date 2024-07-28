@@ -838,6 +838,8 @@ MonoBehaviour:
   _healthBar: {fileID: 5801671690921090225}
   _enemyVFXHandler: {fileID: 486890604755495565}
   _weapon: {fileID: 5954593528459856322}
+  _coinPrefab: {fileID: 5566811546445338098, guid: 499bc64b2969051468ccb103247e8333, type: 3}
+  _shadowPrefab: {fileID: -5290472533242044817, guid: 8d938877e8552f543b9164bec2f59288, type: 3}
   Animator: {fileID: 8478741189733762455}
   <Rb>k__BackingField: {fileID: 8069723568039742327}
   <StateMachine>k__BackingField: {fileID: 1255892654838753454}

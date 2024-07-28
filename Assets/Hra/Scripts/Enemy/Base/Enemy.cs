@@ -7,7 +7,9 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
     public EnemyInstance EnemyInstance;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private EnemyVFXHandler _enemyVFXHandler;
-    [SerializeField] private BaseWeapon _weapon; 
+    [SerializeField] private BaseWeapon _weapon;
+    [SerializeField] private Coin _coinPrefab;
+    [SerializeField] private Shadow _shadowPrefab;
 
     public EnemyAnimator Animator;
     [field: SerializeField] public Rigidbody2D Rb { get; set; }
@@ -94,6 +96,11 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
 
     public void Damage(float damageAmount)
     {
+        if (EnemyInstance.CurrentHealth <= 0)
+        {
+            return;
+        }
+
         EnemyInstance.CurrentHealth -= damageAmount;
         _healthBar.SetHealth(EnemyInstance.CurrentHealth, EnemyInstance.MaxHealth);
 
@@ -109,7 +116,35 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
         IsFreezeApplied = false;
         IsDoTApplied = false;
         IsChainApplied = false;
+
+        for (int i = 0; i < EnemyInstance.DropsCoins; i++)
+        {
+            if ((i + 1) % 10 == 0)
+            {
+                Coin coin = Instantiate(_coinPrefab, transform.parent);
+                coin.transform.position = GetRandomPosition(transform.position, 1f);
+                coin.Init(10);
+            }
+        }
+
+        for (int i = 0; i < EnemyInstance.DropsShadows; i++)
+        {
+            if ((i + 1) % 10 == 0)
+            {
+                Shadow shadow = Instantiate(_shadowPrefab, transform.parent);
+                shadow.transform.position = GetRandomPosition(transform.position, 1f);
+                shadow.Init(10);
+            }
+        }
+
         Destroy(gameObject);
+    }
+
+    private Vector3 GetRandomPosition(Vector3 origin, float range)
+    {
+        float randomX = Random.Range(-range, range);
+        float randomY = Random.Range(-range, range);
+        return new Vector3(origin.x + randomX, origin.y + randomY, origin.z);
     }
 
     public void MoveEnemy(Vector2 velocity)
