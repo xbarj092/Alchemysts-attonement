@@ -40,8 +40,8 @@ public class BaseProjectile : BaseWeapon
             waitTime = LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate;
         }
 
-        newProjectile.Init(damage);
-        newProjectile.Launch(transform.forward);
+        newProjectile.Init(Holder, damage);
+        newProjectile.Launch(Vector2.right);
         _projectiles.Add(newProjectile);
         ChangeGunState(WeaponStates.Using);
         PlayOnShootVisual();

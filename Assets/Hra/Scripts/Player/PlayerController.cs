@@ -120,7 +120,7 @@ public class PlayerController : Entity
 
     private void Die()
     {
-
+        ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Death);
     }
 
     public void Heal(float amount)
