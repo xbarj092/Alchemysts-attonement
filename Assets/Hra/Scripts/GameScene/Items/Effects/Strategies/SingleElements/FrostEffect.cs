@@ -6,7 +6,7 @@ public class FrostEffect : IEnemyEffect
 {
     public IEnumerator ApplyEffect(Enemy target, ElementItem element)
     {
-        if (target.EnemyInstance.IsFreezeApplied)
+        if (target.IsFreezeApplied)
         {
             yield break;
         }
@@ -23,12 +23,18 @@ public class FrostEffect : IEnemyEffect
 
         target.EnemyInstance.MovementSpeed *= effectMultiplier;
         target.EnemyInstance.AttackRate *= effectMultiplier;
-        target.EnemyInstance.IsFreezeApplied = true;
+        target.IsFreezeApplied = true;
 
         yield return new WaitForSeconds(2);
 
-        target.EnemyInstance.MovementSpeed = originalMovementSpeed;
-        target.EnemyInstance.AttackRate = originalAttackRate;
-        target.EnemyInstance.IsFreezeApplied = false;
+        try
+        {
+            target.EnemyInstance.MovementSpeed = originalMovementSpeed;
+            target.EnemyInstance.AttackRate = originalAttackRate;
+            target.IsFreezeApplied = false;
+        }
+        catch (MissingReferenceException)
+        {
+        }
     }
 }

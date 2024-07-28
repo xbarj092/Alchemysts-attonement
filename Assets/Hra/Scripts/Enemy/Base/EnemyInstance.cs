@@ -12,10 +12,6 @@ public class EnemyInstance
     public int DropsCoins;
     public int DropsShadows;
 
-    public bool IsFreezeApplied;
-    public bool IsDoTApplied;
-    public bool IsChainApplied;
-
     public EnemyInstance(EnemyBase enemyStats)
     {
         CurrentHealth = enemyStats.Health;

@@ -9,7 +9,7 @@ public class DoTEffect : IEnemyEffect
 
     public IEnumerator ApplyEffect(Enemy target, ElementItem element)
     {
-        if (target.EnemyInstance.IsDoTApplied)
+        if (target.IsDoTApplied)
         {
             yield break;
         }
@@ -20,15 +20,27 @@ public class DoTEffect : IEnemyEffect
             yield break;
         }
 
-        target.EnemyInstance.IsDoTApplied = true;
+        target.IsDoTApplied = true;
         float damagePerTick = element.SpecialEffects[SpecialEffect.Dot][upgradeData.Level - 1] / TICK_AMOUNT;
 
         for (int i = 0; i < TICK_AMOUNT; i++)
         {
-            target.Damage(damagePerTick);
+            try
+            {
+                target.Damage(damagePerTick);
+            }
+            catch (MissingReferenceException)
+            {
+            }
             yield return new WaitForSeconds(DOT_DURATION / TICK_AMOUNT);
         }
 
-        target.EnemyInstance.IsDoTApplied = false;
+        try
+        {
+            target.IsDoTApplied = false;
+        }
+        catch (MissingReferenceException)
+        {
+        }
     }
 }

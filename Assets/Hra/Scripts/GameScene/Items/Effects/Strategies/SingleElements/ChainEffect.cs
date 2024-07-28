@@ -33,7 +33,7 @@ public class ChainEffect : IEnemyEffect
                     yield break;
                 }
 
-                nextTarget.EnemyInstance.IsChainApplied = true;
+                nextTarget.IsChainApplied = true;
                 nextTarget.Damage(damage);
                 if (initialTarget != nextTarget)
                 {
@@ -44,7 +44,6 @@ public class ChainEffect : IEnemyEffect
             }
             catch (MissingReferenceException)
             {
-                ResetChainEffect(affectedEnemies);
                 yield break;
             }
 
@@ -61,7 +60,7 @@ public class ChainEffect : IEnemyEffect
 
         foreach (Enemy enemy in EnemyManager.Instance.GetAllEnemies())
         {
-            if (enemy.EnemyInstance.IsChainApplied)
+            if (enemy.IsChainApplied)
             {
                 continue;
             }
@@ -81,7 +80,7 @@ public class ChainEffect : IEnemyEffect
     {
         foreach (Enemy enemy in affectedEnemies)
         {
-            enemy.EnemyInstance.IsChainApplied = false;
+            enemy.IsChainApplied = false;
         }
     }
 }
