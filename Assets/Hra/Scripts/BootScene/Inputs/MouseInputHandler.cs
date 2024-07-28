@@ -12,6 +12,8 @@ public class MouseInputHandler : IInputHandler
     private BaseCanvasController _activeCanvas;
     private GraphicRaycaster _graphicRaycaster;
 
+    private LayerMask _layerMask = 1 << 8;
+
     public event Action<string> OnToolTipSpawned;
     public event Action OnToolTipClosed;
 
@@ -34,7 +36,7 @@ public class MouseInputHandler : IInputHandler
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 2f, _layerMask);
             if (hit.collider != null)
             {
                 GameScreenType gameScreenType = GetGameScreenType(hit.collider.gameObject.tag);
@@ -58,7 +60,7 @@ public class MouseInputHandler : IInputHandler
 
     private void HandleMouseHover(Vector2 mousePosition)
     {
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 2f, _layerMask);
         if (IsOnInteract(hit) && !EventSystem.current.IsPointerOverGameObject())
         {
             if (IsValidTag(hit, out GlobalConstants.Tags tag))
