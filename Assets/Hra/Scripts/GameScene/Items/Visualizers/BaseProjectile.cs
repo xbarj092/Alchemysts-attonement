@@ -26,13 +26,17 @@ public class BaseProjectile : BaseWeapon
 
     private IEnumerator Shoot()
     {
-        Projectile newProjectile = Instantiate(_projectilePrefab, transform.root);
+        Projectile newProjectile = Instantiate(_projectilePrefab, Holder.transform);
         float damage = 0;
         float waitTime = 0;
+        Vector2 shootDirection = Vector2.right;
+
         if (Holder is Enemy enemy)
         {
             damage = enemy.EnemyInstance.Weapon.Damage;
             waitTime = enemy.EnemyInstance.Weapon.AttacksPerSecond;
+            Vector2 targetPosition = FindObjectOfType<PlayerController>().transform.position;
+            shootDirection = (targetPosition - (Vector2)Holder.transform.position).normalized;
         }
         else if (Holder is PlayerController)
         {
@@ -41,7 +45,7 @@ public class BaseProjectile : BaseWeapon
         }
 
         newProjectile.Init(Holder, damage);
-        newProjectile.Launch(Vector2.right);
+        newProjectile.Launch(shootDirection);
         _projectiles.Add(newProjectile);
         ChangeGunState(WeaponStates.Using);
         PlayOnShootVisual();
