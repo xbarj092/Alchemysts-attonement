@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 667465547063623202}
   m_Layer: 0
   m_Name: AggroRadius
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 6091567060283463698}
   m_Layer: 0
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
