@@ -34,10 +34,13 @@ public class Projectile : MonoBehaviour
             enemy.Damage(_damage);
             Destroy(gameObject);
         }
-
-        if (_holder is Enemy && targetGameObject.TryGetComponent(out PlayerController playerController))
+        else if (_holder is Enemy && targetGameObject.TryGetComponent(out PlayerController playerController))
         {
             playerController.Damage(_damage);
+            Destroy(gameObject);
+        }
+        else if (_holder is Enemy && !targetGameObject.CompareTag(GlobalConstants.Tags.Enemy.ToString()))
+        {
             Destroy(gameObject);
         }
     }

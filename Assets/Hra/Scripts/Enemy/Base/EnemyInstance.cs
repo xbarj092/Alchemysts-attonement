@@ -6,7 +6,8 @@ public class EnemyInstance
     public float CurrentHealth;
     public float MaxHealth;
     public float MovementSpeed;
-    
+
+    public float TouchDamage;
     public int DropsCoins;
     public int DropsShadows;
 

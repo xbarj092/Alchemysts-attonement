@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class PlayerController : Entity
     GameObject Head;
 
     [Header("MOVEMENT")]
+    [SerializeField] private float rotationDampingSpeed = 5f;
     [SerializeField] private float _movementSpeed = 8f;
 
     [Header("DASHING")]
@@ -21,6 +23,12 @@ public class PlayerController : Entity
     private bool canDash = true;
     private bool isDashing = false;
 
+    private float _slowTimeDuration = 0.1f;
+    private float _slowTimeScale = 0.1f;
+    private float _launchForce = 50f;
+
+    private bool _invulnerable = false;
+
     private Vector2 _movement;
     Camera cameraMain;
     private Animator _animator;
@@ -29,6 +37,8 @@ public class PlayerController : Entity
 
     public bool CanAttack = true;
     public bool IsAttacking = false;
+
+    private const float INVLULNERABLE_TIME = 1f;
 
     private void Awake()
     {
@@ -105,11 +115,20 @@ public class PlayerController : Entity
         Vector2 aimDirection = _mousePosition - _rigidBody.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         Head.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle);
-        _playerWeapons.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle+90f);
+
+        if (_weapon != null && _weapon.State != WeaponStates.Using)
+        {
+        }
+        _playerWeapons.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle + 90f);
     }
 
     public void Damage(float damageAmount)
     {
+        if (_invulnerable)
+        {
+            return;
+        }
+
         PlayerStats playerStats = LocalDataStorage.Instance.PlayerData.PlayerStats;
         playerStats.CurrentHealth -= damageAmount;
         LocalDataStorage.Instance.PlayerData.PlayerStats = playerStats;
@@ -177,5 +196,42 @@ public class PlayerController : Entity
         isDashing = false;
         yield return new WaitForSeconds(_dashCooldown);
         canDash = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!_invulnerable && collision.gameObject.CompareTag(GlobalConstants.Tags.Enemy.ToString()))
+        {
+            if (collision.gameObject.TryGetComponent(out Enemy enemy))
+            {
+                StartCoroutine(SetInvulnerable());
+                StartCoroutine(SlowTime());
+                Damage(enemy.EnemyInstance.TouchDamage);
+                LaunchEnemy(enemy);
+            }
+        }
+    }
+
+    private IEnumerator SetInvulnerable()
+    {
+        _invulnerable = true;
+        yield return new WaitForSecondsRealtime(INVLULNERABLE_TIME);
+        _invulnerable = false;
+    }
+
+    private IEnumerator SlowTime()
+    {
+        Time.timeScale = _slowTimeScale;
+        yield return new WaitForSecondsRealtime(_slowTimeDuration);
+        Time.timeScale = 1f;
+    }
+
+    private void LaunchEnemy(Enemy enemy)
+    {
+        if (enemy.TryGetComponent(out Rigidbody2D rigidbody))
+        {
+            Vector2 launchDirection = (enemy.transform.position - transform.position).normalized;
+            rigidbody.AddForce(launchDirection * _launchForce, ForceMode2D.Impulse);
+        }
     }
 }
