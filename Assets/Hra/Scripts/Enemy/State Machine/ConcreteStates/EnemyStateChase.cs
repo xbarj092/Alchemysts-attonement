@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyStateChase : EnemyState
 {
-    public EnemyStateChase(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateChase(Enemy enemy, StateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -10,7 +10,7 @@ public class EnemyStateChase : EnemyState
     public override void EnterState()
     {
         base.EnterState();
-        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyChase);
+        _enemy.Animator.PlayAnimation(EnemyAnimationTrigger.EnemyChase);
 
         Debug.Log($"Entered Chase state!");
     }

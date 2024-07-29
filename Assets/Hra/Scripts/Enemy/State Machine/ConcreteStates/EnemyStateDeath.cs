@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyStateDeath : EnemyState
 {
-    public EnemyStateDeath(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateDeath(Enemy enemy, StateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -10,7 +10,7 @@ public class EnemyStateDeath : EnemyState
     public override void EnterState()
     {
         Debug.Log($"Entered Death state!");
-        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyDeath);
+        _enemy.Animator.PlayAnimation(EnemyAnimationTrigger.EnemyDeath);
         base.EnterState();
     }
 

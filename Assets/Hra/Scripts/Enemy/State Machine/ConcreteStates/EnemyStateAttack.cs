@@ -7,7 +7,7 @@ public class EnemyStateAttack : EnemyState
 
     private const float ATTACK_TIME = 1f;
 
-    public EnemyStateAttack(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateAttack(Enemy enemy, StateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -15,7 +15,7 @@ public class EnemyStateAttack : EnemyState
     public override void EnterState()
     {
         _timeElapsed = 0;
-        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyAttack);
+        _enemy.Animator.PlayAnimation(EnemyAnimationTrigger.EnemyAttack);
         SpawnProjectile();
         Debug.Log($"Entered Attack state!");
         base.EnterState();

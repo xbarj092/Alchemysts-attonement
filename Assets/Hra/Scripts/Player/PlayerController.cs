@@ -29,9 +29,20 @@ public class PlayerController : Entity
 
     private bool _invulnerable = false;
 
+    public bool IsHit = false;
+    public bool IsDead = false;
+
+    public PlayerAnimator Animator;
+    [field: SerializeField] public StateMachine StateMachine;
+    public PlayerIdleState IdleState;
+    public PlayerDashState DashState;
+    public PlayerMoveState MoveState;
+    public PlayerAttackState AttackState;
+    public PlayerHitState HitState;
+    public PlayerDeathState DeathState;
+
     private Vector2 _movement;
     Camera cameraMain;
-    private Animator _animator;
 
     private BaseWeapon _weapon;
 
@@ -45,7 +56,6 @@ public class PlayerController : Entity
         cameraMain = Camera.main;
         _weaponAnimator = _playerWeapons.GetComponent<Animator>();
         Head = gameObject.transform.GetChild(0).gameObject;
-        _animator = transform.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -69,7 +79,6 @@ public class PlayerController : Entity
     {
         if (isDashing) return;
 
-        Move();
         AdjustViewDirection();
     }
 
@@ -83,7 +92,6 @@ public class PlayerController : Entity
     private void GetInputs()
     {
         _movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-
         _mousePosition = cameraMain.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
@@ -141,6 +149,7 @@ public class PlayerController : Entity
 
     private void Die()
     {
+        IsDead = true;
         ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Death);
     }
 
@@ -149,7 +158,7 @@ public class PlayerController : Entity
 
     }
 
-    private void Move()
+    public void Move()
     {
         _rigidBody.velocity = _movement.normalized * _movementSpeed;
         HandleAnimator(_rigidBody.velocity);
@@ -159,27 +168,27 @@ public class PlayerController : Entity
     {
         if (velocity.x > 0) 
         {
-            _animator.SetTrigger("GoRight");
+            Animator.PlayAnimation(PlayerAnimationTrigger.PlayerMoveRight);
             return;
         }
         else if (velocity.x < 0)
         {
-            _animator.SetTrigger("GoLeft");
+            Animator.PlayAnimation(PlayerAnimationTrigger.PlayerMoveLeft);
             return;
         }
         else if(velocity.y > 0)
         {
-            _animator.SetTrigger("GoUp");
+            Animator.PlayAnimation(PlayerAnimationTrigger.PlayerMoveUp);
             return;
         }
         else if (velocity.y < 0)
         {
-            _animator.SetTrigger("GoDown");
+            Animator.PlayAnimation(PlayerAnimationTrigger.PlayerMoveDown);
             return;
         }
         else
         {
-           _animator.SetTrigger("GoIdle");
+            Animator.PlayAnimation(PlayerAnimationTrigger.PlayerIdle);
             return;
         }
 

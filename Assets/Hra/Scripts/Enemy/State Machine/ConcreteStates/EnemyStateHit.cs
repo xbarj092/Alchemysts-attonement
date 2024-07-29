@@ -6,7 +6,7 @@ public class EnemyStateHit : EnemyState
 
     private const float HIT_TIME = 1f;
 
-    public EnemyStateHit(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateHit(Enemy enemy, StateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -14,7 +14,7 @@ public class EnemyStateHit : EnemyState
     public override void EnterState()
     {
         _timeElapsed = 0;
-        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyHit);
+        _enemy.Animator.PlayAnimation(EnemyAnimationTrigger.EnemyHit);
         Debug.Log($"Entered Hit state!");
         base.EnterState();
     }

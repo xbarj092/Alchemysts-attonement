@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyStateMachine : MonoBehaviour
+public class StateMachine : MonoBehaviour
 {
     public EnemyState CurrentEnemyState {  get; set; }
 

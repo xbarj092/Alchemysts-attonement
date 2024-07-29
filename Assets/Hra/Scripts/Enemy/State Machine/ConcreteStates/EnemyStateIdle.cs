@@ -6,7 +6,7 @@ public class EnemyStateIdle : EnemyState
 
     private const float WAIT_TIME = 1f;
 
-    public EnemyStateIdle(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateIdle(Enemy enemy, StateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -14,7 +14,7 @@ public class EnemyStateIdle : EnemyState
     public override void EnterState()
     {
         _timeElapsed = 0;
-        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyIdle);
+        _enemy.Animator.PlayAnimation(EnemyAnimationTrigger.EnemyIdle);
         Debug.Log($"Entered Idle state!");
         base.EnterState();
     }

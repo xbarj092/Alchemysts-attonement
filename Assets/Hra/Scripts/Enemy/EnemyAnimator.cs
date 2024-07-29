@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum AnimationTrigger
+public enum EnemyAnimationTrigger
 {
     EnemyIdle,
     EnemyRoam,
@@ -15,7 +15,7 @@ public class EnemyAnimator : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    public void PlayAnimation(AnimationTrigger animationTrigger)
+    public void PlayAnimation(EnemyAnimationTrigger animationTrigger)
     {
         _animator.StopPlayback();
         _animator.Play(animationTrigger.ToString());
