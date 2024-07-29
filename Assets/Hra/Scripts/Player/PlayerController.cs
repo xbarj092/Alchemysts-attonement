@@ -7,7 +7,7 @@ public class PlayerController : Entity
     [SerializeField] private Rigidbody2D _rigidBody;
     [SerializeField] private PlayerWeapons _playerWeapons;
 
-    private Animator _animator;
+    private Animator _weaponAnimator;
     Vector2 _mousePosition;
     GameObject Head;
 
@@ -23,6 +23,7 @@ public class PlayerController : Entity
 
     private Vector2 _movement;
     Camera cameraMain;
+    private Animator _animator;
 
     private BaseWeapon _weapon;
 
@@ -32,8 +33,9 @@ public class PlayerController : Entity
     private void Awake()
     {
         cameraMain = Camera.main;
-        _animator = _playerWeapons.GetComponent<Animator>();
+        _weaponAnimator = _playerWeapons.GetComponent<Animator>();
         Head = gameObject.transform.GetChild(0).gameObject;
+        _animator = transform.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -65,7 +67,7 @@ public class PlayerController : Entity
     {
         _weapon = newWeapon;
         _weapon.SetHolder(this);
-        _animator = _playerWeapons.GetComponentInChildren<Animator>();
+        _weaponAnimator = _playerWeapons.GetComponentInChildren<Animator>();
     }
 
     private void GetInputs()
@@ -78,7 +80,7 @@ public class PlayerController : Entity
         {
             StartCoroutine(Dash());
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsAttacking && _animator != null)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsAttacking && _weaponAnimator != null)
         {
             StartCoroutine(Attack());
         }
@@ -91,8 +93,8 @@ public class PlayerController : Entity
             melee.Use();
         }
 
-        _animator.speed = LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate;
-        _animator.SetTrigger("Attack");
+        _weaponAnimator.speed = LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate;
+        _weaponAnimator.SetTrigger("Attack");
         IsAttacking = true;
         yield return new WaitForSeconds(1 / LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.AttackRate);
         IsAttacking = false;
@@ -131,6 +133,37 @@ public class PlayerController : Entity
     private void Move()
     {
         _rigidBody.velocity = _movement.normalized * _movementSpeed;
+        HandleAnimator(_rigidBody.velocity);
+    }
+
+    private void HandleAnimator(Vector2 velocity)
+    {
+        if (velocity.x > 0) 
+        {
+            _animator.SetTrigger("GoRight");
+            return;
+        }
+        else if (velocity.x < 0)
+        {
+            _animator.SetTrigger("GoLeft");
+            return;
+        }
+        else if(velocity.y > 0)
+        {
+            _animator.SetTrigger("GoUp");
+            return;
+        }
+        else if (velocity.y < 0)
+        {
+            _animator.SetTrigger("GoDown");
+            return;
+        }
+        else
+        {
+           _animator.SetTrigger("GoIdle");
+            return;
+        }
+
     }
 
     private IEnumerator Dash()
