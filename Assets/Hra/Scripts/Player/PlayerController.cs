@@ -10,7 +10,6 @@ public class PlayerController : Entity
 
     private Animator _weaponAnimator;
     Vector2 _mousePosition;
-    GameObject Head;
 
     [Header("MOVEMENT")]
     [SerializeField] private float rotationDampingSpeed = 5f;
@@ -62,7 +61,6 @@ public class PlayerController : Entity
 
         cameraMain = Camera.main;
         _weaponAnimator = _playerWeapons.GetComponent<Animator>();
-        Head = gameObject.transform.GetChild(0).gameObject;
     }
 
     private void OnEnable()
@@ -128,7 +126,6 @@ public class PlayerController : Entity
     {
         Vector2 aimDirection = _mousePosition - _rigidBody.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        Head.transform.rotation = Quaternion.Euler(0f, 0f, aimAngle);
 
         if (_weapon != null && _weapon.State != WeaponStates.Using)
         {
@@ -166,6 +163,7 @@ public class PlayerController : Entity
 
     public void Move(Vector2 movement)
     {
+        Debug.Log("[PlayerController] - moving");
         _rigidBody.velocity = movement.normalized * _movementSpeed;
         HandleAnimator(_rigidBody.velocity);
     }
@@ -219,9 +217,9 @@ public class PlayerController : Entity
         {
             if (collision.gameObject.TryGetComponent(out Enemy enemy))
             {
+                Damage(enemy.EnemyInstance.TouchDamage);
                 StartCoroutine(SetInvulnerable());
                 StartCoroutine(SlowTime());
-                Damage(enemy.EnemyInstance.TouchDamage);
                 LaunchEnemy(enemy);
             }
         }

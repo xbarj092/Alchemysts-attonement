@@ -16,7 +16,6 @@ public class PlayerMoveState : PlayerState
     public override IState ExecuteState()
     {
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-
         if (movement.x == 0 && movement.y == 0)
         {
             _player.Move(Vector2.zero);
@@ -24,6 +23,16 @@ public class PlayerMoveState : PlayerState
         }
 
         _player.Move(movement);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            return _player.AttackState;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            return _player.DashState;
+        }
 
         return base.ExecuteState();
     }

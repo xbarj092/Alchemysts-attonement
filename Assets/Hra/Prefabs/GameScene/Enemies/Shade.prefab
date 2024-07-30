@@ -901,6 +901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8393978585512377434}
     m_Modifications:
+    - target: {fileID: 1025284757870286110, guid: 65997cd9f4f8a0642a02da9aec035b13, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1349099406246585613, guid: 65997cd9f4f8a0642a02da9aec035b13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -941,9 +945,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5248011083828935732, guid: 65997cd9f4f8a0642a02da9aec035b13, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299391967787964937, guid: 65997cd9f4f8a0642a02da9aec035b13, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303540516638567756, guid: 65997cd9f4f8a0642a02da9aec035b13, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8745424931490583567, guid: 65997cd9f4f8a0642a02da9aec035b13, type: 3}
       propertyPath: m_Name
       value: ShadeProjectileWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745424931490583567, guid: 65997cd9f4f8a0642a02da9aec035b13, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1018,6 +1038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireDoT
       objectReference: {fileID: 0}
+    - target: {fileID: 6600276111663018054, guid: 0e1eb4ee7d4d397439182eec8d05b9f4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1039,6 +1063,10 @@ PrefabInstance:
     - target: {fileID: 6657370136060477601, guid: 5ff0aec88f5facb43bfc75e7d74fc160, type: 3}
       propertyPath: m_Name
       value: Chain
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657370136060477601, guid: 5ff0aec88f5facb43bfc75e7d74fc160, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7289687015661272546, guid: 5ff0aec88f5facb43bfc75e7d74fc160, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1101,6 +1129,10 @@ PrefabInstance:
     - target: {fileID: 7266869395212099761, guid: 1561c003e245e4942a63083481cd802c, type: 3}
       propertyPath: m_Name
       value: FrostSlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266869395212099761, guid: 1561c003e245e4942a63083481cd802c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8110561979228041459, guid: 1561c003e245e4942a63083481cd802c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -15,7 +15,7 @@ public class PlayerIdleState : PlayerState
 
     public override IState ExecuteState()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             return _player.AttackState;
         }
