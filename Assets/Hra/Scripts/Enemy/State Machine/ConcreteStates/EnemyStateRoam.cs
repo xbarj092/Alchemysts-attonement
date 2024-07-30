@@ -5,7 +5,7 @@ public class EnemyStateRoam : EnemyState
     private Vector2 _targetPos;
     private Vector2 _direction;
 
-    public EnemyStateRoam(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public EnemyStateRoam(Enemy enemy, StateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
 
     }
@@ -13,13 +13,13 @@ public class EnemyStateRoam : EnemyState
     public override void EnterState()
     {
         Debug.Log($"Entered Roam state!");
-        _enemy.Animator.PlayAnimation(AnimationTrigger.EnemyRoam);
+        _enemy.Animator.PlayAnimation(EnemyAnimationTrigger.EnemyRoam);
         base.EnterState();
 
         _targetPos = GetRandomPosition();
     }
 
-    public override EnemyState ExecuteState()
+    public override IState ExecuteState()
     {
         if (_enemy.IsAggroed)
         {

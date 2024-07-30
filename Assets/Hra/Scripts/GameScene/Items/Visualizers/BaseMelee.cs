@@ -98,9 +98,11 @@ public class MeleeWeapon : BaseWeapon
     {
         if (Holder is PlayerController)
         {
-            Enemy enemy = targetGameObject.GetComponent<Enemy>();
-            enemy.Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
-            _elementHandler.ApplyElements(enemy);
+            if (targetGameObject.TryGetComponent(out Enemy enemy))
+            {
+                enemy.Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
+                _elementHandler.ApplyElements(enemy);
+            }
         }
         else if (Holder is Enemy enemy)
         {

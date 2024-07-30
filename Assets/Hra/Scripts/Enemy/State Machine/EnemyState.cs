@@ -1,15 +1,15 @@
-public class EnemyState
+public class EnemyState : IState
 {
     protected Enemy _enemy;
-    protected EnemyStateMachine _enemyStateMachine;
+    protected StateMachine _enemyStateMachine;
 
-    public EnemyState(Enemy enemy, EnemyStateMachine enemyStateMachine)
+    public EnemyState(Enemy enemy, StateMachine enemyStateMachine)
     {
         _enemy = enemy;
         _enemyStateMachine = enemyStateMachine;
     }
 
-    public virtual EnemyState ExecuteState()
+    public virtual IState ExecuteState()
     {
         if (_enemy.IsHit)
         {

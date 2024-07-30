@@ -13,7 +13,7 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
 
     public EnemyAnimator Animator;
     [field: SerializeField] public Rigidbody2D Rb { get; set; }
-    [field: SerializeField] public EnemyStateMachine StateMachine { get; set; }
+    [field: SerializeField] public StateMachine StateMachine { get; set; }
     public EnemyStateIdle IdleState { get; set; }
     public EnemyStateRoam RoamingState { get; set; }
     public EnemyStateChase ChasingState { get; set; }
