@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7653933746688156666}
   - component: {fileID: 3951597365201428790}
   - component: {fileID: 941497455734064034}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: StraightSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6923173829420754775}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: SwingEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 2442477989744562244}
   - component: {fileID: 8422113220906111773}
   - component: {fileID: 2043634340451522517}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2074977664933675438}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: HitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594966747587644493}
   - component: {fileID: 8638236629603863026}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4201485132007074972}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

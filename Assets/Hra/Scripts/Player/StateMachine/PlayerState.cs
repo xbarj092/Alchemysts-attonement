@@ -11,14 +11,14 @@ public class PlayerState : IState
 
     public virtual IState ExecuteState()
     {
-        if (_player.IsHit)
-        {
-            return _player.HitState;
-        }
-
         if (_player.IsDead)
         {
             return _player.DeathState;
+        }
+
+        if (_player.IsHit)
+        {
+            return _player.HitState;
         }
 
         return null;
