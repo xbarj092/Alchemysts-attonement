@@ -5,12 +5,12 @@ public class CurrencyData
 {
     public int Coins;
     public float CurrentShadows;
-    public float NextShadows;
+    public float MaxShadows;
 
-    public CurrencyData(int coins, float currentShadows, float nextShadows)
+    public CurrencyData(int coins, float currentShadows, float maxShadows)
     {
         Coins = coins;
         CurrentShadows = currentShadows;
-        NextShadows = nextShadows;
+        MaxShadows = maxShadows;
     }
 }
