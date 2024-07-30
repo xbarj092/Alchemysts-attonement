@@ -33,8 +33,8 @@ public class BaseProjectile : BaseWeapon
 
         if (Holder is Enemy enemy)
         {
-            damage = enemy.EnemyInstance.Weapon.Damage;
-            waitTime = enemy.EnemyInstance.Weapon.AttacksPerSecond;
+            damage = enemy.EnemyInstance.Damage;
+            waitTime = enemy.EnemyInstance.AttacksPerSecond;
             Vector2 targetPosition = FindObjectOfType<PlayerController>().transform.position;
             shootDirection = (targetPosition - (Vector2)Holder.transform.position).normalized;
         }

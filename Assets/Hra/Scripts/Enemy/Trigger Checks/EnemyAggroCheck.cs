@@ -2,18 +2,13 @@ using UnityEngine;
 
 public class EnemyAggroCheck : MonoBehaviour
 {
-    private Enemy _enemy;
-
-    void Start()
-    {
-        _enemy = GetComponentInParent<Enemy>();
-    }
+    [SerializeField] private Enemy _enemy;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
-            _enemy.SetAggro(true);    
+            _enemy?.SetAggro(true);    
         }
     }
 
@@ -21,7 +16,7 @@ public class EnemyAggroCheck : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
-            _enemy.SetAggro(false);    
+            _enemy?.SetAggro(false);    
         }
     }
 }

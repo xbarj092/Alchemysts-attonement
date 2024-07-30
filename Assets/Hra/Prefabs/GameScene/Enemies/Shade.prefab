@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d967aa92ba6de8469f2b4705f055188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 1844844876429484204}
 --- !u!1 &642583314816265403
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18038ffb278f8c142bae68d87e46e396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 1844844876429484204}
 --- !u!1 &7080945453875882370
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +907,8 @@ MonoBehaviour:
     TouchDamage: 0
     DropsCoins: 0
     DropsShadows: 0
-    Weapon: {fileID: 0}
+    Damage: 0
+    AttacksPerSecond: 0
   _healthBar: {fileID: 5801671690921090225}
   _enemyVFXHandler: {fileID: 486890604755495565}
   _weapon: {fileID: 5954593528459856322}

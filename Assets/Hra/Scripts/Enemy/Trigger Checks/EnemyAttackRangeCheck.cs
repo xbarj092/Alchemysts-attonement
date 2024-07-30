@@ -2,18 +2,13 @@ using UnityEngine;
 
 public class EnemyAttackRangeCheck : MonoBehaviour
 {
-    private Enemy _enemy;
-
-    void Start()
-    {
-        _enemy = GetComponentInParent<Enemy>();
-    }
+    [SerializeField] private Enemy _enemy;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
-            _enemy.SetWithinAttackRange(true);
+            _enemy?.SetWithinAttackRange(true);
         }
     }
 
@@ -21,7 +16,7 @@ public class EnemyAttackRangeCheck : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
-            _enemy.SetWithinAttackRange(false);
+            _enemy?.SetWithinAttackRange(false);
         }
     }
 }

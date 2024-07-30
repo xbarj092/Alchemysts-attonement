@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -96,18 +95,21 @@ public class MeleeWeapon : BaseWeapon
 
     private void DamageTarget(Transform targetGameObject)
     {
-        if (Holder is PlayerController)
+        if (Holder is PlayerController playerController)
         {
             if (targetGameObject.TryGetComponent(out Enemy enemy))
             {
                 enemy.Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
-                _elementHandler.ApplyElements(enemy);
+                if (playerController.HasElementsOn)
+                {
+                    _elementHandler.ApplyElements(enemy);
+                }
             }
         }
         else if (Holder is Enemy enemy)
         {
             PlayerController player = targetGameObject.GetComponent<PlayerController>();
-            player.Damage(enemy.EnemyInstance.Weapon.Damage);
+            player.Damage(enemy.EnemyInstance.Damage);
         }
 
         PlayOnHitVisual();

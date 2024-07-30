@@ -11,7 +11,8 @@ public class EnemyInstance
     public float DropsCoins;
     public float DropsShadows;
 
-    public WeaponItem Weapon;
+    public float Damage;
+    public float AttacksPerSecond;
 
     public EnemyInstance(EnemyBase enemyStats)
     {
@@ -23,6 +24,7 @@ public class EnemyInstance
         DropsCoins = enemyStats.DropsCoins;
         DropsShadows = enemyStats.DropsShadows;
     
-        Weapon = enemyStats.Weapon;
+        AttacksPerSecond = enemyStats.Weapon.AttacksPerSecond[0];
+        Damage = enemyStats.Weapon.Damage[0];
     }
 }

@@ -47,6 +47,9 @@ public class PlayerController : Entity
     public bool CanAttack = true;
     public bool IsAttacking = false;
 
+    public bool HasElementsOn = false;
+
+    private const float ELEMENT_ON_TIME = 5f;
     private const float INVLULNERABLE_TIME = 1f;
 
     private void Awake()
@@ -106,6 +109,33 @@ public class PlayerController : Entity
         {
             StartCoroutine(Attack());
         }
+
+        CurrencyData currencyData = LocalDataStorage.Instance.PlayerData.CurrencyData;
+        if (Input.GetKeyDown(KeyCode.Mouse1) && currencyData.CurrentShadows == currencyData.MaxShadows && !HasElementsOn)
+        {
+            StartCoroutine(TriggerAbilities());
+        }
+    }
+
+    private IEnumerator TriggerAbilities()
+    {
+        HasElementsOn = true;
+        float elapsedTime = 0f;
+        CurrencyData currencyData = LocalDataStorage.Instance.PlayerData.CurrencyData;
+        float maxShadows = currencyData.MaxShadows;
+
+        while (elapsedTime < ELEMENT_ON_TIME)
+        {
+            elapsedTime += Time.deltaTime;
+            float proportion = 1 - (elapsedTime / ELEMENT_ON_TIME);
+            currencyData.CurrentShadows = maxShadows * proportion;
+            LocalDataStorage.Instance.PlayerData.CurrencyData = currencyData;
+            yield return null;
+        }
+
+        currencyData.CurrentShadows = 0f;
+        LocalDataStorage.Instance.PlayerData.CurrencyData = currencyData;
+        HasElementsOn = false;
     }
 
     private IEnumerator Attack()
