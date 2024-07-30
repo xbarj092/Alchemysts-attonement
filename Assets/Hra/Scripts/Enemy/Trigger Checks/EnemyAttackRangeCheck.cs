@@ -13,7 +13,7 @@ public class EnemyAttackRangeCheck : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
-            _enemy.SetWithinAttackRange(true);
+            _enemy?.SetWithinAttackRange(true);
         }
     }
 
@@ -21,7 +21,7 @@ public class EnemyAttackRangeCheck : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
-            _enemy.SetWithinAttackRange(false);
+            _enemy?.SetWithinAttackRange(false);
         }
     }
 }
