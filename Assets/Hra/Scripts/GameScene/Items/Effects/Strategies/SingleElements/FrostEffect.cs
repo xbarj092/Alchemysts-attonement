@@ -19,10 +19,10 @@ public class FrostEffect : IEnemyEffect
 
         float effectMultiplier = 1 - element.SpecialEffects[SpecialEffect.EnemySlow][upgradeData.Level - 1];
         float originalMovementSpeed = target.EnemyInstance.MovementSpeed;
-        float originalAttackRate = target.EnemyInstance.Weapon.AttacksPerSecond;
+        float originalAttackRate = target.EnemyInstance.AttacksPerSecond;
 
         target.EnemyInstance.MovementSpeed *= effectMultiplier;
-        target.EnemyInstance.Weapon.AttacksPerSecond *= effectMultiplier;
+        target.EnemyInstance.AttacksPerSecond *= effectMultiplier;
         target.IsFreezeApplied = true;
 
         yield return new WaitForSeconds(2);
@@ -30,7 +30,7 @@ public class FrostEffect : IEnemyEffect
         try
         {
             target.EnemyInstance.MovementSpeed = originalMovementSpeed;
-            target.EnemyInstance.Weapon.AttacksPerSecond = originalAttackRate;
+            target.EnemyInstance.AttacksPerSecond = originalAttackRate;
             target.IsFreezeApplied = false;
         }
         catch (MissingReferenceException)

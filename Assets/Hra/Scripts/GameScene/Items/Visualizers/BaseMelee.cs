@@ -109,7 +109,7 @@ public class MeleeWeapon : BaseWeapon
         else if (Holder is Enemy enemy)
         {
             PlayerController player = targetGameObject.GetComponent<PlayerController>();
-            player.Damage(enemy.EnemyInstance.Weapon.Damage);
+            player.Damage(enemy.EnemyInstance.Damage);
         }
 
         PlayOnHitVisual();

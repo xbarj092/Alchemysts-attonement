@@ -95,9 +95,10 @@ public class LoadoutStats : MonoBehaviour
             return;
         }
 
-        SetUpStat(WeaponStat.Damage, equippedWeapon.Damage);
-        SetUpStat(WeaponStat.Range, equippedWeapon.Range);
-        SetUpStat(WeaponStat.AttackRate, equippedWeapon.AttacksPerSecond);
+        int level = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(item => item.FriendlyID == equippedWeapon.FriendlyID).Level;
+        SetUpStat(WeaponStat.Damage, equippedWeapon.Damage[level - 1]);
+        SetUpStat(WeaponStat.Range, equippedWeapon.Range[level - 1]);
+        SetUpStat(WeaponStat.AttackRate, equippedWeapon.AttacksPerSecond[level - 1]);
     }
 
     private void HandleElementStats(ElementItem equippedElement)
