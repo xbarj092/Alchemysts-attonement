@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 42072925164501931}
   - component: {fileID: 7286657912153534786}
   - component: {fileID: 306749868737980222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WorldCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +188,7 @@ MonoBehaviour:
   StateMachine: {fileID: 2974929447255868659}
   CanAttack: 1
   IsAttacking: 0
+  HasElementsOn: 0
 --- !u!70 &4000773634616650396
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

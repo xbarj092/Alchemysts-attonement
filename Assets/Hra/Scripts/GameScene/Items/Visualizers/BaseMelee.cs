@@ -96,12 +96,15 @@ public class MeleeWeapon : BaseWeapon
 
     private void DamageTarget(Transform targetGameObject)
     {
-        if (Holder is PlayerController)
+        if (Holder is PlayerController playerController)
         {
             if (targetGameObject.TryGetComponent(out Enemy enemy))
             {
                 enemy.Damage(LocalDataStorage.Instance.PlayerData.LoadoutData.WeaponInstance.Damage);
-                _elementHandler.ApplyElements(enemy);
+                if (playerController.HasElementsOn)
+                {
+                    _elementHandler.ApplyElements(enemy);
+                }
             }
         }
         else if (Holder is Enemy enemy)

@@ -13,6 +13,14 @@ public class Shadow : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
+            if (collision.gameObject.TryGetComponent(out PlayerController controller))
+            {
+                if (controller.HasElementsOn)
+                {
+                    return;
+                }
+            }
+
             CurrencyData currencyData = LocalDataStorage.Instance.PlayerData.CurrencyData;
             float shadowsAfterPickup = currencyData.CurrentShadows + _amount;
             if (shadowsAfterPickup > currencyData.MaxShadows)
