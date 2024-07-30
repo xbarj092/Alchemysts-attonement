@@ -7,7 +7,13 @@ public class LifeStealEffect : IPlayerEffect
     {
         yield return null;
         UpgradeData upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == element.FriendlyID);
-        target.CurrentHealth += element.SpecialEffects[SpecialEffect.Heal][upgradeData.Level - 1];
+        float hpAfterHeal = target.CurrentHealth + element.SpecialEffects[SpecialEffect.Heal][upgradeData.Level - 1];
+        if (hpAfterHeal > target.MaxHealth)
+        {
+            hpAfterHeal = target.MaxHealth;
+        }
+
+        target.CurrentHealth = hpAfterHeal;
         LocalDataStorage.Instance.PlayerData.PlayerStats = target;
     }
 }

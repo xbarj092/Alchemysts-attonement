@@ -10,6 +10,7 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
     [SerializeField] private BaseWeapon _weapon;
     [SerializeField] private Coin _coinPrefab;
     [SerializeField] private Shadow _shadowPrefab;
+    [SerializeField] private LayerMask _collisionLayerMask;
 
     public EnemyAnimator Animator;
     [field: SerializeField] public Rigidbody2D Rb { get; set; }
@@ -124,8 +125,14 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
         {
             if ((i + 1) % 10 == 0)
             {
-                Coin coin = Instantiate(_coinPrefab, transform.parent);
-                coin.transform.position = GetRandomPosition(transform.position, 1f);
+                Vector2 coinPosition = GetRandomPosition(transform.position, 1f);
+                if (Physics2D.OverlapPoint(coinPosition, _collisionLayerMask))
+                {
+                    coinPosition = transform.position;
+                }
+
+                Coin coin = Instantiate(_coinPrefab, transform.parent).GetComponent<Coin>();
+                coin.transform.position = coinPosition;
                 coin.Init(10);
             }
         }
@@ -134,8 +141,14 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
         {
             if ((i + 1) % 10 == 0)
             {
-                Shadow shadow = Instantiate(_shadowPrefab, transform.parent);
-                shadow.transform.position = GetRandomPosition(transform.position, 1f);
+                Vector2 shadowPosition = GetRandomPosition(transform.position, 1f);
+                if (Physics2D.OverlapPoint(shadowPosition, _collisionLayerMask))
+                {
+                    shadowPosition = transform.position;
+                }
+
+                Shadow shadow = Instantiate(_shadowPrefab, transform.parent).GetComponent<Shadow>();
+                shadow.transform.position = shadowPosition;
                 shadow.Init(10);
             }
         }

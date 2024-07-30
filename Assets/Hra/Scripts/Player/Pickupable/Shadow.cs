@@ -14,7 +14,13 @@ public class Shadow : MonoBehaviour
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
             CurrencyData currencyData = LocalDataStorage.Instance.PlayerData.CurrencyData;
-            currencyData.CurrentShadows += _amount;
+            float shadowsAfterPickup = currencyData.CurrentShadows + _amount;
+            if (shadowsAfterPickup > currencyData.MaxShadows)
+            {
+                shadowsAfterPickup = currencyData.MaxShadows;
+            }
+            
+            currencyData.CurrentShadows = shadowsAfterPickup;
             LocalDataStorage.Instance.PlayerData.CurrencyData = currencyData;
             Destroy(gameObject);
         }

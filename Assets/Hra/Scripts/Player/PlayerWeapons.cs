@@ -27,8 +27,11 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         BaseWeapon newWeapon = GetWeapon(loadoutData);
-        BaseWeapon instantiatedWeapon = Instantiate(newWeapon, transform.position, transform.root.rotation, transform);
-        StartCoroutine(DelayedWeaponChange(instantiatedWeapon));
+        if (newWeapon != null)
+        {
+            BaseWeapon instantiatedWeapon = Instantiate(newWeapon, transform.position, transform.root.rotation, transform);
+            StartCoroutine(DelayedWeaponChange(instantiatedWeapon));
+        }
     }
 
     private IEnumerator DelayedWeaponChange(BaseWeapon newWeapon)
@@ -41,7 +44,7 @@ public class PlayerWeapons : MonoBehaviour
     {
         foreach (BaseWeapon weapon in ValidWeapons)
         {
-            if (weapon.WeaponItem.FriendlyID == loadoutData.EquippedWeapon.FriendlyID)
+            if (weapon.WeaponItem.FriendlyID == loadoutData?.EquippedWeapon?.FriendlyID)
             {
                 return weapon;
             }

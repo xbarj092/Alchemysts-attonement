@@ -147,13 +147,21 @@ public class PlayerController : Entity
 
         if (playerStats.CurrentHealth <= 0f)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
         IsDead = true;
+        _playerWeapons.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        PlayerStats playerStats = LocalDataStorage.Instance.PlayerData.PlayerStats;
+        playerStats.CurrentHealth = playerStats.MaxHealth;
+        CurrencyData currencyData = LocalDataStorage.Instance.PlayerData.CurrencyData;
+        currencyData.CurrentShadows = 0;
+        LocalDataStorage.Instance.PlayerData.PlayerStats = playerStats;
+        LocalDataStorage.Instance.PlayerData.CurrencyData = currencyData;
         ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Death);
     }
 
