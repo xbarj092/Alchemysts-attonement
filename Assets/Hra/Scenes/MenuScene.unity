@@ -336,34 +336,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 832212507640810188, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 832212507640810188, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 832212507640810188, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 320
-      objectReference: {fileID: 0}
-    - target: {fileID: 832212507640810188, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 836637242550946046, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 480
-      objectReference: {fileID: 0}
-    - target: {fileID: 1230823328214541223, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2089201520, guid: 20f616f5d41a92e43910167ba1a1da7f, type: 3}
-    - target: {fileID: 2709795356393896883, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1302983852, guid: 20f616f5d41a92e43910167ba1a1da7f, type: 3}
     - target: {fileID: 4492250807726983777, guid: 01b0a243622fe69459662a272b21f857, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -444,27 +416,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5238766868383785879, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 480
-      objectReference: {fileID: 0}
     - target: {fileID: 7782449227049353673, guid: 01b0a243622fe69459662a272b21f857, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8415102751169049184, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1126004801, guid: 20f616f5d41a92e43910167ba1a1da7f, type: 3}
-    - target: {fileID: 8877537897571924582, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 480
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4985194206978132168, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-    - {fileID: 7108131690970062460, guid: 01b0a243622fe69459662a272b21f857, type: 3}
-    - {fileID: 4129772049188262397, guid: 01b0a243622fe69459662a272b21f857, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01b0a243622fe69459662a272b21f857, type: 3}
