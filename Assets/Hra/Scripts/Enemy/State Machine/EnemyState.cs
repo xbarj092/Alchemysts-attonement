@@ -11,14 +11,14 @@ public class EnemyState : IState
 
     public virtual IState ExecuteState()
     {
-        if (_enemy.IsHit)
-        {
-            return _enemy.HitState;
-        }
-
         if (_enemy.IsDead)
         {
             return _enemy.DeathState;
+        }
+
+        if (_enemy.IsHit)
+        {
+            return _enemy.HitState;
         }
 
         return null;

@@ -14,16 +14,25 @@ public class PlayerHitState : PlayerState
     public override void EnterState()
     {
         base.EnterState();
-        _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerHit);
+        _timeElapsed = 0;
+        _player.Move(Vector2.zero);
+        _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerHit, 1, false);
+        _player.Animator.SetLayerWeight(1, 1);
     }
 
     public override IState ExecuteState()
     {
+        _timeElapsed += Time.deltaTime;
+
+        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        _player.Move(movement);
+
         if (IsHitCompleted())
         {
             _player.IsHit = false;
-            Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-            if (movement.x != 0 || movement.y != 0)
+            _player.Animator.SetLayerWeight(1, 0);
+
+            if (movement != Vector2.zero)
             {
                 return _player.MoveState;
             }

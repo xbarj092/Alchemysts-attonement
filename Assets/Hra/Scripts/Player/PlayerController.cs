@@ -140,6 +140,7 @@ public class PlayerController : Entity
             return;
         }
 
+        IsHit = true;
         PlayerStats playerStats = LocalDataStorage.Instance.PlayerData.PlayerStats;
         playerStats.CurrentHealth -= damageAmount;
         LocalDataStorage.Instance.PlayerData.PlayerStats = playerStats;

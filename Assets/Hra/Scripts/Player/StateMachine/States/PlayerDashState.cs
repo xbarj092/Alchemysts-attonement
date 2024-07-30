@@ -14,6 +14,7 @@ public class PlayerDashState : PlayerState
     public override void EnterState()
     {
         base.EnterState();
+        _timeElapsed = 0;
         _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerDash);
     }
 
