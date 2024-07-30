@@ -1,5 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,10 @@ public class Room : MonoBehaviour
 
     [SerializeField] private List<RoomExit> _exits = new();
 
+    public int DistanceFromStart;
     public Vector2Int Coordinates { get; private set; }
+
+    private float _enemyStatMultiplier;
 
     public event Action<Direction, Room> OnPlayerTrigger;
 
@@ -30,6 +34,9 @@ public class Room : MonoBehaviour
         {
             exit.OnPlayerTrigger += MoveToNextRoom;
         }
+
+        _enemyStatMultiplier = Mathf.Pow(LocalDataStorage.Instance.GameData.EnemyScaleData.RoomMultiplier, DistanceFromStart);
+        StartCoroutine(SetEnemiesMultiplier());
     }
 
     private void OnDisable()
@@ -48,5 +55,18 @@ public class Room : MonoBehaviour
     private void MoveToNextRoom(Direction direction)
     {
         OnPlayerTrigger?.Invoke(direction, this);
+    }
+
+    private IEnumerator SetEnemiesMultiplier()
+    {
+        yield return null;
+        Enemy[] enemies = GetComponentsInChildren<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.EnemyInstance.MaxHealth *= _enemyStatMultiplier;
+            enemy.EnemyInstance.CurrentHealth = enemy.EnemyInstance.MaxHealth;
+            enemy.EnemyInstance.DropsCoins *= _enemyStatMultiplier;
+            enemy.EnemyInstance.DropsShadows *= _enemyStatMultiplier;
+        }
     }
 }
