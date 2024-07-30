@@ -8,8 +8,8 @@ public class EnemyInstance
     public float MovementSpeed;
 
     public float TouchDamage;
-    public int DropsCoins;
-    public int DropsShadows;
+    public float DropsCoins;
+    public float DropsShadows;
 
     public WeaponItem Weapon;
 

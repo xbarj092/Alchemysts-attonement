@@ -8,7 +8,6 @@ public class DepthFirstSearchHelper
     private int _dungeonSizeX;
     private int _dungeonSizeY;
     private List<(GridNode node, int distance)> _deadEnds = new();
-    private GridNode _startNode;
 
     public DepthFirstSearchHelper(Grid<GridNode> grid, int dungeonSizeX, int dungeonSizeY)
     {
@@ -19,13 +18,16 @@ public class DepthFirstSearchHelper
 
     public void GenerateLevel()
     {
-        GenerateNextNode(null, _grid.GetGridObject(0, 0), 0);
+        GridNode startNode = _grid.GetGridObject(0, 0);
+        startNode.DistanceFromStart = 0;
+        GenerateNextNode(null, startNode, 0);
         SetSpecialRooms();
     }
 
     private void GenerateNextNode(GridNode previousNode, GridNode currentNode, int distance)
     {
         currentNode.IsVisited = true;
+        currentNode.DistanceFromStart = distance;
 
         ClearWalls(previousNode, currentNode);
         GridNode nextNode;
