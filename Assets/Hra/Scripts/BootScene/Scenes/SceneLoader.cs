@@ -40,7 +40,7 @@ public static class SceneLoader
     public static event Action<Scenes> OnSceneUnloadDone;
     public static event Action<Scenes> OnSceneMadeActive;
 
-    public static void LoadScene(Scenes scene, bool additive = true, bool setActive = true, Scenes? toUnload = null)
+    public static void LoadScene(Scenes scene, bool additive = true, bool setActive = true, Scenes? toUnload = null, Action onSuccess = null)
     {
         if (toUnload != null)
         {
@@ -55,7 +55,7 @@ public static class SceneLoader
 
         _sceneToLoad = scene;
         _activateAfterLoad = setActive;
-        _loadingCoroutine = LoaderMonoBehaviour.StartCoroutine(LoadSceneCR(_sceneToLoad, additive ? LoadSceneMode.Additive : LoadSceneMode.Single));
+        _loadingCoroutine = LoaderMonoBehaviour.StartCoroutine(LoadSceneCR(_sceneToLoad, additive ? LoadSceneMode.Additive : LoadSceneMode.Single, onSuccess));
     }
 
     public static void SetSceneAsActive(Scenes scene)
@@ -103,7 +103,7 @@ public static class SceneLoader
         LoaderMonoBehaviour.StartCoroutine(DelayedUnloadDoneInvoke());
     }
 
-    private static IEnumerator LoadSceneCR(Scenes scene, LoadSceneMode sceneLoadMode)
+    private static IEnumerator LoadSceneCR(Scenes scene, LoadSceneMode sceneLoadMode, Action onSuccess)
     {
         _asyncOp = SceneManager.LoadSceneAsync(scene.ToString(), sceneLoadMode);
         _asyncOp.completed += SceneLoadingDone;
@@ -116,6 +116,7 @@ public static class SceneLoader
 
         OnSceneLoadProgress?.Invoke(MAX_LOAD_PROGRESS);
         _loadingCoroutine = null;
+        onSuccess?.Invoke();
     }
 
     private static void SceneLoadingDone(AsyncOperation asyncOp)
