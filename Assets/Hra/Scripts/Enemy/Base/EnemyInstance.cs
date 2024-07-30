@@ -23,6 +23,8 @@ public class EnemyInstance
         DropsCoins = enemyStats.DropsCoins;
         DropsShadows = enemyStats.DropsShadows;
     
-        Weapon = enemyStats.Weapon;
+        Weapon = new();
+        Weapon.AttacksPerSecond = enemyStats.Weapon.AttacksPerSecond;
+        Weapon.Damage = enemyStats.Weapon.Damage;
     }
 }

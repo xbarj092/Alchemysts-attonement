@@ -65,6 +65,7 @@ public class Room : MonoBehaviour
         {
             enemy.EnemyInstance.MaxHealth *= _enemyStatMultiplier;
             enemy.EnemyInstance.CurrentHealth = enemy.EnemyInstance.MaxHealth;
+            enemy.EnemyInstance.Weapon.Damage *= _enemyStatMultiplier / 2;
             enemy.EnemyInstance.DropsCoins *= _enemyStatMultiplier;
             enemy.EnemyInstance.DropsShadows *= _enemyStatMultiplier;
         }
