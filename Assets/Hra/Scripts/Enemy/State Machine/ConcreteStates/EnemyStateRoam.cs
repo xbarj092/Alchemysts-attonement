@@ -19,7 +19,7 @@ public class EnemyStateRoam : EnemyState
         _targetPos = GetRandomPosition();
     }
 
-    public override EnemyState ExecuteState()
+    public override IState ExecuteState()
     {
         if (_enemy.IsAggroed)
         {

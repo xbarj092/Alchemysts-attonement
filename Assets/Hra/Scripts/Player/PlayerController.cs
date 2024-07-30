@@ -41,7 +41,6 @@ public class PlayerController : Entity
     public PlayerHitState HitState;
     public PlayerDeathState DeathState;
 
-    private Vector2 _movement;
     Camera cameraMain;
 
     private BaseWeapon _weapon;
@@ -53,6 +52,14 @@ public class PlayerController : Entity
 
     private void Awake()
     {
+        IdleState = new(this, StateMachine);
+        DashState = new(this, StateMachine);
+        MoveState = new(this, StateMachine);
+        AttackState = new(this, StateMachine);
+        HitState = new(this, StateMachine);
+        DeathState = new(this, StateMachine);
+        StateMachine.Initialize(IdleState);
+
         cameraMain = Camera.main;
         _weaponAnimator = _playerWeapons.GetComponent<Animator>();
         Head = gameObject.transform.GetChild(0).gameObject;
@@ -91,7 +98,6 @@ public class PlayerController : Entity
 
     private void GetInputs()
     {
-        _movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         _mousePosition = cameraMain.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
@@ -158,9 +164,9 @@ public class PlayerController : Entity
 
     }
 
-    public void Move()
+    public void Move(Vector2 movement)
     {
-        _rigidBody.velocity = _movement.normalized * _movementSpeed;
+        _rigidBody.velocity = movement.normalized * _movementSpeed;
         HandleAnimator(_rigidBody.velocity);
     }
 
@@ -199,7 +205,7 @@ public class PlayerController : Entity
         canDash = false;
         isDashing = true;
         Vector2 originalVelocity = _rigidBody.velocity;
-        _rigidBody.velocity = _movement.normalized * _dashForce;
+        // _rigidBody.velocity = _movement.normalized * _dashForce;
         yield return new WaitForSeconds(_dashDuration);
         _rigidBody.velocity = originalVelocity;
         isDashing = false;

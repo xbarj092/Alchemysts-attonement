@@ -19,7 +19,7 @@ public class EnemyStateIdle : EnemyState
         base.EnterState();
     }
 
-    public override EnemyState ExecuteState()
+    public override IState ExecuteState()
     {
         if (_enemy.IsAggroed)
         {

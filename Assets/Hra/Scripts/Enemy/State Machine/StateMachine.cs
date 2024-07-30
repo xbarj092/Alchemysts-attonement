@@ -1,34 +1,33 @@
-using System;
 using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    public EnemyState CurrentEnemyState {  get; set; }
+    public IState CurrentState {  get; set; }
 
-    public void Initialize(EnemyState startingState)
+    public void Initialize(IState startingState)
     {
-        CurrentEnemyState = startingState;
-        CurrentEnemyState.EnterState();
+        CurrentState = startingState;
+        CurrentState.EnterState();
     }
 
     private void Update()
     {
-        if (CurrentEnemyState == null)
+        if (CurrentState == null)
         {
             return;
         }
 
-        EnemyState nextState = CurrentEnemyState?.ExecuteState();
-        if (nextState != null && nextState != CurrentEnemyState)
+        IState nextState = CurrentState.ExecuteState();
+        if (nextState != null && !nextState.Equals(CurrentState))
         {
             ChangeState(nextState);
         }
     }
 
-    public void ChangeState(EnemyState newState)
+    public void ChangeState(IState newState)
     {
-        CurrentEnemyState.ExitState();
-        CurrentEnemyState = newState;
-        CurrentEnemyState.EnterState();
+        CurrentState.ExitState();
+        CurrentState = newState;
+        CurrentState.EnterState();
     }
 }

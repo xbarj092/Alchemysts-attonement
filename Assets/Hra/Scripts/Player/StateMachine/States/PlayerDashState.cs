@@ -6,7 +6,7 @@ public class PlayerDashState : PlayerState
 
     private const float DASH_TIME = 1f;
 
-    public PlayerDashState(PlayerController player, StateMachine enemyStateMachine) : base(player, enemyStateMachine)
+    public PlayerDashState(PlayerController player, StateMachine playerStateMachine) : base(player, playerStateMachine)
     {
 
     }
@@ -17,7 +17,7 @@ public class PlayerDashState : PlayerState
         _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerDash);
     }
 
-    public override PlayerState ExecuteState()
+    public override IState ExecuteState()
     {
         if (IsDashCompleted())
         {

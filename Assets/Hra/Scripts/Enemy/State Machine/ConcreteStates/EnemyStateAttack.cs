@@ -26,7 +26,7 @@ public class EnemyStateAttack : EnemyState
         _enemy.UseWeapon();
     }
 
-    public override EnemyState ExecuteState()
+    public override IState ExecuteState()
     {
         if (IsAttackCompleted())
         {

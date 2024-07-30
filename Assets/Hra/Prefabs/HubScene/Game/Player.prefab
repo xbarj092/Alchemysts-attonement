@@ -64,7 +64,8 @@ GameObject:
   - component: {fileID: 3821717982354012327}
   - component: {fileID: 1479127986725598984}
   - component: {fileID: 7198409225395293726}
-  - component: {fileID: 2681343341696685513}
+  - component: {fileID: 6762314679048140098}
+  - component: {fileID: 8111032535136819359}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -136,8 +137,8 @@ MonoBehaviour:
   _dashCooldown: 1
   IsHit: 0
   IsDead: 0
-  Animator: {fileID: 0}
-  StateMachine: {fileID: 2681343341696685513}
+  Animator: {fileID: 6762314679048140098}
+  StateMachine: {fileID: 8111032535136819359}
   CanAttack: 1
   IsAttacking: 0
 --- !u!58 &3821717982354012327
@@ -248,7 +249,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2681343341696685513
+--- !u!114 &6762314679048140098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352080420617885255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4caa9ad016463499777a024fe96b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1479127986725598984}
+--- !u!114 &8111032535136819359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

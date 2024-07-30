@@ -6,7 +6,7 @@ public class PlayerHitState : PlayerState
 
     private const float HIT_TIME = 1f;
 
-    public PlayerHitState(PlayerController player, StateMachine enemyStateMachine) : base(player, enemyStateMachine)
+    public PlayerHitState(PlayerController player, StateMachine playerStateMachine) : base(player, playerStateMachine)
     {
 
     }
@@ -17,7 +17,7 @@ public class PlayerHitState : PlayerState
         _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerHit);
     }
 
-    public override PlayerState ExecuteState()
+    public override IState ExecuteState()
     {
         if (IsHitCompleted())
         {

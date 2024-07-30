@@ -14,7 +14,7 @@ public class EnemyStateDeath : EnemyState
         base.EnterState();
     }
 
-    public override EnemyState ExecuteState()
+    public override IState ExecuteState()
     {
         return base.ExecuteState();
     }

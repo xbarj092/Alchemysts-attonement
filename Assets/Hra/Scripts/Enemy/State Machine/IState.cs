@@ -1,6 +1,6 @@
-public interface IState<T>
+public interface IState
 {
     void EnterState();
-    T ExecuteState();
+    IState ExecuteState();
     void ExitState();
 }

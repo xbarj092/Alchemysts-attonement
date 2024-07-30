@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerDeathState : PlayerState
 {
-    public PlayerDeathState(PlayerController player, StateMachine enemyStateMachine) : base(player, enemyStateMachine)
+    public PlayerDeathState(PlayerController player, StateMachine playerStateMachine) : base(player, playerStateMachine)
     {
 
     }
@@ -13,7 +13,7 @@ public class PlayerDeathState : PlayerState
         _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerDeath);
     }
 
-    public override PlayerState ExecuteState()
+    public override IState ExecuteState()
     {
         return base.ExecuteState();
     }

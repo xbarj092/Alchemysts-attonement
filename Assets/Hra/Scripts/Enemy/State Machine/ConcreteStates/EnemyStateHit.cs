@@ -19,7 +19,7 @@ public class EnemyStateHit : EnemyState
         base.EnterState();
     }
 
-    public override EnemyState ExecuteState()
+    public override IState ExecuteState()
     {
         if (IsHitCompleted())
         {

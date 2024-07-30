@@ -6,7 +6,7 @@ public class PlayerAttackState : PlayerState
 
     private const float ATTACK_TIME = 1f;
 
-    public PlayerAttackState(PlayerController player, StateMachine enemyStateMachine) : base(player, enemyStateMachine)
+    public PlayerAttackState(PlayerController player, StateMachine playerStateMachine) : base(player, playerStateMachine)
     {
 
     }
@@ -17,7 +17,7 @@ public class PlayerAttackState : PlayerState
         _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerAttack);
     }
 
-    public override PlayerState ExecuteState()
+    public override IState ExecuteState()
     {
         if (IsAttackCompleted())
         {

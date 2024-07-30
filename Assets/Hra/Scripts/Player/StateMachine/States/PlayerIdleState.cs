@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
-    public PlayerIdleState(PlayerController player, StateMachine enemyStateMachine) : base(player, enemyStateMachine)
+    public PlayerIdleState(PlayerController player, StateMachine playerStateMachine) : base(player, playerStateMachine)
     {
 
     }
@@ -13,7 +13,7 @@ public class PlayerIdleState : PlayerState
         _player.Animator.PlayAnimation(PlayerAnimationTrigger.PlayerIdle);
     }
 
-    public override PlayerState ExecuteState()
+    public override IState ExecuteState()
     {
         if (Input.GetMouseButtonDown(0))
         {

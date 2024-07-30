@@ -1,4 +1,4 @@
-public class EnemyState : IState<EnemyState>
+public class EnemyState : IState
 {
     protected Enemy _enemy;
     protected StateMachine _enemyStateMachine;
@@ -9,7 +9,7 @@ public class EnemyState : IState<EnemyState>
         _enemyStateMachine = enemyStateMachine;
     }
 
-    public virtual EnemyState ExecuteState()
+    public virtual IState ExecuteState()
     {
         if (_enemy.IsHit)
         {

@@ -1,4 +1,4 @@
-public class PlayerState : IState<PlayerState>
+public class PlayerState : IState
 {
     protected PlayerController _player;
     protected StateMachine _playerStateMachine;
@@ -9,7 +9,7 @@ public class PlayerState : IState<PlayerState>
         _playerStateMachine = playerStateMachine;
     }
 
-    public virtual PlayerState ExecuteState()
+    public virtual IState ExecuteState()
     {
         if (_player.IsHit)
         {
