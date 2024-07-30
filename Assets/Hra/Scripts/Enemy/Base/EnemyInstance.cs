@@ -19,6 +19,7 @@ public class EnemyInstance
         MaxHealth = enemyStats.Health;
         MovementSpeed = enemyStats.MovementSpeed;
         
+        TouchDamage = enemyStats.TouchDamage;
         DropsCoins = enemyStats.DropsCoins;
         DropsShadows = enemyStats.DropsShadows;
     
