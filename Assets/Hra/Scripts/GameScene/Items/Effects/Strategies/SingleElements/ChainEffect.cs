@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +8,12 @@ public class ChainEffect : IEnemyEffect
     private ElementHandler _elementHandler = new();
 
     private const int TARGET_AMOUNT = 5;
+    private const float EFFECT_RANGE = 3f;
 
     public IEnumerator ApplyEffect(Enemy initialTarget, ElementItem element)
     {
         List<Enemy> affectedEnemies = new();
-        Transform currentTargetTransform = initialTarget.transform;
+        Transform currentTargetTransform = initialTarget != null && !initialTarget.IsDead ? initialTarget.transform : null;
         UpgradeData upgradeData = LocalDataStorage.Instance.PlayerData.UpgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == element.FriendlyID);
         if (upgradeData == null)
         {
@@ -24,9 +24,20 @@ public class ChainEffect : IEnemyEffect
 
         for (int i = 0; i < TARGET_AMOUNT; i++)
         {
+            if (currentTargetTransform == null)
+            {
+                Enemy newInitialTarget = FindClosestEnemy(GameObject.FindObjectOfType<MeleeWeapon>().transform.position, EFFECT_RANGE);
+                if (newInitialTarget == null)
+                {
+                    ResetChainEffect(affectedEnemies);
+                    yield break;
+                }
+                currentTargetTransform = newInitialTarget.transform;
+            }
+
             try
             {
-                Enemy nextTarget = FindClosestEnemy(currentTargetTransform.position);
+                Enemy nextTarget = FindClosestEnemy(currentTargetTransform.position, EFFECT_RANGE);
                 if (nextTarget == null)
                 {
                     ResetChainEffect(affectedEnemies);
@@ -34,12 +45,13 @@ public class ChainEffect : IEnemyEffect
                 }
 
                 nextTarget.IsChainApplied = true;
+                affectedEnemies.Add(nextTarget);
+
                 nextTarget.Damage(damage);
-                if (initialTarget != nextTarget)
+                if (!nextTarget.IsDead)
                 {
                     _elementHandler.ApplyElements(nextTarget, true);
                 }
-                affectedEnemies.Add(nextTarget);
                 currentTargetTransform = nextTarget.transform;
             }
             catch (MissingReferenceException)
@@ -53,20 +65,20 @@ public class ChainEffect : IEnemyEffect
         ResetChainEffect(affectedEnemies);
     }
 
-    private Enemy FindClosestEnemy(Vector3 position)
+    private Enemy FindClosestEnemy(Vector3 position, float range)
     {
         Enemy closestEnemy = null;
         float closestDistance = float.MaxValue;
 
         foreach (Enemy enemy in EnemyManager.Instance.GetAllEnemies())
         {
-            if (enemy.IsChainApplied)
+            if (enemy.IsChainApplied || enemy.IsDead)
             {
                 continue;
             }
 
             float distance = Vector3.Distance(position, enemy.transform.position);
-            if (distance < closestDistance)
+            if (distance < closestDistance && distance <= range)
             {
                 closestDistance = distance;
                 closestEnemy = enemy;
@@ -80,7 +92,10 @@ public class ChainEffect : IEnemyEffect
     {
         foreach (Enemy enemy in affectedEnemies)
         {
-            enemy.IsChainApplied = false;
+            if (enemy != null)
+            {
+                enemy.IsChainApplied = false;
+            }
         }
     }
 }
