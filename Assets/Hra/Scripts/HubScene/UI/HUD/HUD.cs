@@ -27,7 +27,7 @@ public class HUD : MonoBehaviour
     private void UpdateCurrencyData(CurrencyData data)
     {
         _currency.SetCurrencyText(data.Coins);
-        _shadowsBar.SetShadowsBar(data.CurrentShadows, data.NextShadows);
+        _shadowsBar.SetShadowsBar(data.CurrentShadows, data.MaxShadows);
     }
 
     private void UpdatePlayerStats(PlayerStats stats)

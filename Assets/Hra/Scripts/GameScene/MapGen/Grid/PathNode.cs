@@ -15,6 +15,7 @@ public class GridNode
     public SpecialRoom SpecialRoom;
     public Room Room;
     public GridNode CameFromNode;
+    public int DistanceFromStart;
 
     public List<Wall> Walls = new();
 
