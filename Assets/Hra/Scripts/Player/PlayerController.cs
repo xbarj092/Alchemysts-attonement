@@ -147,13 +147,15 @@ public class PlayerController : Entity
 
         if (playerStats.CurrentHealth <= 0f)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
         IsDead = true;
+        _playerWeapons.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
         ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Death);
     }
 
