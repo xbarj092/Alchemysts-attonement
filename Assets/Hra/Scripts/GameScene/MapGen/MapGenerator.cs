@@ -45,7 +45,7 @@ public class MapGenerator : MonoBehaviour
             {
                 if (_grid.GetGridObject(x, y).Room != null)
                 {
-                    GameObject.FindGameObjectWithTag(GlobalConstants.Tags.Player.ToString()).transform.position = position;
+                    GameObject.FindGameObjectWithTag(GlobalConstants.Tags.Player.ToString()).transform.parent.position = position;
                 }
             }
         }

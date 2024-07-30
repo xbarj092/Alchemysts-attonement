@@ -21,7 +21,8 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
     {
         SceneLoader.OnSceneLoadDone += OnMenuToHubLoadDone;
         // Cursor.lockState = CursorLockMode.Locked;
-        SceneLoader.LoadScene(SceneLoader.Scenes.HubScene, toUnload: SceneLoader.Scenes.MenuScene);
+        SceneLoader.LoadScene(SceneLoader.Scenes.HubScene, toUnload: SceneLoader.Scenes.MenuScene, 
+            onSuccess: () => GameManager.Instance.SetUpHubScene());
     }
 
     private void OnMenuToHubLoadDone(SceneLoader.Scenes scenes)
@@ -34,7 +35,8 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
     {
         SceneLoader.OnSceneLoadDone += OnHubToGameLoadDone;
         // Cursor.lockState = CursorLockMode.Locked;
-        SceneLoader.LoadScene(SceneLoader.Scenes.GameScene, toUnload: SceneLoader.Scenes.HubScene);
+        SceneLoader.LoadScene(SceneLoader.Scenes.GameScene, toUnload: SceneLoader.Scenes.HubScene, 
+            onSuccess: () => GameManager.Instance.SetUpGameScene());
     }
 
     private void OnHubToGameLoadDone(SceneLoader.Scenes scenes)
@@ -46,7 +48,8 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
     {
         SceneLoader.OnSceneLoadDone += OnGameToHubLoadDone;
         // Cursor.lockState = CursorLockMode.Confined;
-        SceneLoader.LoadScene(SceneLoader.Scenes.HubScene, toUnload: SceneLoader.Scenes.GameScene);
+        SceneLoader.LoadScene(SceneLoader.Scenes.HubScene, toUnload: SceneLoader.Scenes.GameScene, 
+            onSuccess: () => GameManager.Instance.SetUpHubScene());
     }
 
     private void OnGameToHubLoadDone(SceneLoader.Scenes scenes)

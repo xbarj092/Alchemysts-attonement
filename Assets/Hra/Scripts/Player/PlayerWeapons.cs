@@ -19,7 +19,7 @@ public class PlayerWeapons : MonoBehaviour
         DataEvents.OnLoadoutDataChanged -= SetWeapon;
     }
 
-    private void SetWeapon(LoadoutData loadoutData)
+    public void SetWeapon(LoadoutData loadoutData)
     {
         foreach (BaseWeapon weapon in GetComponentsInChildren<BaseWeapon>())
         {
