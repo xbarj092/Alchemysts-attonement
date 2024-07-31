@@ -12,8 +12,8 @@ public class MapGenerator : MonoBehaviour
     private RoomPlacementHelper _roomPlacementHelper;
     private RoomFactory _roomFactory;
 
-    private const int DUNGEON_SIZE_X = 3;
-    private const int DUNGEON_SIZE_Y = 3;
+    private const int DUNGEON_SIZE_X = 10;
+    private const int DUNGEON_SIZE_Y = 10;
 
     private void Awake()
     {

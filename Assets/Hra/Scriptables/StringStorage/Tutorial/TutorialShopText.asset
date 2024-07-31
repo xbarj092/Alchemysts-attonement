@@ -17,4 +17,9 @@ MonoBehaviour:
   - Click on weapon to purchase it
   - You can also purchase elements that can be used on your weapon
   - You need to have element slot to be able to enchant your weapon with an element
-  - You should be all set! Go to loadout screen.
+  - You should be all set!
+  - Now go to loadout screen.
+  - When you click on the element, you will enchant your weapon
+  - Here you can see stats of your weapon
+  - When the shadow bar is full, you can activate it by "Mouse R" click, and your
+    weapon will use enchantments
