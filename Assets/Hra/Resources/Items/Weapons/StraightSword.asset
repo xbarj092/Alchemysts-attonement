@@ -19,6 +19,16 @@ MonoBehaviour:
   MaxLevel: 5
   Icon: {fileID: 83938463, guid: 87c6b33b3a9737442a3164262c657e56, type: 3}
   UpgradePrices: 64000000fa000000e8030000c409000088130000
-  Damage: 10
-  Range: 2
-  AttacksPerSecond: 2
+  Damage:
+  - 10
+  - 15
+  - 20
+  - 25
+  - 30
+  Range: 0000000000000000000000000000000000000000
+  AttacksPerSecond:
+  - 1
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
