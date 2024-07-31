@@ -6,6 +6,11 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (TutorialManager.Instance.IsTutorialPlaying(TutorialID.Shop))
+        {
+            return;
+        }
+
         if (collision.gameObject.CompareTag(GlobalConstants.Tags.Player.ToString()))
         {
             switch (_goToScene)

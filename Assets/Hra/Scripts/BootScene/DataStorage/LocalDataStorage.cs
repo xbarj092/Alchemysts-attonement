@@ -10,6 +10,6 @@ public class LocalDataStorage : MonoSingleton<LocalDataStorage>
     {
         Catalog.InitializeCatalog();
         PlayerData.PlayerStats = new(100, 100);
-        PlayerData.CurrencyData = new(99999, 0, 100);
+        PlayerData.CurrencyData = new(300, 0, 100);
     }
 }
