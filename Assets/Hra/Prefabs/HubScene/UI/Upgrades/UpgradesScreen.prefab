@@ -1060,6 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameScreenType: 5
+  CanClose: 0
   _currency: {fileID: 8271086280944253842}
 --- !u!222 &4661609275435831844
 CanvasRenderer:

@@ -15,6 +15,16 @@ public class GameScreen : MonoBehaviour
 {
     public GameScreenType GameScreenType;
 
+    public bool CanClose = true;
+
+    private void Start()
+    {
+        if (TutorialManager.Instance.CompletedTutorials.Contains(TutorialID.Shop))
+        {
+            CanClose = true;
+        }
+    }
+
     public void Open()
     {
         gameObject.SetActive(true);
@@ -22,6 +32,11 @@ public class GameScreen : MonoBehaviour
 
     public virtual void Close()
     {
+        if (!CanClose)
+        {
+            return;
+        }
+
         Destroy(gameObject);
     }
 

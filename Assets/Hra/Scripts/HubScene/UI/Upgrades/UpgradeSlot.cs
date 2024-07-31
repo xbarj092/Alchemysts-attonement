@@ -84,7 +84,8 @@ public class UpgradeSlot : MonoBehaviour
             currencyData.Coins -= _catalogItem.UpgradePrices[0];
             upgradesData.UpgradeData.Add(new(_catalogItem.ItemType, _friendlyId, true, 1, _catalogItem.MaxLevel));
         }
-        else if (_upgradeData != null && (_upgradeData.Level != _upgradeData.MaxLevel || currencyData.Coins >= _catalogItem.UpgradePrices[_upgradeData.Level]))
+        else if (_upgradeData != null && (_upgradeData.Level != _upgradeData.MaxLevel || currencyData.Coins >= _catalogItem.UpgradePrices[_upgradeData.Level]) && 
+            currencyData.Coins >= _catalogItem.UpgradePrices[upgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == _friendlyId).Level])
         {
             currencyData.Coins -= _catalogItem.UpgradePrices[_upgradeData.Level];
             upgradesData.UpgradeData.FirstOrDefault(upgrade => upgrade.FriendlyID == _friendlyId).Level++;

@@ -16,11 +16,13 @@ public class PlayerController : Entity
     [SerializeField] private float _movementSpeed = 8f;
 
     [Header("DASHING")]
-    [SerializeField] private float _dashForce = 20f;
+    [SerializeField] private float _dashForce = 10f;
     [SerializeField] private float _dashDuration = 0.25f;
     [SerializeField] private float _dashCooldown = 1f;
-    private bool canDash = true;
+    private bool CanDash = false;
     private bool isDashing = false;
+
+    public bool CanMove = false;
 
     private float _slowTimeDuration = 0.1f;
     private float _slowTimeScale = 0.1f;
@@ -54,6 +56,12 @@ public class PlayerController : Entity
 
     private void Awake()
     {
+        if (TutorialManager.Instance.CompletedTutorials.Contains(TutorialID.Shop))
+        {
+            CanDash = true;
+            CanMove = true;
+        }
+
         IdleState = new(this, StateMachine);
         DashState = new(this, StateMachine);
         MoveState = new(this, StateMachine);
@@ -101,7 +109,7 @@ public class PlayerController : Entity
     {
         _mousePosition = cameraMain.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        if (Input.GetKeyDown(KeyCode.Space) && CanDash)
         {
             StartCoroutine(Dash());
         }
@@ -239,7 +247,7 @@ public class PlayerController : Entity
 
     private IEnumerator Dash()
     {
-        canDash = false;
+        CanDash = false;
         isDashing = true;
         Vector2 originalVelocity = _rigidBody.velocity;
         // _rigidBody.velocity = _movement.normalized * _dashForce;
@@ -247,7 +255,7 @@ public class PlayerController : Entity
         _rigidBody.velocity = originalVelocity;
         isDashing = false;
         yield return new WaitForSeconds(_dashCooldown);
-        canDash = true;
+        CanDash = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

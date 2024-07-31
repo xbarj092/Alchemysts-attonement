@@ -127,6 +127,7 @@ public class TutorialShopAction : TutorialAction
         TutorialEvents.OnItemClicked -= OnElementSlotClicked;
         _tutorialPlayer.SetTextPosition(_afterPurchaseTransform.localPosition);
         _tutorialPlayer.MoveToNextNarratorText();
+        FindObjectOfType<UpgradesScreen>().CanClose = true;
         ScreenEvents.OnGameScreenClosed += OnScreenClosed;
     }
 
@@ -168,6 +169,7 @@ public class TutorialShopAction : TutorialAction
         TutorialEvents.OnElementClicked -= OnElementLoadoutClicked;
         _tutorialPlayer.SetTextPosition(_statsLoadoutClickTransform.localPosition);
         _tutorialPlayer.MoveToNextNarratorText();
+        FindObjectOfType<LoadoutScreen>().CanClose = true;
         ScreenEvents.OnGameScreenClosed += OnGameScreenClosed;
     }
 

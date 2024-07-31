@@ -35,8 +35,11 @@ public class BaseCanvasController : MonoBehaviour
             GameScreen screenInstance = GetActiveGameScreen(gameScreenType);
             InstantiateScreen(screenInstance);
 
-            _instantiatedScreens[gameScreenType].Close();
-            _instantiatedScreens.Remove(gameScreenType);
+            if (_instantiatedScreens[gameScreenType].CanClose)
+            {
+                _instantiatedScreens[gameScreenType].Close();
+                _instantiatedScreens.Remove(gameScreenType);
+            }
         }
     }
 
