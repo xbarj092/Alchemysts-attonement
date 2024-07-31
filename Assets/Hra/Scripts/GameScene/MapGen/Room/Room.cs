@@ -21,8 +21,6 @@ public class Room : MonoBehaviour
 
     [SerializeField] private List<RoomExit> _exits = new();
 
-    public int DistanceFromStart;
-
     public RoomStatus Status;
     private float _enemyStatMultiplier;
 
@@ -43,7 +41,7 @@ public class Room : MonoBehaviour
 
         LoadProgress();
 
-        _enemyStatMultiplier = Mathf.Pow(LocalDataStorage.Instance.GameData.EnemyScaleData.RoomMultiplier, DistanceFromStart);
+        _enemyStatMultiplier = Mathf.Pow(LocalDataStorage.Instance.GameData.EnemyScaleData.RoomMultiplier, Mathf.Abs(Status.Coordinates.x + Status.Coordinates.y));
         StartCoroutine(SetEnemiesMultiplier());
         
     }
