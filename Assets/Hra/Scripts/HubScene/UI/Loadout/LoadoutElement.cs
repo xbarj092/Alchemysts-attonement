@@ -39,6 +39,7 @@ public class LoadoutElement : MonoBehaviour
 
     public void ToggleElement()
     {
+        TutorialEvents.OnElementClickedInvoke();
         LoadoutData loadoutData = LocalDataStorage.Instance.PlayerData.LoadoutData;
         UpgradesData upgradesData = LocalDataStorage.Instance.PlayerData.UpgradesData;
 

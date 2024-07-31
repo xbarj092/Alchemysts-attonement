@@ -16,6 +16,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
     [field: SerializeField] public bool TutorialsEnabled { get; private set; } = true;
     [field: SerializeField] public List<TutorialPlayer> TutorialList { get; private set; }
 
+    public List<TutorialID> CompletedTutorials = new();
     public TutorialPlayer CurrentTutorial { get; private set; }
 
     public event Action<TutorialID> OnTutorialEnd;
@@ -85,6 +86,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
             CurrentTutorial.OnTutorialEnd -= OnCurrentTutorialEnd;
         }
 
+        CompletedTutorials.Add(tutorialID);
         OnTutorialEnd?.Invoke(tutorialID);
     }
 }
