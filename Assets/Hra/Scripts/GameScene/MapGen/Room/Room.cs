@@ -75,11 +75,17 @@ public class Room : MonoBehaviour
 
             foreach (EnemyStatus status in Status.EnemyStates)
             {
-                Enemy enemy = Instantiate(_enemyPrefab, status.Position, Quaternion.identity, transform);
-                enemy.EnemyInstance = status.EnemyInstance;
-                enemy.UpdateHealth();
+                StartCoroutine(InitEnemy(status));
             }
         }
+    }
+
+    private IEnumerator InitEnemy(EnemyStatus status)
+    {
+        Enemy enemy = Instantiate(_enemyPrefab, status.Position, Quaternion.identity, transform);
+        yield return new WaitForSeconds(0.05f);
+        enemy.EnemyInstance = status.EnemyInstance;
+        enemy.UpdateHealth();
     }
 
     private void OnEnable()
@@ -120,6 +126,11 @@ public class Room : MonoBehaviour
             Status.EnemyStates.Add(enemyStatus);
         }
 
+        if (Status.EnemyStates.Count == 0)
+        {
+            Status.IsCleared = true;
+        }
+
         OnRoomDisabled?.Invoke(Status);
     }
 
@@ -130,13 +141,18 @@ public class Room : MonoBehaviour
 
     private IEnumerator SetEnemiesMultiplier()
     {
-        if (Status.EnemyStates != null && Status.EnemyStates.Count > 0)
+        Enemy[] enemies = GetComponentsInChildren<Enemy>();
+        if (Status.IsCleared)
         {
+            foreach (Enemy enemy in enemies)
+            {
+                Destroy(enemy.gameObject);
+            }
+
             yield break;
         }
 
         yield return null;
-        Enemy[] enemies = GetComponentsInChildren<Enemy>();
         foreach (Enemy enemy in enemies)
         {
             enemy.EnemyInstance.MaxHealth *= _enemyStatMultiplier;
