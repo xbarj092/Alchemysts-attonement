@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public class UpgradeSlot : MonoBehaviour
 {
+    public Button Button;
     [Header("Image")]
     [SerializeField] private Image _itemImage;
     [SerializeField] private Sprite _lockedSprite;
@@ -13,6 +15,7 @@ public class UpgradeSlot : MonoBehaviour
     [Header("stuff")]
     [SerializeField] private TMP_Text _itemName;
     [SerializeField] private string _friendlyId;
+    public string FriendlyId => _friendlyId;
     [SerializeField] private List<Image> _levels = new();
     [SerializeField] private TMP_Text _priceText;
 
@@ -92,5 +95,6 @@ public class UpgradeSlot : MonoBehaviour
 
         GetUpgradeData();
         InitSlot();
+        TutorialEvents.OnItemClickedInvoke(_friendlyId);
     }
 }

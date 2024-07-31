@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HubSceneManager
@@ -12,6 +10,10 @@ public class HubSceneManager
             weapons.SetWeapon(LocalDataStorage.Instance.PlayerData.LoadoutData);
         }
 
+        if (!TutorialManager.Instance.CompletedTutorials.Contains(TutorialID.Shop))
+        {
+            TutorialManager.Instance.InstantiateTutorial(TutorialID.Shop);
+        }
         // play tutorial if its setting up for the first time
     }
 }

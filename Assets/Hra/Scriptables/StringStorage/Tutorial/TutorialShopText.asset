@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f84bec4a9d4092428f078d4824ce73a, type: 3}
   m_Name: TutorialShopText
   m_EditorClassIdentifier: 
-  <Strings>k__BackingField: []
+  <Strings>k__BackingField:
+  - You can buy weapons and elements in the shop
+  - Click on weapon to purchase it
+  - You can also purchase elements that can be used on your weapon
+  - You need to have element slot to be able to enchant your weapon with an element
+  - You should be all set! Go to loadout screen.
