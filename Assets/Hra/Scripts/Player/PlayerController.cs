@@ -113,7 +113,7 @@ public class PlayerController : Entity
         {
             StartCoroutine(Dash());
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsAttacking && _weaponAnimator != null)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsAttacking && _weaponAnimator != null && _weapon.isActiveAndEnabled)
         {
             StartCoroutine(Attack());
         }
@@ -178,6 +178,7 @@ public class PlayerController : Entity
             return;
         }
 
+        StartCoroutine(SetInvulnerable());
         IsHit = true;
         PlayerStats playerStats = LocalDataStorage.Instance.PlayerData.PlayerStats;
         playerStats.CurrentHealth -= damageAmount;
@@ -260,12 +261,16 @@ public class PlayerController : Entity
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        CheckCollisionWithEnemy(collision);
+    }
+
+    private void CheckCollisionWithEnemy(Collider2D collision)
+    {
         if (!_invulnerable && collision.gameObject.CompareTag(GlobalConstants.Tags.Enemy.ToString()))
         {
             if (collision.gameObject.TryGetComponent(out Enemy enemy))
             {
                 Damage(enemy.EnemyInstance.TouchDamage);
-                StartCoroutine(SetInvulnerable());
                 StartCoroutine(SlowTime());
                 LaunchEnemy(enemy);
             }
@@ -277,6 +282,12 @@ public class PlayerController : Entity
         _invulnerable = true;
         yield return new WaitForSecondsRealtime(INVLULNERABLE_TIME);
         _invulnerable = false;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
+        foreach (Collider2D collider in colliders)
+        {
+            CheckCollisionWithEnemy(collider);
+        }
     }
 
     private IEnumerator SlowTime()
