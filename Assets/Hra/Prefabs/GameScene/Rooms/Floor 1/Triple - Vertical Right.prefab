@@ -2158,6 +2158,16 @@ MonoBehaviour:
   - {fileID: 7261562940453932098}
   - {fileID: 3072070421848450985}
   - {fileID: 1119776577795423506}
+  DistanceFromStart: 0
+  Status:
+    Coordinates: {x: 0, y: 0}
+    EnemyStates: []
+    CoinPositions: []
+    ShadowPositions: []
+    IsCleared: 0
+  _coinPrefab: {fileID: 5566811546445338098, guid: 499bc64b2969051468ccb103247e8333, type: 3}
+  _shadowPrefab: {fileID: -5290472533242044817, guid: 8d938877e8552f543b9164bec2f59288, type: 3}
+  _enemyPrefab: {fileID: 1844844876429484204, guid: f5633b042413c9144b21410d886175e5, type: 3}
 --- !u!4 &3939393447983392811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8473714805049586744, guid: 128e9997bb491e045869530a99260822, type: 3}

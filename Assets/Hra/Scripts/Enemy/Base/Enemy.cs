@@ -106,13 +106,18 @@ public class Enemy : Entity, IDamageable, IMovable, ITriggerCheckable
 
         IsHit = true;
         EnemyInstance.CurrentHealth -= damageAmount;
-        _healthBar.SetHealth(EnemyInstance.CurrentHealth, EnemyInstance.MaxHealth);
+        UpdateHealth();
 
         if (EnemyInstance.CurrentHealth <= 0f)
         {
             _healthBar.enabled = false;
             Die();
         }
+    }
+
+    public void UpdateHealth()
+    {
+        _healthBar.SetHealth(EnemyInstance.CurrentHealth, EnemyInstance.MaxHealth);
     }
 
     public void Die()
