@@ -1972,6 +1972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameScreenType: 6
+  CanClose: 0
   _loadoutElements: {fileID: 4503960774534156695}
   _loadoutWeapon: {fileID: 5564770728925624196}
   _loadoutStats: {fileID: 4880322302440421072}
