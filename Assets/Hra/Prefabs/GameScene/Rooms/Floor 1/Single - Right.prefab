@@ -943,6 +943,16 @@ MonoBehaviour:
       Value: {fileID: 4245293570440071761}
   _exits:
   - {fileID: 663509797526965433}
+  DistanceFromStart: 0
+  Status:
+    Coordinates: {x: 0, y: 0}
+    EnemyStates: []
+    CoinPositions: []
+    ShadowPositions: []
+    IsCleared: 0
+  _coinPrefab: {fileID: 5566811546445338098, guid: 499bc64b2969051468ccb103247e8333, type: 3}
+  _shadowPrefab: {fileID: -5290472533242044817, guid: 8d938877e8552f543b9164bec2f59288, type: 3}
+  _enemyPrefab: {fileID: 1844844876429484204, guid: f5633b042413c9144b21410d886175e5, type: 3}
 --- !u!1001 &7337441671872372059
 PrefabInstance:
   m_ObjectHideFlags: 0

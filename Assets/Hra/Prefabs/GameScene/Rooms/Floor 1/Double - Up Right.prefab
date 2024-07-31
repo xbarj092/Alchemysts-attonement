@@ -1664,6 +1664,16 @@ MonoBehaviour:
   _exits:
   - {fileID: 2810642333329706645}
   - {fileID: 8736480473293610800}
+  DistanceFromStart: 7
+  Status:
+    Coordinates: {x: 0, y: 0}
+    EnemyStates: []
+    CoinPositions: []
+    ShadowPositions: []
+    IsCleared: 0
+  _coinPrefab: {fileID: 5566811546445338098, guid: 499bc64b2969051468ccb103247e8333, type: 3}
+  _shadowPrefab: {fileID: -5290472533242044817, guid: 8d938877e8552f543b9164bec2f59288, type: 3}
+  _enemyPrefab: {fileID: 1844844876429484204, guid: f5633b042413c9144b21410d886175e5, type: 3}
 --- !u!60 &5893909288571396034 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 888694177449516283, guid: 128e9997bb491e045869530a99260822, type: 3}
