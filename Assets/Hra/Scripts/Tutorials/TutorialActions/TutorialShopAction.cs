@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class TutorialShopAction : TutorialAction
 {
     [Header("TextPositions")]
+    [SerializeField] private Transform _defaultTransform;
     [SerializeField] private Transform _shopClickTransform;
     [SerializeField] private Transform _weaponClickTransform;
     [SerializeField] private Transform _elementClickTransform;
@@ -173,15 +175,17 @@ public class TutorialShopAction : TutorialAction
     {
         if (type == GameScreenType.Loadout)
         {
-            OnLoadoutClosed();
+            StartCoroutine(OnLoadoutClosed());
         }
     }
 
-    private void OnLoadoutClosed()
+    private IEnumerator OnLoadoutClosed()
     {
         ScreenEvents.OnGameScreenClosed -= OnGameScreenClosed;
         _tutorialPlayer.SetTextPosition(_postLoadoutTransform.localPosition);
         _tutorialPlayer.MoveToNextNarratorText();
+        yield return new WaitForSeconds(5);
+        OnActionFinishedInvoke();
     }
 
     public override void Exit()
