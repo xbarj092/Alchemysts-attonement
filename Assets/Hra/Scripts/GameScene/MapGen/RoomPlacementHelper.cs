@@ -34,7 +34,6 @@ public class RoomPlacementHelper
             Room relevantRoom = GetRelevantRoom(gridNode.Walls);
             if (relevantRoom != null)
             {
-                relevantRoom.DistanceFromStart = gridNode.DistanceFromStart;
                 gridNode.Room = relevantRoom;
             }
         }
